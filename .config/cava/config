@@ -1,0 +1,41 @@
+[general]
+live-config = 1
+framerate = 60
+
+[color]
+background = default
+foreground = magenta
+
+gradient = 1
+
+## My palette
+# gradient_color_1 = '#4e4e4e'
+# gradient_color_2 = '#e8e8e8'
+# gradient_color_3 = '#e8e8e8'
+# gradient_color_4 = '#ffffff'
+# gradient_color_5 = '#ffffff'
+# gradient_color_6 = '#ffffff'
+
+## Trans
+# gradient_color_1 = '#56ccfc'
+# gradient_color_2 = '#f7a7b7'
+# gradient_color_3 = '#ffffff'
+# gradient_color_4 = '#f7a7b7'
+# gradient_color_5 = '#56ccfc'
+
+## Transbian
+# gradient_color_1 = '#a40062'
+# gradient_color_2 = '#ff9a56'
+# gradient_color_3 = '#ffffff'
+# gradient_color_4 = '#f7a7b7'
+# gradient_color_5 = '#56ccfc'
+
+## Mocha
+gradient_color_1 = '#94e2d5'
+gradient_color_2 = '#89dceb'
+gradient_color_3 = '#74c7ec'
+gradient_color_4 = '#89b4fa'
+gradient_color_5 = '#cba6f7'
+gradient_color_6 = '#f5c2e7'
+gradient_color_7 = '#eba0ac'
+gradient_color_8 = '#f38ba8'

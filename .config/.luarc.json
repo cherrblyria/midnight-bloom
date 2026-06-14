@@ -1,0 +1,6 @@
+{
+  "workspace": {
+    "library": ["/usr/share/hypr/stubs"]
+  },
+  "editor.tabSize": 2
+}
