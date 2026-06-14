@@ -8,7 +8,8 @@ hl.gesture({
 
 hl.config({
   binds = {
-    scroll_event_delay = 0
+    scroll_event_delay = 0,
+    workspace_back_and_forth = true,
   }
 })
 
@@ -59,6 +60,11 @@ bind("SUPER + SHIFT + A", cmd("kitty pulsemixer", sfloat))
 bind("SUPER + SHIFT + B", cmd("kitty bluetui", sfloat))
 bind("CTRL + SHIFT + Escape", cmd("kitty btop", float))
 
+bind("SUPER + V", cmd("vicinae vicinae://launch/clipboard/history"))
+bind("SUPER + Period", cmd("vicinae vicinae://launch/core/search-emojis"))
+bind("SUPER + SHIFT + W", cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wpgrid"))
+bind("SUPER + ALT + W", cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wprandom"))
+
 ---- SYSTEM ----
 
 bind("SUPER + I", function()
@@ -78,14 +84,10 @@ bind("SUPER + I", function()
   dispatch(cmd("wl-copy '" .. class .. "'"))
 end)
 
-bind("ALT + Space", cmd("~/.config/hypr/scripts/kb_layout.sh"), { locked = true })
-bind("SUPER + V", cmd("vicinae vicinae://launch/clipboard/history"))
-bind("SUPER + SHIFT + W", cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wpgrid"))
-bind("SUPER + ALT + W", cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wprandom"))
-
 bind("SUPER + N", cmd("notify-send 'Notification' 'Hello, World!'"))
 bind("SUPER + SHIFT + R", cmd("~/.config/hypr/scripts/reload.sh"))
 
+bind("ALT + Space", cmd("~/.config/hypr/scripts/kb_layout.sh"), { locked = true })
 bind("SUPER + ALT + L", cmd("hyprlock"))
 bind("CTRL + ALT + Delete",
   cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
