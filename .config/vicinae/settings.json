@@ -73,7 +73,7 @@
                "/usr/local/share/applications",
                "/usr/share/applications"
             ],
-            "launchPrefix": ""
+            "launchPrefix": "uwsm app --"
          },
          "entrypoints": {
             "avahi-discover": {
