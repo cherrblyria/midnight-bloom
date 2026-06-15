@@ -84,10 +84,10 @@ bind("SUPER + I", function()
 end)
 
 bind("SUPER + N", cmd("notify-send 'Notification' 'Hello, World!'"))
-bind("SUPER + SHIFT + R", cmd("~/.config/hypr/scripts/reload.sh"))
+bind("SUPER + SHIFT + R", cmd("~/.config/hypr/scripts/reload.sh"), { locked = true })
 
 bind("ALT + Space", cmd("~/.config/hypr/scripts/kb_layout.sh"), { locked = true })
-bind("SUPER + ALT + P", cmd("sleep 0.2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'"))
+bind("SUPER + ALT + P", cmd("sleep 0.2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'"), { locked = true })
 bind("SUPER + ALT + L", cmd("hyprlock"))
 bind("CTRL + ALT + Delete",
   cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
