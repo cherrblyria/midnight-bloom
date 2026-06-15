@@ -76,6 +76,9 @@
             "bvnc": {
                "enabled": false
             },
+            "limine-snapper-restore": {
+               "enabled": false
+            },
             "org.cachyos.scx-manager": {
                "enabled": false
             },
@@ -148,11 +151,18 @@
       },
       "system": {
          "entrypoints": {
+            "browse-apps": {
+               "enabled": false,
+               "preferences": {
+                  "showHidden": false,
+                  "sortAlphabetically": true
+               }
+            },
             "run": {
                "preferences": {
                   "default-action": "run"
                }
-            }
+            },
          }
       },
       "theme": {

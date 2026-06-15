@@ -6,9 +6,9 @@
   "margin": "6 6 0 6",
   "spacing": 0, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": ["hyprland/workspaces", "mpris"],
+  "modules-left": ["hyprland/workspaces", "custom/record"],
   "modules-center": ["clock"],
-  "modules-right": ["tray", "custom/record", "pulseaudio", "battery"],
+  "modules-right": ["mpris", "tray", "battery"],
   // Modules configuration
   "hyprland/workspaces": {
     "tooltip": false,
