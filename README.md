@@ -8,4 +8,3 @@
 - Launcher: **Vicinae**
 - Terminal: **Kitty**
 - File Manager: **Yazi**
-- 
