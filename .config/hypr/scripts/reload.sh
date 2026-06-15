@@ -4,7 +4,7 @@
 hyprctl reload
 makoctl reload
 pkill -SIGUSR2 waybar
-pkill -SIGUSR1 kitty
+# systemctl --user restart foot-server
 systemctl --user restart hypridle
 systemctl --user restart vicinae
 

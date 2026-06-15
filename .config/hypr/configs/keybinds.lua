@@ -21,8 +21,7 @@ local dispatch = hl.dispatch
 local cmd = dsp.exec_cmd
 local rcmd = dsp.exec_raw
 
-local float = { float = true, size = { "(monitor_w*0.85)", "(monitor_h*0.8)" } }
-local sfloat = { float = true, size = { "(monitor_w*0.75)", "(monitor_h*0.7)" } }
+local float = { float = true, size = { "(monitor_w*0.75)", "(monitor_h*0.7)" } }
 
 local MAX_ZOOM = 9
 local MIN_ZOOM = 1
@@ -53,12 +52,12 @@ end
 ---- LAUNCHERS ----
 
 bind("SUPER + Space", cmd("vicinae toggle"))
-bind("SUPER + Return", cmd("kitty"))
-bind("SUPER + E", cmd("kitty yazi"))
+bind("SUPER + Return", cmd("footclient"))
+bind("SUPER + E", cmd("footclient yazi"))
 bind("SUPER + SHIFT + C", cmd("hyprpicker -aln"))
-bind("SUPER + SHIFT + A", cmd("kitty pulsemixer", sfloat))
-bind("SUPER + SHIFT + B", cmd("kitty bluetui", sfloat))
-bind("CTRL + SHIFT + Escape", cmd("kitty btop", float))
+bind("SUPER + SHIFT + A", cmd("footclient --title ft-pulsemixer pulsemixer"))
+bind("SUPER + SHIFT + B", cmd("footclient --title ft-bluetui bluetui"))
+bind("CTRL + SHIFT + Escape", cmd("footclient --title ft-btop btop", float))
 
 bind("SUPER + V", cmd("vicinae vicinae://launch/clipboard/history"))
 bind("SUPER + Period", cmd("vicinae vicinae://launch/core/search-emojis"))

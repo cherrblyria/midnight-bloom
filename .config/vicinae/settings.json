@@ -77,34 +77,34 @@
          },
          "entrypoints": {
             "avahi-discover": {
-               "enabled": false
+               "enabled": true
             },
             "bssh": {
-               "enabled": false
+               "enabled": true
             },
             "btop": {
-               "enabled": false
+               "enabled": true
             },
             "bvnc": {
-               "enabled": false
+               "enabled": true
             },
             "limine-snapper-restore": {
-               "enabled": false
+               "enabled": true
             },
             "org.cachyos.scx-manager": {
-               "enabled": false
+               "enabled": true
             },
             "qv4l2": {
-               "enabled": false
+               "enabled": true
             },
             "qvidcap": {
-               "enabled": false
+               "enabled": true
             },
             "uuctl": {
-               "enabled": false
+               "enabled": true
             },
             "vim": {
-               "enabled": false
+               "enabled": true
             },
             "xgps": {
                "enabled": false
@@ -113,7 +113,7 @@
                "enabled": false
             },
             "yazi": {
-               "enabled": false
+               "enabled": true
             }
          }
       },
