@@ -79,7 +79,7 @@ float("", "^_crx_(.*)$")
 
 local lrule = hl.layer_rule
 
---@param namespace string
+---@param namespace string
 local function lnoanim(namespace)
   lrule({
     match   = { namespace = namespace },
@@ -87,7 +87,16 @@ local function lnoanim(namespace)
   })
 end
 
---@param namespace string
+---@param namespace string
+---@param animation string
+local function lanim(namespace, animation)
+  lrule({
+    match = { namespace = namespace },
+    animation = animation,
+  })
+end
+
+---@param namespace string
 local function lblur(namespace)
   lrule({
     match        = { namespace = namespace },
@@ -99,5 +108,8 @@ end
 
 lblur("rofi")
 lblur("waybar")
+lanim("waybar", "slide top")
+lanim("notifications", "slide top")
+lnoanim("awww-daemon")
 lnoanim("selection")
 lnoanim("hyprpicker")
