@@ -108,8 +108,12 @@ end
 
 lblur("rofi")
 lblur("waybar")
+lblur("vicinae")
+lblur("notifications")
+
 lanim("waybar", "slide top")
-lanim("notifications", "slide top")
+lanim("notifications", "slide")
+
 lnoanim("awww-daemon")
 lnoanim("selection")
 lnoanim("hyprpicker")
