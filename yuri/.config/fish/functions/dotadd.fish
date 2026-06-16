@@ -31,5 +31,5 @@ function dotadd --description "Add a file or directory from HOME into the midnig
     # 3. Run stow to link it back instantly
     stow --adopt --no-folding -d $HOME/.dotfiles -t $HOME yuri
 
-    echo "Added and linked: $relative_path -> midnight bloom dotfiles!"
+    echo "Added and linked: $relative_path"
 end

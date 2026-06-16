@@ -11,7 +11,7 @@ function dotremove --description "Remove a file or directory from the midnight b
     set -l target_in_home ""
     set -l target_in_repo ""
 
-    # --- Case 1: Input is a symlink in HOME (or pointing to the repo) ---
+    # Case 1: Input is a symlink in HOME (or pointing to the repo)
     if test -L $argv[1]
         set -l link_target (realpath $argv[1])
         # Verify it actually points inside our dotfiles repo
@@ -23,20 +23,20 @@ function dotremove --description "Remove a file or directory from the midnight b
             return 1
         end
 
-    # --- Case 2: Input is the actual file/folder inside the repo ---
+    # Case 2: Input is the actual file/folder inside the repo
     else if string match -q "$repo_dir*" $input_path
         set target_in_repo $input_path
         # Reconstruct the original HOME path by replacing the repo prefix with $HOME
         set -l relative_path (string replace "$repo_dir/" "" $input_path)
         set target_in_home "$HOME/$relative_path"
 
-    # --- Error handling for invalid inputs ---
+    # Error handling for invalid inputs
     else
         echo "Error: Target must be a symlink pointing to the repo, or a file inside $repo_dir"
         return 1
     end
 
-    # --- Execution & Safety Checks ---
+    # Execution & Safety Checks
     if test -e $target_in_repo
         # 1. Remove the existing symlink in HOME if it exists
         if test -L $target_in_home
@@ -59,7 +59,7 @@ function dotremove --description "Remove a file or directory from the midnight b
             find $repo_parent_dir -type d -empty -delete 2>/devymlink
         end
 
-        echo "Removed from repo and restored to: $target_in_home"
+        echo "Removed and restored: $target_in_home"
     else
         echo "Error: Could not find the source file in the repository."
         return 1
