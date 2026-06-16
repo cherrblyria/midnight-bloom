@@ -171,9 +171,9 @@ bind("CTRL + Print", cmd("~/.config/hypr/scripts/record.sh"))
 
 ---- MEDIA CONTROLS ----
 
-bind("SUPER + ALT + N", cmd("playerctl next"))
-bind("SUPER + ALT + B", cmd("playerctl previous"))
-bind("SUPER + ALT + P", cmd("playerctl play-pause"))
+bind("SUPER + ALT + N", cmd("playerctl next"), { locked = true })
+bind("SUPER + ALT + B", cmd("playerctl previous"), { locked = true })
+bind("SUPER + ALT + P", cmd("playerctl play-pause"), { locked = true })
 
 bind("XF86AudioNext", cmd("playerctl next"), { locked = true })
 bind("XF86AudioPause", cmd("playerctl play-pause"), { locked = true })
