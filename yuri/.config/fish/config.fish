@@ -35,9 +35,9 @@ alias mk touch
 alias mkd mkdir
 
 # Dotfiles
-alias dot 'git --git-dir $HOME/.dots --work-tree $HOME'
-alias dotstat 'dot -c status.showUntrackedFiles=yes status'
-alias ldot 'lazygit --git-dir $HOME/.dots --work-tree $HOME'
+alias dot 'cd $HOME/.dotfiles'
+alias dotsync 'stow --adopt --no-folding -d $HOME/.dotfiles -t $HOME yuri'
+alias zeddot 'zed $HOME/.dotfiles'
 
 # Git
 alias lg lazygit
