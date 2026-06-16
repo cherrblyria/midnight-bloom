@@ -40,7 +40,7 @@ function dotremove --description "Remove a file or directory from the midnight b
     if test -e $target_in_repo
         # 1. Remove the existing symlink in HOME if it exists
         if test -L $target_in_home
-            rm $target_in_home
+            command rm -f $target_in_home
         else if test -e $target_in_home
             echo "Error: A real file already exists at $target_in_home. Aborting to prevent overwrite."
             return 1
@@ -56,7 +56,7 @@ function dotremove --description "Remove a file or directory from the midnight b
         # 'dirname' gets the immediate parent, 'find' cleans up empty nested folders safely
         set -l repo_parent_dir (dirname $target_in_repo)
         if not test "$repo_parent_dir" = "$repo_dir"
-            find $repo_parent_dir -type d -empty -delete 2>/devymlink
+            find $repo_parent_dir -type d -empty -delete 2>/dev/null
         end
 
         echo "Removed and restored: $target_in_home"
