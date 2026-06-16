@@ -33,4 +33,3 @@ function dotadd --description "Add a file or directory from HOME into the midnig
 
     echo "Added and linked: $relative_path -> midnight bloom dotfiles!"
 end
-
