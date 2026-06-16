@@ -97,3 +97,5 @@ abbr --add dbl 'find . -xtype l -delete'
 fish_add_path \
   $HOME/.spicetify\
   $HOME/.local/bin
+
+ff
