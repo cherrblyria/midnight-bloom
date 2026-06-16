@@ -52,12 +52,12 @@ end
 ---- LAUNCHERS ----
 
 bind("SUPER + Space", cmd("vicinae toggle"))
-bind("SUPER + Return", cmd("footclient"))
-bind("SUPER + E", cmd("footclient yazi"))
+bind("SUPER + Return", cmd("uwsm app -- footclient"))
+bind("SUPER + E", cmd("uwsm app -- footclient yazi"))
 bind("SUPER + SHIFT + C", cmd("hyprpicker -aln"))
-bind("SUPER + SHIFT + A", cmd("footclient --title ft-pulsemixer pulsemixer"))
-bind("SUPER + SHIFT + B", cmd("footclient --title ft-bluetui bluetui"))
-bind("CTRL + SHIFT + Escape", cmd("footclient --title ft-btop btop", float))
+bind("SUPER + SHIFT + A", cmd("uwsm app -- footclient --title ft-pulsemixer pulsemixer"))
+bind("SUPER + SHIFT + B", cmd("uwsm app -- footclient --title ft-bluetui bluetui"))
+bind("CTRL + SHIFT + Escape", cmd("uwsm app -- footclient --title ft-btop btop"))
 
 bind("SUPER + V", cmd("vicinae vicinae://launch/clipboard/history"))
 bind("SUPER + Period", cmd("vicinae vicinae://launch/core/search-emojis"))
@@ -65,7 +65,9 @@ bind("SUPER + W", cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-sw
 bind("SUPER + ALT + W", cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wprandom"))
 bind("SUPER + SHIFT + W",
   cmd(
-    "wall_path=$(readlink -f \"$HOME/.config/background\") && stripped=$(basename \"$wall_path\") && notify-send 'Wallpaper' \"$stripped\""))
+    "wall_path=$(readlink -f \"$HOME/.config/background\") && stripped=$(basename \"$wall_path\") && notify-send 'Wallpaper' \"$stripped\""
+  )
+)
 
 ---- SYSTEM ----
 

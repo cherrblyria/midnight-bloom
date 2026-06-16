@@ -58,7 +58,7 @@
       "default": ["", ""],
     },
     "scroll-step": 5,
-    "on-click": "footclient --title ft-pulsemixer pulsemixer",
+    "on-click": "uwsm app -- footclient --title ft-pulsemixer pulsemixer",
   },
   "battery": {
     "interval": 1,
