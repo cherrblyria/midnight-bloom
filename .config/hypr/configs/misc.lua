@@ -8,6 +8,6 @@ hl.config({
     animate_manual_resizes       = true,
     animate_mouse_windowdragging = true,
     enable_swallow               = true,
-    swallow_regex                = "^kitty$",
+    swallow_regex                = "^(kitty|foot|footclient)$",
   },
 })
