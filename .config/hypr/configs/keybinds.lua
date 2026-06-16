@@ -87,7 +87,7 @@ bind("SUPER + N", cmd("notify-send 'Notification' 'Hello, World!'"))
 bind("SUPER + SHIFT + R", cmd("~/.config/hypr/scripts/reload.sh"), { locked = true })
 
 bind("ALT + Space", cmd("~/.config/hypr/scripts/kb_layout.sh"), { locked = true })
-bind("SUPER + ALT + P", cmd("sleep 0.2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'"), { locked = true })
+bind("SUPER + SHIFT + P", cmd("sleep 0.2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'"), { locked = true })
 bind("SUPER + ALT + L", cmd("hyprlock"))
 bind("CTRL + ALT + Delete",
   cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
@@ -189,11 +189,11 @@ bind("XF86AudioLowerVolume",
   { locked = true, repeating = true })
 bind("XF86AudioMute",
   cmd(
-  "wpctl set-mute @DEFAULT_SINK@ toggle && status=$(wpctl get-volume @DEFAULT_SINK@ | grep -q MUTED && echo Muted || echo Unmuted) && $HOME/.config/hypr/scripts/osd.sh Volume \"$status\""),
+    "wpctl set-mute @DEFAULT_SINK@ toggle && status=$(wpctl get-volume @DEFAULT_SINK@ | grep -q MUTED && echo Muted || echo Unmuted) && $HOME/.config/hypr/scripts/osd.sh Volume \"$status\""),
   { locked = true, repeating = true })
 bind("XF86AudioMicMute",
   cmd(
-  "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && status=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED && echo Muted || echo Unmuted) && $HOME/.config/hypr/scripts/osd.sh Microphone \"$status\""),
+    "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && status=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED && echo Muted || echo Unmuted) && $HOME/.config/hypr/scripts/osd.sh Microphone \"$status\""),
   { locked = true, repeating = true })
 bind("XF86MonBrightnessUp",
   cmd(
