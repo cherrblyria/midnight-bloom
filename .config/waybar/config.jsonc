@@ -19,7 +19,7 @@
   },
   "mpris": {
     "interval": 1,
-    "max-length": 40,
+    "max-length": 50,
     "tooltip": false,
     "format": "{artist} - {title}",
     "format-paused": "<i>{artist} - {title}</i>",
