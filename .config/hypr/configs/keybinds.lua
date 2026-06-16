@@ -61,8 +61,11 @@ bind("CTRL + SHIFT + Escape", cmd("footclient --title ft-btop btop", float))
 
 bind("SUPER + V", cmd("vicinae vicinae://launch/clipboard/history"))
 bind("SUPER + Period", cmd("vicinae vicinae://launch/core/search-emojis"))
-bind("SUPER + SHIFT + W", cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wpgrid"))
+bind("SUPER + W", cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wpgrid"))
 bind("SUPER + ALT + W", cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wprandom"))
+bind("SUPER + SHIFT + W",
+  cmd(
+    "wall_path=$(readlink -f \"$HOME/.config/background\") && stripped=$(basename \"$wall_path\") && notify-send 'Wallpaper' \"$stripped\""))
 
 ---- SYSTEM ----
 
