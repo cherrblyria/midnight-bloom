@@ -37,7 +37,7 @@ yuri/                     # stow root — mirrors $HOME layout directly
 
 ## Environment
 
-- **OS:** Arch Linux
+- **OS:** CachyOS Linux
 - **Shell:** Fish (config.fish defines all aliases and abbreviations)
 - **Compositor:** Hyprland (config is Lua: `hyprland.lua` → `configs/*.lua`)
 - **Theme:** Catppuccin Mocha (Pink accent)
