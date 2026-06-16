@@ -20,7 +20,7 @@ alias lt 'ls -T'
 alias q exit
 alias quit exit
 alias c clear
-alias cls clear
+alias cls 'clear && fastfetch'
 alias dir ls
 alias reload 'exec fish'
 
