@@ -80,6 +80,8 @@ abbr --add ... 'z ../..'
 abbr --add .... 'z ../../..'
 abbr --add ..... 'z ../../../..'
 abbr --add ...... 'z ../../../../..'
+abbr --add .......'z ../../../../../..'
+abbr --add ........ 'z ../../../../../../..'
 
 # System maintenance
 abbr --add updmirror 'sudo reflector --country Thailand,Singapore --latest 10 --sort rate --save /etc/pacman.d/mirrorlist && paru -Syy'
