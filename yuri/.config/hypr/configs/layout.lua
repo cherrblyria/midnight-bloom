@@ -23,7 +23,6 @@ local rule = hl.window_rule
 rule({
   name           = "suppress-maximize-events",
   match          = { class = ".*" },
-
   suppress_event = "maximize",
 })
 
@@ -45,7 +44,6 @@ rule({
 ---@param workspace number
 local function workspace(class, workspace)
   rule({
-    name = "workspace-" .. workspace,
     match = { class = class },
     workspace = workspace,
   })
@@ -55,25 +53,20 @@ end
 ---@param title string
 local function float(class, title)
   rule({
-    name = "float-" .. title,
     match = { class = class, title = title },
     float = true,
+    size = { "(monitor_w*0.75)", "(monitor_h*0.7)" },
   })
 end
-
-rule({
-  name = "floating-terminal",
-  match = { class = "footclient", title = "^ft-(.*)$" },
-  float = true,
-  size = { "(monitor_w*0.75)", "(monitor_h*0.7)" }
-})
 
 workspace("brave-origin-nightly", 1)
 workspace("obsidian", 8)
 workspace("vesktop", 9)
 workspace("spotify", 10)
 
-float("", "^_crx_(.*)$")
+float("footclient", "^ft-(.*)$")
+float("xdg-desktop-portal-gtk", "(.*)")
+float("brave-origin-nightly", "^_crx_(.*)$")
 
 ---- LAYER RULES ----
 
