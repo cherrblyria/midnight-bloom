@@ -56,6 +56,7 @@ local function float(class, title)
     match = { class = class, title = title },
     float = true,
     size = { "(monitor_w*0.75)", "(monitor_h*0.7)" },
+    center = true
   })
 end
 
