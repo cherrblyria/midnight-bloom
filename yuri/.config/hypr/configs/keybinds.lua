@@ -91,7 +91,7 @@ end)
 bind("SUPER + N", cmd("notify-send 'Notification' 'Hello, World!'"))
 bind("SUPER + SHIFT + R", cmd("~/.config/hypr/scripts/reload.sh"), { locked = true })
 
-bind("ALT + Space", cmd("~/.config/hypr/scripts/kb_layout.sh"), { locked = true })
+bind("ALT + Space", cmd("mb-kblayout"), { locked = true })
 bind("SUPER + SHIFT + P", cmd("sleep 0.2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'"), { locked = true })
 bind("SUPER + ALT + L", cmd("hyprlock"))
 bind("CTRL + ALT + Delete",
