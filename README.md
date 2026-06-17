@@ -1,4 +1,4 @@
-<div align=center><h2>ㆍ𓄼 ╱ ，× 𓍹 𝐌𝐢𝐝𝐧𝐢𝐠𝐡𝐭 𝐁𝐥𝐨𝐨𝐦  𓍻 ˟ ˚☾ ⌁</h2></div>
+<div align=center><h2>𓄼 ╱ ，× 𝐌𝐢𝐝𝐧𝐢𝐠𝐡𝐭 𝐁𝐥𝐨𝐨𝐦  ˟ ˚☾ ⌁</h2></div>
 
 #### Screenshots
 
@@ -6,7 +6,7 @@
 | --- | --- |
 | ![](/assets/fetch.png) | ![](/assets/terminals.png) |
 
-#### Details
+#### What's included
 
 - ColorScheme: **Catppuccin Mocha** (Pink accent)
 - Compositor: **Hyprland**
@@ -14,3 +14,4 @@
 - Launcher: **Vicinae**
 - Terminal: **Kitty**
 - File Manager: **Yazi**
+- Misc cli/tui programs
