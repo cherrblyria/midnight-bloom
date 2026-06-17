@@ -191,14 +191,8 @@ bind("SHIFT + XF86AudioLowerVolume", cmd("mb-vol lower-fine"), { locked = true, 
 bind("XF86AudioMute", cmd("mb-vol mute"), { locked = true, repeating = true })
 bind("XF86AudioMicMute", cmd("mb-vol mic-mute"), { locked = true, repeating = true })
 
-bind("XF86MonBrightnessUp",
-  cmd(
-    "brightnessctl -n2 set 5%+ && brightness=$(brightnessctl -m | awk -F, '{printf \"%d%%\\n\", $4}') && brightness_int=$(brightnessctl -m | awk -F, '{printf \"%d\\n\", $4}') && $HOME/.config/hypr/scripts/osd.sh Brightness \"$brightness\" int \"$brightness_int\""),
-  { locked = true, repeating = true })
-bind("XF86MonBrightnessDown",
-  cmd(
-    "brightnessctl -n2 set 5%- && brightness=$(brightnessctl -m | awk -F, '{printf \"%d%%\\n\", $4}') && brightness_int=$(brightnessctl -m | awk -F, '{printf \"%d\\n\", $4}') && $HOME/.config/hypr/scripts/osd.sh Brightness \"$brightness\" int \"$brightness_int\""),
-  { locked = true, repeating = true })
+bind("XF86MonBrightnessUp", cmd("mb-bright raise"), { locked = true, repeating = true })
+bind("XF86MonBrightnessDown", cmd("mb-bright lower"), { locked = true, repeating = true })
 
 ---- ZOOM ----
 

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+action="${1}"
+
+case "$action" in
+  raise | up)
+    brightnessctl -n2 set 5%+
+    ;;
+  lower | down)
+    brightnessctl -n2 set 5%-
+    ;;
+  *)
+    echo "Usage: ${0##*/} {raise|lower}"
+    exit 1
+    ;;
+esac
+
+brightness=$(brightnessctl -m | awk -F, '{printf "%d%%\n", $4}')
+brightness_int=$(brightnessctl -m | awk -F, '{printf "%d\n", $4}')
+mb-osd Brightness "$brightness" int "$brightness_int"
