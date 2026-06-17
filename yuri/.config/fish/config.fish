@@ -99,6 +99,7 @@ abbr --add clnt 'gio trash --empty'
 abbr --add def 'find . -type f -empty -delete'
 abbr --add ded 'find . -type d -empty -delete'
 abbr --add dbl 'find . -xtype l -delete'
+abbr --add fbl 'find . -xtype l'
 
 # Path
 fish_add_path \
