@@ -15,3 +15,14 @@
 - Terminal: **Foot**
 - File Manager: **Yazi**
 - Misc cli/tui programs
+
+#### How to get this?
+
+Basically just clone the repo, stow configs then pray..
+
+```bash
+git clone https://github.com/cherrblyria/midnight-bloom.git ~/.dotfiles
+cd ~/.dotfiles
+stow --no-folding --adopt yuri
+```
+
