@@ -12,5 +12,5 @@
 - Compositor: **Hyprland**
 - Bar: **Waybar**
 - Launcher: **Vicinae**
-- Terminal: **Kitty**
+- Terminal: **Foot**
 - File Manager: **Yazi**
