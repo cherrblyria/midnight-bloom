@@ -1,13 +1,40 @@
 configuration {
-  modes: "filebrowser";
+  modes: "drun,run,window";
   font: "CaskaydiaCove Nerd Font 12";
+  fixed-num-lines: true;
+  show-icons: false;
+  terminal: "footclient";
+  ssh-client: "ssh";
+  ssh-command: "{terminal} {ssh-client} {host} [-p {port}]";
+  run-command: "{cmd}";
+  run-list-command: "";
+  run-shell-command: "{terminal} {cmd}";
+  window-command: "wmctrl -i -R {window}";
+  window-match-fields: "all";
+  hover-select: true;
+  scroll-method: 0;
+  window-format: "{w}    {c}   {t}";
+  click-to-exit: true;
+  max-history-size: 50;
+  window-thumbnail: true;
+  drun-use-desktop-cache: true;
+  drun-reload-desktop-cache: true;
+  /*display-window: ;*/
+  /*display-windowcd: ;*/
+  /*display-run: ;*/
+  /*display-ssh: ;*/
+  /*display-drun: ;*/
+  /*display-combi: ;*/
+  /*display-keys: ;*/
+  /*display-filebrowser: ;*/
+  /*display-recursivebrowser: ;*/
   timeout {
-      action: "kb-cancel";
-      delay:  0;
+    action: "kb-cancel";
+    delay:  0;
   }
   filebrowser {
-      directories-first: true;
-      sorting-method:    "name";
+    directories-first: true;
+    sorting-method:    "name";
   }
 }
 
