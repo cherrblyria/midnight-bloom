@@ -68,6 +68,7 @@ alias cp 'cp -i'
 alias mv 'mv -i'
 
 # Aliases
+alias pacman 'sudo pacman'
 alias pamac paru
 alias yay paru
 
