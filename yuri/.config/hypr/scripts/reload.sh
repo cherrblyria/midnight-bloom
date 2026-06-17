@@ -8,6 +8,9 @@ pkill -SIGUSR2 waybar
 systemctl --user restart hypridle
 systemctl --user restart vicinae
 
+## Sync dotfiles
+stow --adopt --no-folding -d $HOME/.dotfiles -t $HOME yuri
+
 ## Make scripts executable
 chmod +x ~/.config/hypr/scripts/*
 
