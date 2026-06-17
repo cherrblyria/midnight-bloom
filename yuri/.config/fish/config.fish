@@ -29,6 +29,9 @@ alias hf hyfetch
 alias ff fastfetch
 alias oc opencode
 alias zed zeditor
+alias v vim
+alias vi vim
+# alias vim nvim
 
 alias b 'bat -Pp'
 alias tch touch
@@ -39,6 +42,7 @@ alias mkd mkdir
 alias dot 'cd $HOME/.dotfiles'
 alias dotsync 'stow --adopt --no-folding -d $HOME/.dotfiles -t $HOME yuri'
 alias zeddot 'zed $HOME/.dotfiles'
+alias ndot 'v $HOME/.dotfiles'
 
 # Git
 alias lg lazygit
@@ -64,6 +68,7 @@ alias cp 'cp -i'
 alias mv 'mv -i'
 
 # Aliases
+alias paru 'echo -e "!!!Aboid using AUR (for now...)!!!\n" && paru'
 alias pamac paru
 alias yay paru
 
