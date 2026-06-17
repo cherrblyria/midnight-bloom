@@ -54,6 +54,7 @@ end
 bind("SUPER + Space", cmd("vicinae toggle"))
 bind("SUPER + Return", cmd("footclient"))
 bind("SUPER + E", cmd("footclient yazi"))
+bind("SUPER + SHIFT + E", cmd("uwsm app -- thunar"))
 bind("SUPER + SHIFT + C", cmd("hyprpicker -aln"))
 bind("SUPER + SHIFT + A", cmd("footclient --title ft-pulsemixer pulsemixer"))
 bind("SUPER + SHIFT + B", cmd("footclient --title ft-bluetui bluetui"))
