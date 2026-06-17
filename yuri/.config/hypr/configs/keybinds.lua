@@ -184,31 +184,12 @@ bind("XF86AudioPrev", cmd("playerctl previous"), { locked = true })
 
 ---- HARDWARE KEYS ----
 
-bind("XF86AudioRaiseVolume",
-  cmd(
-    "volume_int=$(wpctl get-volume @DEFAULT_SINK@ | awk '{printf \"%d\", $2 * 100}') && [ \"$volume_int\" -lt 100 ] && wpctl set-volume @DEFAULT_SINK@ 5%+ && vol=$(wpctl get-volume @DEFAULT_SINK@) && volume_pct=$(echo \"$vol\" | awk '{printf \"%d%%\", $2*100}') && volume_int=$(echo \"$vol\" | awk '{printf \"%d\", $2*100}') && (echo \"$vol\" | grep -q MUTED && $HOME/.config/hypr/scripts/osd.sh Volume \"Muted\" || $HOME/.config/hypr/scripts/osd.sh Volume \"$volume_pct\" int \"$volume_int\")"),
-  { locked = true, repeating = true })
-bind("XF86AudioLowerVolume",
-  cmd(
-    "wpctl set-volume @DEFAULT_SINK@ 5%- && vol=$(wpctl get-volume @DEFAULT_SINK@) && volume_pct=$(echo \"$vol\" | awk '{printf \"%d%%\", $2*100}') && volume_int=$(echo \"$vol\" | awk '{printf \"%d\", $2*100}') && (echo \"$vol\" | grep -q MUTED && $HOME/.config/hypr/scripts/osd.sh Volume \"Muted\" || $HOME/.config/hypr/scripts/osd.sh Volume \"$volume_pct\" int \"$volume_int\")"),
-  { locked = true, repeating = true })
-bind("SHIFT + XF86AudioRaiseVolume",
-  cmd(
-    "volume_int=$(wpctl get-volume @DEFAULT_SINK@ | awk '{printf \"%d\", $2 * 100}') && [ \"$volume_int\" -lt 100 ] && wpctl set-volume @DEFAULT_SINK@ 1%+ && vol=$(wpctl get-volume @DEFAULT_SINK@) && volume_pct=$(echo \"$vol\" | awk '{printf \"%d%%\", $2*100}') && volume_int=$(echo \"$vol\" | awk '{printf \"%d\", $2*100}') && (echo \"$vol\" | grep -q MUTED && $HOME/.config/hypr/scripts/osd.sh Volume \"Muted\" || $HOME/.config/hypr/scripts/osd.sh Volume \"$volume_pct\" int \"$volume_int\")"),
-  { locked = true, repeating = true })
-bind("SHIFT + XF86AudioLowerVolume",
-  cmd(
-    "wpctl set-volume @DEFAULT_SINK@ 1%- && vol=$(wpctl get-volume @DEFAULT_SINK@) && volume_pct=$(echo \"$vol\" | awk '{printf \"%d%%\", $2*100}') && volume_int=$(echo \"$vol\" | awk '{printf \"%d\", $2*100}') && (echo \"$vol\" | grep -q MUTED && $HOME/.config/hypr/scripts/osd.sh Volume \"Muted\" || $HOME/.config/hypr/scripts/osd.sh Volume \"$volume_pct\" int \"$volume_int\")"),
-  { locked = true, repeating = true })
-
-bind("XF86AudioMute",
-  cmd(
-    "wpctl set-mute @DEFAULT_SINK@ toggle && status=$(wpctl get-volume @DEFAULT_SINK@ | grep -q MUTED && echo Muted || echo Unmuted) && $HOME/.config/hypr/scripts/osd.sh Volume \"$status\""),
-  { locked = true, repeating = true })
-bind("XF86AudioMicMute",
-  cmd(
-    "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && status=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED && echo Muted || echo Unmuted) && $HOME/.config/hypr/scripts/osd.sh Microphone \"$status\""),
-  { locked = true, repeating = true })
+bind("XF86AudioRaiseVolume", cmd("mb-vol raise"), { locked = true, repeating = true })
+bind("XF86AudioLowerVolume", cmd("mb-vol lower"), { locked = true, repeating = true })
+bind("SHIFT + XF86AudioRaiseVolume", cmd("mb-vol raise-fine"), { locked = true, repeating = true })
+bind("SHIFT + XF86AudioLowerVolume", cmd("mb-vol lower-fine"), { locked = true, repeating = true })
+bind("XF86AudioMute", cmd("mb-vol mute"), { locked = true, repeating = true })
+bind("XF86AudioMicMute", cmd("mb-vol mic-mute"), { locked = true, repeating = true })
 
 bind("XF86MonBrightnessUp",
   cmd(

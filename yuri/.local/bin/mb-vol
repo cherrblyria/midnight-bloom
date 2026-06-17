@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+action="${1}"
+sink="@DEFAULT_SINK@"
+source="@DEFAULT_AUDIO_SOURCE@"
+
+case "$action" in
+  raise | up)
+    vol_int=$(wpctl get-volume "$sink" | awk '{printf "%d", $2 * 100}')
+    [ "$vol_int" -lt 100 ] && wpctl set-volume "$sink" 5%+
+    ;;
+  lower | down)
+    wpctl set-volume "$sink" 5%-
+    ;;
+  raise-fine | up-fine)
+    vol_int=$(wpctl get-volume "$sink" | awk '{printf "%d", $2 * 100}')
+    [ "$vol_int" -lt 100 ] && wpctl set-volume "$sink" 1%+
+    ;;
+  lower-fine | down-fine)
+    wpctl set-volume "$sink" 1%-
+    ;;
+  mute)
+    wpctl set-mute "$sink" toggle
+    ;;
+  mic-mute)
+    wpctl set-mute "$source" toggle
+    if wpctl get-volume "$source" | grep -q MUTED; then
+      mb-osd Microphone "Muted"
+    else
+      mb-osd Microphone "Unmuted"
+    fi
+    exit 0
+    ;;
+  *)
+    echo "Usage: ${0##*/} {raise|lower|raise-fine|lower-fine|mute|mic-mute}"
+    exit 1
+    ;;
+esac
+
+vol=$(wpctl get-volume "$sink")
+if echo "$vol" | grep -q MUTED; then
+  mb-osd Volume "Muted"
+else
+  pct=$(echo "$vol" | awk '{printf "%d%%", $2*100}')
+  int=$(echo "$vol" | awk '{printf "%d", $2*100}')
+  mb-osd Volume "$pct" int "$int"
+fi

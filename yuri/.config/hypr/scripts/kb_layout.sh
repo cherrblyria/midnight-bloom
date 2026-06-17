@@ -12,4 +12,4 @@ if [ -z "$layout" ] || [ "$layout" == "null" ]; then
   layout=$(hyprctl devices -j | jq -r '.keyboards[0].active_keymap')
 fi
 
-"$HOME"/.config/hypr/scripts/osd.sh "Keyboard Layout" "$layout"
+mb-osd "Keyboard Layout" "$layout"
