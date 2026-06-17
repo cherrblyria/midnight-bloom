@@ -13,5 +13,6 @@ stow --adopt --no-folding -d $HOME/.dotfiles -t $HOME yuri
 
 ## Make scripts executable
 chmod +x ~/.config/hypr/scripts/*
+chmod +x ~/.local/bin/*
 
 notify-send 'Reload' 'Configuration reloaded'
