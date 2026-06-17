@@ -89,7 +89,7 @@ bind("SUPER + I", function()
 end)
 
 bind("SUPER + N", cmd("notify-send 'Notification' 'Hello, World!'"))
-bind("SUPER + SHIFT + R", cmd("~/.config/hypr/scripts/reload.sh"), { locked = true })
+bind("SUPER + SHIFT + R", cmd("mb-reload"), { locked = true })
 
 bind("ALT + Space", cmd("mb-kblayout"), { locked = true })
 bind("SUPER + SHIFT + P", cmd("sleep 0.2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'"), { locked = true })
@@ -169,7 +169,7 @@ local screenshot_output = "~/Pictures/Screenshots/"
 bind("Print", cmd("hyprshot -m output -m active -t 1000 -o " .. screenshot_output))
 bind("ALT + Print", cmd("hyprshot -m window -m active -t 1000 -o " .. screenshot_output))
 bind("SHIFT + Print", cmd("hyprshot -m region -t 1000 -o " .. screenshot_output))
-bind("CTRL + Print", cmd("~/.config/hypr/scripts/record.sh"))
+bind("CTRL + Print", cmd("mb-record"))
 
 ---- MEDIA CONTROLS ----
 

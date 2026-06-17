@@ -14,8 +14,8 @@
     "tooltip": false,
     "active-only": false,
     "persistent-workspaces": {
-      "*": 10,
-    },
+      "*": 10
+    }
   },
   "mpris": {
     "interval": 1,
@@ -27,22 +27,22 @@
     "on-click-right": "playerctl next",
     "on-click-middle": "playerctl previous",
     "on-scroll-up": "playerctl volume 0.05+",
-    "on-scroll-down": "playerctl volume 0.05-",
+    "on-scroll-down": "playerctl volume 0.05-"
   },
   "clock": {
     "interval": 1,
     "format": "{:%H:%M}",
-    "tooltip-format": "{:%A, %B %d %Y, %R:%S}",
+    "tooltip-format": "{:%A, %B %d %Y, %R:%S}"
   },
   "tray": {
     "icon-size": 16,
-    "spacing": 4,
+    "spacing": 4
   },
   "custom/record": {
     "tooltip": false,
     "exec": "~/.config/waybar/scripts/get-record.sh",
-    "on-click": "~/.config/hypr/scripts/record.sh",
-    "restart-interval": 1,
+    "on-click": "mb-record",
+    "restart-interval": 1
   },
   "pulseaudio": {
     "format": "{icon}{volume}%",
@@ -55,10 +55,10 @@
       "phone-muted": "",
       "portable": "",
       "car": "",
-      "default": ["", ""],
+      "default": ["", ""]
     },
     "scroll-step": 5,
-    "on-click": "uwsm app -- footclient --title ft-pulsemixer pulsemixer",
+    "on-click": "uwsm app -- footclient --title ft-pulsemixer pulsemixer"
   },
   "battery": {
     "interval": 1,
@@ -68,11 +68,11 @@
       "warning": 30,
       "critical": 15,
       "normal": 80,
-      "full": 100,
+      "full": 100
     },
     "format-icons": {
       "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-      "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
-    },
-  },
+      "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+    }
+  }
 }
