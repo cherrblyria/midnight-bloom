@@ -40,7 +40,7 @@
   },
   "custom/record": {
     "tooltip": false,
-    "exec": "~/.config/waybar/scripts/get-record.sh",
+    "exec": "mb-record get",
     "on-click": "mb-record",
     "restart-interval": 1
   },
