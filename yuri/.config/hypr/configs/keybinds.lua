@@ -66,7 +66,7 @@ bind("SUPER + W", cmd("footclient --title ft mb-wallpaper"))
 bind("SUPER + ALT + W", cmd("mb-wallpaper random"))
 bind("SUPER + SHIFT + W",
   cmd(
-    "wall_path=$(readlink -f \"$HOME/.config/background\") && notify-send 'Wallpaper' \"$wall_path\""
+    "wall_path=$(readlink -f \"$HOME/.cache/wallpaper\") && notify-send 'Wallpaper' \"$wall_path\""
   )
 )
 
