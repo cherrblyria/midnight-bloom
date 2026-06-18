@@ -28,6 +28,7 @@ alias f fzf
 alias hf hyfetch
 alias ff fastfetch
 alias oc opencode
+alias zj zellij
 alias zed zeditor
 alias v nvim
 alias vi nvim
