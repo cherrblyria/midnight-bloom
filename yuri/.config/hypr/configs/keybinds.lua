@@ -51,22 +51,22 @@ end
 
 ---- LAUNCHERS ----
 
-bind("SUPER + Space", cmd("vicinae toggle"))
+bind("SUPER + Space", cmd("rofi -show drun"))
 bind("SUPER + Return", cmd("footclient"))
 bind("SUPER + E", cmd("footclient yazi"))
 bind("SUPER + SHIFT + E", cmd("uwsm app -- thunar"))
 bind("SUPER + SHIFT + C", cmd("hyprpicker -aln"))
-bind("SUPER + SHIFT + A", cmd("footclient --title ft-pulsemixer pulsemixer"))
-bind("SUPER + SHIFT + B", cmd("footclient --title ft-bluetui bluetui"))
-bind("CTRL + SHIFT + Escape", cmd("footclient --title ft-btop btop"))
+bind("SUPER + SHIFT + A", cmd("footclient --title ft pulsemixer"))
+bind("SUPER + SHIFT + B", cmd("footclient --title ft bluetui"))
+bind("CTRL + SHIFT + Escape", cmd("footclient --title ft btop"))
 
-bind("SUPER + V", cmd("vicinae vicinae://launch/clipboard/history"))
-bind("SUPER + Period", cmd("vicinae vicinae://launch/core/search-emojis"))
-bind("SUPER + W", cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wpgrid"))
-bind("SUPER + ALT + W", cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wprandom"))
+bind("SUPER + V", cmd("cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"))
+bind("SUPER + Period", cmd("rofimoji -a copy --use-icons -r '󰞅 '"))
+bind("SUPER + W", cmd("footclient --title ft mb-wallpaper"))
+bind("SUPER + ALT + W", cmd("mb-wallpaper random"))
 bind("SUPER + SHIFT + W",
   cmd(
-    "wall_path=$(readlink -f \"$HOME/.config/background\") && stripped=$(basename \"$wall_path\") && notify-send 'Wallpaper' \"$stripped\""
+    "wall_path=$(readlink -f \"$HOME/.cache/wallpaper\") && notify-send 'Wallpaper' \"$wall_path\""
   )
 )
 

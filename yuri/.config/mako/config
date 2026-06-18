@@ -1,7 +1,7 @@
 font=CaskaydiaCove Nerd Font 11
 background-color=#1e1e2e
 text-color=#cdd6f4
-border-color=#f5c2e7
+border-color=#45475a
 progress-color=over #313244
 border-radius=0
 border-size=1
@@ -13,11 +13,9 @@ width=410
 
 [urgency=low]
 default-timeout=3000
-border-color=#f5c2e7
 
 [urgency=normal]
 default-timeout=5000
-border-color=#f5c2e7
 
 [urgency=high]
 default-timeout=7000

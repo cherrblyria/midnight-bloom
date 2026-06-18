@@ -1,6 +1,22 @@
 configuration {
-  modes: "filebrowser";
+  modes: "drun,run,window,filebrowser";
   font: "CaskaydiaCove Nerd Font 12";
+  fixed-num-lines: false;
+  show-icons: true;
+  terminal: "footclient";
+  hover-select: false;
+  scroll-method: 0;
+  window-format: "{c}  {t}";
+  click-to-exit: true;
+  drun-use-desktop-cache: true;
+  drun-reload-desktop-cache: true;
+  steal-focus: true;
+  display-window: " ";
+  display-run: " ";
+  display-ssh: " ";
+  display-drun: " ";
+  display-combi: "󰕘 ";
+  display-filebrowser: " ";
   timeout {
       action: "kb-cancel";
       delay:  0;
@@ -11,4 +27,4 @@ configuration {
   }
 }
 
-@theme "catppuccin-default"
+@import "catppuccin/default"

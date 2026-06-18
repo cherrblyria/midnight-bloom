@@ -60,7 +60,7 @@
             "transitionFPS": "60",
             "transitionStep": "255",
             "transitionType": "random",
-            "postCommand": "ln -sf ${wallpaper} $HOME/.config/background"
+            "postCommand": "ln -sf \"${wallpaper}\" \"$HOME\"/.config/background"
          }
       },
       "applications": {

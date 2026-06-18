@@ -40,6 +40,7 @@ alias mkd mkdir
 
 # Dotfiles
 alias dot 'cd $HOME/.dotfiles'
+alias ldot 'cd $HOME/.dotfiles && lazygit && cd -'
 alias dotsync 'stow --adopt --no-folding -d $HOME/.dotfiles -t $HOME yuri'
 alias zedot 'zed $HOME/.dotfiles'
 alias ndot 'v $HOME/.dotfiles'

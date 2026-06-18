@@ -65,7 +65,7 @@ workspace("obsidian", 8)
 workspace("vesktop", 9)
 workspace("spotify", 10)
 
-float("footclient", "^ft-(.*)$")
+float("footclient", "^ft(.*)$")
 float("xdg-desktop-portal-gtk", "(.*)")
 float("brave-origin-nightly", "^_crx_(.*)$")
 

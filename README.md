@@ -11,7 +11,7 @@
 - ColorScheme: **Catppuccin Mocha** (Pink accent)
 - Compositor: **Hyprland**
 - Bar: **Waybar**
-- Launcher: **Vicinae**
+- Launcher: **Rofi**
 - Terminal: **Foot**
 - File Manager: **Yazi**
 - Misc cli/tui programs
