@@ -51,7 +51,7 @@ end
 
 ---- LAUNCHERS ----
 
-bind("SUPER + Space", cmd("vicinae toggle"))
+bind("SUPER + Space", cmd("rofi -show drun -show-icons"))
 bind("SUPER + Return", cmd("footclient"))
 bind("SUPER + E", cmd("footclient yazi"))
 bind("SUPER + SHIFT + E", cmd("uwsm app -- thunar"))
@@ -60,8 +60,8 @@ bind("SUPER + SHIFT + A", cmd("footclient --title ft-pulsemixer pulsemixer"))
 bind("SUPER + SHIFT + B", cmd("footclient --title ft-bluetui bluetui"))
 bind("CTRL + SHIFT + Escape", cmd("footclient --title ft-btop btop"))
 
-bind("SUPER + V", cmd("vicinae vicinae://launch/clipboard/history"))
-bind("SUPER + Period", cmd("vicinae vicinae://launch/core/search-emojis"))
+bind("SUPER + V", cmd("cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"))
+bind("SUPER + Period", cmd("rofimoji -a copy"))
 bind("SUPER + W", cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wpgrid"))
 bind("SUPER + ALT + W", cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wprandom"))
 bind("SUPER + SHIFT + W",
