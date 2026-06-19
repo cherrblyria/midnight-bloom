@@ -1,55 +1,21 @@
 @import "catppuccin/default"
+@import "preview"
 
 window {
-  fullscreen:       true;
-	background-color: #1e1e2eCC;
-	border:           none;
-  padding:          1em;
   children:         [ inputbar, listview ];
-  spacing:          1em;
 }
 
 inputbar {
   background-color: @surface0;
   border:           1px;
-  spacing:  2px;
-  padding:  7px;
-  children: [ prompt, entry,"num-filtered-rows","textbox-num-sep","num-rows" ];
-}
-
-message {
-  border:           1px 0 0 0;
-  spacing:          2px;
-  padding:          7px;
+  children: [ prompt, entry, "num-filtered-rows", "textbox-num-sep", "num-rows" ];
 }
 
 listview {
-  flow:          horizontal;
-  fixed-columns: true;
-  columns:       5;
-  spacing:       6px;
-}
-
-element {
-  orientation:      vertical;
-  border:           1px;
-  children:         [ element-icon, element-text ];
-  expand:           false;
-
-}
-
-element-text {
-  background-color: transparent;
-  horizontal-align: 0.5;
-  vertical-align:   0.5;
-  padding:          0;
+  columns: 5;
 }
 
 element-icon {
-	background-color: transparent;
   size:             200px;
-  horizontal-align: 0.5;
-  vertical-align:   0.5;
-  padding:          -35px;
-  margin:           0;
+  padding:          -40px;
 }
