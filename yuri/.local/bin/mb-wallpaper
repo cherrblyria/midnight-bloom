@@ -1,17 +1,23 @@
 #!/usr/bin/env bash
 
-HISTORY_FILE="$HOME/.cache/wallpaper_history"
 WALLPAPER_PATH="$HOME/Pictures/Wallpapers"
-RANDOM_POOL=5
 
-function yc() {
-  local tmp
-  tmp=$(mktemp -t "yazi-chooser.XXXXXX")
-  yazi "$@" --chooser-file="$tmp"
-  if [[ -s "$tmp" ]]; then
-    cat "$tmp"
-    rm -f -- "$tmp"
+function rofi_choose() {
+  local dir="$1"
+  local find_args=(-type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.bmp' -o -iname '*.webp' \))
+  mapfile -t FILES < <(find -L "${dir}" "${find_args[@]}" -print0 | xargs -0 readlink -f | sort -u)
+  (( ${#FILES[@]} == 0 )) && { echo ""; return; }
+  local selected
+  selected=$(printf '%s\n' "${FILES[@]##*/}" | rofi -dmenu -p "Wallpaper")
+  if [[ -n "$selected" ]]; then
+    for f in "${FILES[@]}"; do
+      if [[ "${f##*/}" == "$selected" ]]; then
+        echo "$f"
+        return
+      fi
+    done
   fi
+  echo ""
 }
 
 function resolve_dir() {
@@ -23,46 +29,12 @@ function resolve_dir() {
 
 function pick_random() {
   local search_path="${1:-$WALLPAPER_PATH}"
-
-  # batch readlink via xargs instead of one process per file
   mapfile -t ALL < <(find -L "${search_path}" -type f -print0 | xargs -0 readlink -f | sort -u)
-  local wall_count=${#ALL[@]}
-
-  local target_history=$(( wall_count - RANDOM_POOL ))
-  (( target_history < 0 )) && target_history=0
-
-  mapfile -t HISTORY < <(cat "${HISTORY_FILE}" 2>/dev/null)
-
-  if (( ${#HISTORY[@]} > target_history )); then
-    local trim=$(( ${#HISTORY[@]} - target_history ))
-    HISTORY=("${HISTORY[@]:$trim}")
-    printf '%s\n' "${HISTORY[@]}" > "${HISTORY_FILE}"
-  fi
-
-  # load history into a hash set → O(1) lookup instead of O(n) inner loop
-  declare -A HISTORY_SET
-  for h in "${HISTORY[@]}"; do HISTORY_SET["$h"]=1; done
-
-  local CANDIDATES=()
-  for w in "${ALL[@]}"; do
-    [[ -z "${HISTORY_SET[$w]}" ]] && CANDIDATES+=("$w")
-  done
-
-  (( ${#CANDIDATES[@]} == 0 )) && CANDIDATES=("${ALL[@]}")
-
-  local selected="${CANDIDATES[RANDOM % ${#CANDIDATES[@]}]}"
-
-  echo "${selected}" >> "${HISTORY_FILE}"
-  if (( target_history > 0 )); then
-    tail -n "${target_history}" "${HISTORY_FILE}" > "${HISTORY_FILE}.tmp"
-    mv "${HISTORY_FILE}.tmp" "${HISTORY_FILE}"
-  fi
-
-  echo "${selected}"
+  echo "${ALL[RANDOM % ${#ALL[@]}]}"
 }
 
-if [[ -n $1 ]]; then
-  if [[ "$1" == "random" ]]; then
+case "${1}" in
+  random)
     SEARCH_PATH="${WALLPAPER_PATH}"
     if [[ -n $2 ]]; then
       SEARCH_PATH="$(resolve_dir "$2")"
@@ -72,26 +44,16 @@ if [[ -n $1 ]]; then
     fi
     SELECTED="$(pick_random "${SEARCH_PATH}")"
     echo "Selected random wallpaper: ${SELECTED}"
-  else
+    ;;
+  *)
     dir="$(resolve_dir "$1")"
-    if [[ -n "$dir" ]]; then
-      SELECTED="$(yc "${dir}")"
-      if [[ -z "${SELECTED}" || ! -f "${SELECTED}" ]]; then
-        echo "No wallpaper selected or file does not exist."; exit 0
-      fi
-      echo "Selected wallpaper: ${SELECTED}"
-    else
-      SELECTED=$1
-      echo "Selected wallpaper: ${SELECTED}"
+    SELECTED="$(rofi_choose "${dir:-$WALLPAPER_PATH}")"
+    if [[ -z "${SELECTED}" || ! -f "${SELECTED}" ]]; then
+      echo "No wallpaper selected or file does not exist."; exit 0
     fi
-  fi
-else
-  SELECTED="$(yc "${WALLPAPER_PATH}")"
-  if [[ -z "${SELECTED}" || ! -f "${SELECTED}" ]]; then
-    echo "No wallpaper selected or file does not exist."; exit 0
-  fi
-  echo "Selected wallpaper: ${SELECTED}"
-fi
+    echo "Selected wallpaper: ${SELECTED}"
+    ;;
+esac
 
 RESOLVED="$(readlink -f "${SELECTED}")"
 
