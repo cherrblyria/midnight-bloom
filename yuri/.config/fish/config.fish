@@ -108,5 +108,3 @@ abbr --add fbl 'find . -xtype l'
 fish_add_path \
   $HOME/.spicetify\
   $HOME/.local/bin
-
-ff

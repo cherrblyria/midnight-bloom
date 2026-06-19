@@ -53,6 +53,7 @@ end
 
 bind("SUPER + Space", cmd("pkill rofi || true && rofi -show drun"))
 bind("SUPER + Return", cmd("footclient"))
+bind("SUPER + SHIFT + Return", cmd("footclient --title quickterminal"))
 bind("SUPER + E", cmd("footclient yazi"))
 bind("SUPER + SHIFT + E", cmd("uwsm app -- thunar"))
 bind("SUPER + SHIFT + Z", cmd("footclient zellij a"))

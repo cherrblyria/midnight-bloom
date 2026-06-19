@@ -40,6 +40,14 @@ rule({
   no_focus = true,
 })
 
+rule({
+  name = "quick terminal",
+  match = { class = "footclient", title = "quickterminal" },
+  float = true,
+  size = { "(monitor_w*0.5)", "(monitor_h*0.2)" },
+  move = { "(monitor_w*0.25)", 0 }
+})
+
 ---@param class string
 ---@param workspace number
 local function workspace(class, workspace)
