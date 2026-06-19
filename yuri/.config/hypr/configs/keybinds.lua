@@ -63,7 +63,7 @@ bind("CTRL + SHIFT + Escape", cmd("footclient --title ft btop"))
 
 bind("SUPER + V", cmd("cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"))
 bind("SUPER + Period", cmd("rofimoji -a copy --use-icons -r '󰞅 '"))
-bind("SUPER + W", cmd("footclient --title ft mb-wallpaper"))
+bind("SUPER + W", cmd("mb-wallpaper"))
 bind("SUPER + ALT + W", cmd("mb-wallpaper random"))
 bind("SUPER + SHIFT + W",
   cmd(

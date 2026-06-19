@@ -3,21 +3,33 @@
 WALLPAPER_PATH="$HOME/Pictures/Wallpapers"
 
 function rofi_choose() {
-  local dir="$1"
+  local dir
+  dir="$(realpath "$1")"
   local find_args=(-type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.bmp' -o -iname '*.webp' \))
-  mapfile -t FILES < <(find -L "${dir}" "${find_args[@]}" -print0 | xargs -0 readlink -f | sort -u)
-  (( ${#FILES[@]} == 0 )) && { echo ""; return; }
+
+  # rel→abs map to handle same-name files across subdirs
+  declare -A FILE_MAP
+  while IFS= read -r -d '' f; do
+    local abs rel
+    abs="$(readlink -f "$f")"
+    rel="${f#${dir}/}"
+    FILE_MAP["$rel"]="$abs"
+  done < <(find -L "${dir}" "${find_args[@]}" -print0)
+
+  (( ${#FILE_MAP[@]} == 0 )) && { echo ""; return; }
+
+  mapfile -t SORTED_RELS < <(printf '%s\n' "${!FILE_MAP[@]}" | sort)
+
   local selected
-  selected=$(printf '%s\n' "${FILES[@]##*/}" | rofi -dmenu -p "Wallpaper")
-  if [[ -n "$selected" ]]; then
-    for f in "${FILES[@]}"; do
-      if [[ "${f##*/}" == "$selected" ]]; then
-        echo "$f"
-        return
-      fi
-    done
-  fi
-  echo ""
+  selected=$(
+    for rel in "${SORTED_RELS[@]}"; do
+      # \0 separates display text from metadata; icon\x1f<path> tells rofi to render the image
+      printf '%s\0icon\x1f%s\n' "$rel" "${FILE_MAP[$rel]}"
+    done | rofi -dmenu -p "󰸉 " -show-icons
+  )
+
+  [[ -z "$selected" ]] && { echo ""; return; }
+  echo "${FILE_MAP[$selected]}"
 }
 
 function resolve_dir() {

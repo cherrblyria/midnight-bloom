@@ -17,24 +17,16 @@ wrap {
   border:           1px;
 }
 
-icon-ib {
-  expand:           false;
-  filename:         "system-search";
-  vertical-align:   0.5;
-  horizontal-align: 0.5;
-  size:             1em;
-}
-
 inputbar {
-  spacing:  7px;
+  spacing:  2px;
   padding:  7px;
-  children: [ icon-ib, entry ];
+  children: [ prompt, entry ];
 }
 
 message {
   border:           1px 0 0 0;
+  spacing:          2px;
   padding:          7px;
-  spacing:          7px;
 }
 
 listview {
@@ -47,7 +39,6 @@ listview {
 element {
   orientation:      vertical;
   border:           1px;
-  spacing:          5px;
   children:         [ element-icon, element-text ];
 }
 
