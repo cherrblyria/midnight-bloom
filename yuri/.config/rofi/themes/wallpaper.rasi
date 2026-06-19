@@ -1,0 +1,21 @@
+@import "catppuccin/default"
+@import "preview"
+
+window {
+  children:         [ inputbar, listview ];
+}
+
+inputbar {
+  background-color: @surface0;
+  border:           1px;
+  children: [ prompt, entry, "num-filtered-rows", "textbox-num-sep", "num-rows" ];
+}
+
+listview {
+  columns: 5;
+}
+
+element-icon {
+  size:             200px;
+  padding:          -40px;
+}

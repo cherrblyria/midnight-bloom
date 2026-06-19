@@ -51,7 +51,7 @@ end
 
 ---- LAUNCHERS ----
 
-bind("SUPER + Space", cmd("rofi -show drun"))
+bind("SUPER + Space", cmd("pkill rofi || true && rofi -show drun"))
 bind("SUPER + Return", cmd("footclient"))
 bind("SUPER + E", cmd("footclient yazi"))
 bind("SUPER + SHIFT + E", cmd("uwsm app -- thunar"))
@@ -61,9 +61,10 @@ bind("SUPER + SHIFT + A", cmd("footclient --title ft pulsemixer"))
 bind("SUPER + SHIFT + B", cmd("footclient --title ft bluetui"))
 bind("CTRL + SHIFT + Escape", cmd("footclient --title ft btop"))
 
-bind("SUPER + V", cmd("cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"))
-bind("SUPER + Period", cmd("rofimoji -a copy --use-icons -r '󰞅 '"))
-bind("SUPER + W", cmd("footclient --title ft mb-wallpaper"))
+bind("SUPER + V",
+  cmd("pkill rofi || true && cliphist list | rofi -dmenu -display-columns 2 -p ' ' | cliphist decode | wl-copy"))
+bind("SUPER + Period", cmd("pkill rofi || true && rofimoji -a copy --use-icons -r '󰞅 '"))
+bind("SUPER + W", cmd("pkill rofi || true && mb-wallpaper"))
 bind("SUPER + ALT + W", cmd("mb-wallpaper random"))
 bind("SUPER + SHIFT + W",
   cmd(

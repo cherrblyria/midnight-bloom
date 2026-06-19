@@ -56,11 +56,13 @@
     },
     {
       "key": "│ {#33}󰍛 cpu     {#keys}│",
+      "format": "{}",
       "type": "cpu",
       "showPeCoreCount": true
     },
     {
       "key": "│ {#34}󰉉 disk    {#keys}│",
+      "format": "{1} / {2} ({3})",
       "type": "disk",
       "folders": "/"
     },
