@@ -174,7 +174,7 @@ desc = "Open PowerShell here"
 
 [[mgr.prepend_keymap]]
 on   = "<C-g>"
-run  = 'shell -- rofi -theme preview -show filebrowser -filebrowser-command "ya emit reveal" -filebrowser-directory "$(pwd)"'
+run  = 'shell -- pkill rofi || true && rofi -theme preview -show filebrowser -filebrowser-command "ya emit reveal" -filebrowser-directory "$(pwd)"'
 desc = "Grid view"
 
 [tasks]
