@@ -113,6 +113,11 @@ bind("SUPER + SHIFT + F", dsp.window.fullscreen())
 
 ---- FOCUS MOVEMENT ----
 
+bind("ALT + TAB", function()
+  dispatch(dsp.window.cycle_next())
+  dispatch(dsp.window.alter_zorder({ mode = "top" }))
+end, { repeating = true })
+
 bind("SUPER + H", dsp.focus({ direction = "left" }))
 bind("SUPER + J", dsp.focus({ direction = "down" }))
 bind("SUPER + K", dsp.focus({ direction = "up" }))
