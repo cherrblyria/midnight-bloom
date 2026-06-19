@@ -7,29 +7,15 @@ function rofi_choose() {
   dir="$(realpath "$1")"
   local find_args=(-type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.bmp' -o -iname '*.webp' \))
 
-  # rel→abs map to handle same-name files across subdirs
-  declare -A FILE_MAP
-  while IFS= read -r -d '' f; do
-    local abs rel
-    abs="$(readlink -f "$f")"
-    rel="${f#${dir}/}"
-    FILE_MAP["$rel"]="$abs"
-  done < <(find -L "${dir}" "${find_args[@]}" -print0)
-
-  (( ${#FILE_MAP[@]} == 0 )) && { echo ""; return; }
-
-  mapfile -t SORTED_RELS < <(printf '%s\n' "${!FILE_MAP[@]}" | sort)
-
   local selected
   selected=$(
-    for rel in "${SORTED_RELS[@]}"; do
-      # \0 separates display text from metadata; icon\x1f<path> tells rofi to render the image
-      printf '%s\0icon\x1f%s\n' "$rel" "${FILE_MAP[$rel]}"
-    done | rofi -dmenu -p "󰸉 " -show-icons
+    find -L "${dir}" "${find_args[@]}" -printf '%P\t%p\n' | sort |
+      awk -F'\t' '{printf "%s\0icon\x1f%s\n", $1, $2}' |
+      rofi -dmenu -p "󰸉 " -show-icons -theme wallpaper
   )
 
   [[ -z "$selected" ]] && { echo ""; return; }
-  echo "${FILE_MAP[$selected]}"
+  echo "${dir}/${selected}"
 }
 
 function resolve_dir() {
