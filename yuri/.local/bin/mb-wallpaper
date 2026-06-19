@@ -1,16 +1,35 @@
 #!/usr/bin/env bash
 
 WALLPAPER_PATH="$HOME/Pictures/Wallpapers"
+THUMB_DIR="$HOME/.cache/wallpaper-thumbs"
 
 function rofi_choose() {
   local dir
   dir="$(realpath "$1")"
   local find_args=(-type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.bmp' -o -iname '*.webp' \))
 
+  mkdir -p "${THUMB_DIR}"
+
+  # Generate missing thumbs in background — don't block rofi
+  find -L "${dir}" "${find_args[@]}" -print0 |
+    xargs -0 -n1 -P4 bash -c '
+      src="$1"
+      safe="${src//\//_}"; safe="${safe#_}"
+      thumb="'"${THUMB_DIR}"'/${safe}.jpg"
+      [[ -f "$thumb" && ! "$src" -nt "$thumb" ]] && exit 0
+      magick "$src"[0] -resize 320x180^ -gravity center -extent 320x180 "$thumb" 2>/dev/null
+    ' _ &
+
+  # Open rofi immediately — use thumb if ready, else fall back to original
   local selected
   selected=$(
     find -L "${dir}" "${find_args[@]}" -printf '%P\t%p\n' | sort |
-      awk -F'\t' '{printf "%s\0icon\x1f%s\n", $1, $2}' |
+      while IFS=$'\t' read -r rel abs; do
+        safe="${abs//\//_}"; safe="${safe#_}"
+        thumb="${THUMB_DIR}/${safe}.jpg"
+        [[ -f "$thumb" ]] && icon="$thumb" || icon="$abs"
+        printf '%s\0icon\x1f%s\n' "$rel" "$icon"
+      done |
       rofi -dmenu -p "󰸉 " -show-icons -theme wallpaper
   )
 
