@@ -175,10 +175,10 @@ bind("SUPER + mouse:273", dsp.window.resize(), { mouse = true })
 
 local screenshot_output = "~/Pictures/Screenshots/"
 
-bind("Print", cmd("hyprshot -m output -m active -t 1000 -o " .. screenshot_output))
-bind("ALT + Print", cmd("hyprshot -m window -m active -t 1000 -o " .. screenshot_output))
-bind("SHIFT + Print", cmd("hyprshot -m region -t 1000 -o " .. screenshot_output))
-bind("CTRL + Print", cmd("mb-record"))
+bind("Print", cmd("hyprshot -m output -m active -t 1000 -o " .. screenshot_output), { locked = true })
+bind("ALT + Print", cmd("hyprshot -m window -m active -t 1000 -o " .. screenshot_output), { locked = true })
+bind("SHIFT + Print", cmd("hyprshot -m region -t 1000 -o " .. screenshot_output), { locked = true })
+bind("CTRL + Print", cmd("mb-record"), { locked = true })
 
 ---- MEDIA CONTROLS ----
 
