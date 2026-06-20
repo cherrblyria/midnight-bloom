@@ -77,6 +77,8 @@ float("footclient", "^ft(.*)$")
 float("xdg-desktop-portal-gtk", "(.*)")
 float("brave-origin-nightly", "^_crx_(.*)$")
 
+float("thunar", "File Operation Progress")
+
 ---- LAYER RULES ----
 
 local lrule = hl.layer_rule
