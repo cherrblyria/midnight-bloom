@@ -17,6 +17,9 @@
 - Launcher: **Rofi**
 - Terminal: **Foot**
 - File Manager: **Yazi**
+- IDE
+  - **Zed**: GUI
+  - **NeoVim** (lazyvim): TUI
 - Terminal First: **Use TUI programs when possible**
 
 #### How to get this?

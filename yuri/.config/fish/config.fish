@@ -30,7 +30,6 @@ alias rl 'exec fish'
 alias reload 'exec fish'
 
 alias f fzf
-alias hf hyfetch
 alias ff fastfetch
 alias oc opencode
 alias zj zellij
