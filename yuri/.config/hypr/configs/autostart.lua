@@ -1,5 +1,7 @@
 hl.on("hyprland.start", function()
-  hl.exec_cmd("uwsm app -- awww-daemon")
+  hl.exec_cmd("awww-daemon")
+  hl.exec_cmd("foot --server")
+  hl.exec_cmd("waybar")
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
   hl.exec_cmd("wl-paste --type text --watch cliphist store")

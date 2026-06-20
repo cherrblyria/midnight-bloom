@@ -44,22 +44,6 @@
     "on-click": "mb-record",
     "restart-interval": 1
   },
-  "pulseaudio": {
-    "format": "{icon}{volume}%",
-    "format-bluetooth": "{icon}{volume}%",
-    "format-muted": "",
-    "format-icons": {
-      "headphone": "",
-      "headset": "",
-      "phone": "",
-      "phone-muted": "",
-      "portable": "",
-      "car": "",
-      "default": ["", ""]
-    },
-    "scroll-step": 5,
-    "on-click": "uwsm app -- footclient --title ft-pulsemixer pulsemixer"
-  },
   "battery": {
     "interval": 1,
     "format": "{icon}{capacity}%",

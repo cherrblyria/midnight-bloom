@@ -1,3 +1,7 @@
+if status is-login
+  start-hyprland
+end
+
 set -x EDITOR zeditor
 set -x fish_greeting
 
