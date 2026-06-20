@@ -3,14 +3,14 @@
 hl.gesture({
   fingers = 3,
   direction = "horizontal",
-  action = "workspace"
+  action = "workspace",
 })
 
 hl.config({
   binds = {
     scroll_event_delay = 0,
     workspace_back_and_forth = true,
-  }
+  },
 })
 
 ---- HELPERS ----
@@ -62,33 +62,39 @@ bind("SUPER + SHIFT + A", cmd("footclient --title ft pulsemixer"))
 bind("SUPER + SHIFT + B", cmd("footclient --title ft bluetui"))
 bind("CTRL + SHIFT + Escape", cmd("footclient --title ft btop"))
 
-bind("SUPER + V",
-  cmd("pkill rofi || true && cliphist list | rofi -dmenu -display-columns 2 -p ' ' | cliphist decode | wl-copy"))
+bind("SUPER + V", cmd("pkill rofi || true && cliphist list | rofi -dmenu -display-columns 2 -p ' ' | cliphist decode | wl-copy"))
 bind("SUPER + Period", cmd("pkill rofi || true && rofimoji -a copy --use-icons -r '󰞅 '"))
 bind("SUPER + W", cmd("pkill rofi || true && mb-wallpaper"))
 bind("SUPER + ALT + W", cmd("mb-wallpaper random"))
-bind("SUPER + SHIFT + W",
-  cmd(
-    "wall_path=$(readlink -f \"$HOME/.cache/wallpaper\") && notify-send 'Wallpaper' \"$wall_path\""
-  )
+bind(
+  "SUPER + SHIFT + W",
+  cmd('wall_path=$(readlink -f "$HOME/.cache/wallpaper") && notify-send -h string:x-canonical-private-synchronous:wallpaper \'Wallpaper\' "$wall_path"')
 )
 
 ---- SYSTEM ----
 
 bind("SUPER + I", function()
-  local title      = esc(hl.get_active_window().title)
-  local class      = esc(hl.get_active_window().class)
-  local initTitle  = esc(hl.get_active_window().initial_title)
-  local initClass  = esc(hl.get_active_window().initial_class)
+  local title = esc(hl.get_active_window().title)
+  local class = esc(hl.get_active_window().class)
+  local initTitle = esc(hl.get_active_window().initial_title)
+  local initClass = esc(hl.get_active_window().initial_class)
   local isXwayland = hl.get_active_window().xwayland
 
-  dispatch(cmd(
-    "notify-send 'Window' 'title: " .. title ..
-    "\nclass: " .. class ..
-    "\ninitTitle: " .. initTitle ..
-    "\ninitClass: " .. initClass ..
-    "\nisXwayland: " .. tostring(isXwayland) .. "'"
-  ))
+  dispatch(
+    cmd(
+      "notify-send 'Window' 'title: "
+        .. title
+        .. "\nclass: "
+        .. class
+        .. "\ninitTitle: "
+        .. initTitle
+        .. "\ninitClass: "
+        .. initClass
+        .. "\nisXwayland: "
+        .. tostring(isXwayland)
+        .. "'"
+    )
+  )
   dispatch(cmd("wl-copy '" .. title .. "'"))
   dispatch(cmd("wl-copy '" .. class .. "'"))
 end)
@@ -99,9 +105,7 @@ bind("SUPER + SHIFT + R", cmd("mb-reload"), { locked = true })
 bind("ALT + Space", cmd("mb-kblayout"), { locked = true })
 bind("SUPER + SHIFT + P", cmd("sleep 0.2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'"), { locked = true })
 bind("SUPER + ALT + L", cmd("hyprlock"))
-bind("CTRL + ALT + Delete",
-  cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
-)
+bind("CTRL + ALT + Delete", cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
 ---- WINDOW CONTROL ----
 
