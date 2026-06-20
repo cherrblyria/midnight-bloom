@@ -1,8 +1,8 @@
 if status is-login
-  start-hyprland
+  and test (tty) = "/dev/tty1"
+  exec start-hyprland
 end
 
-set -x EDITOR zeditor
 set -x fish_greeting
 
 # Zoxide
@@ -26,6 +26,7 @@ alias quit exit
 alias c clear
 alias cls 'clear && fastfetch'
 alias dir ls
+alias rl 'exec fish'
 alias reload 'exec fish'
 
 alias f fzf
@@ -33,6 +34,7 @@ alias hf hyfetch
 alias ff fastfetch
 alias oc opencode
 alias zj zellij
+alias ze zeditor
 alias zed zeditor
 alias v nvim
 alias vi nvim
@@ -48,7 +50,7 @@ alias dot 'cd $HOME/.dotfiles'
 alias ldot 'cd $HOME/.dotfiles && lazygit && cd -'
 alias dotsync 'stow --adopt --no-folding -d $HOME/.dotfiles -t $HOME yuri'
 alias zedot 'zed $HOME/.dotfiles'
-alias ndot 'v $HOME/.dotfiles'
+alias vdot 'v $HOME/.dotfiles'
 
 # Git
 alias lg lazygit
@@ -58,6 +60,8 @@ alias gp 'git push'
 alias gl 'git pull'
 alias gb 'git branch'
 alias gc 'git checkout'
+alias gm 'git merge'
+alias gd 'git diff'
 alias gst 'git status'
 alias gcm 'git commit -m'
 
@@ -106,6 +110,9 @@ abbr --add clnt 'gio trash --empty'
 abbr --add def 'find . -type f -empty -delete'
 abbr --add ded 'find . -type d -empty -delete'
 abbr --add dbl 'find . -xtype l -delete'
+
+abbr --add fef 'find . -type f -empty'
+abbr --add fed 'find . -type d -empty'
 abbr --add fbl 'find . -xtype l'
 
 # Path
