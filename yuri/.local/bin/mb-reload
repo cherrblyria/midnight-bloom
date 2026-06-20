@@ -4,9 +4,7 @@
 hyprctl reload
 makoctl reload
 pkill -SIGUSR2 waybar
-# systemctl --user restart foot-server
-systemctl --user restart hypridle
-systemctl --user restart vicinae
+pkill hypridle || true && hypridle &
 
 ## Sync dotfiles
 stow --adopt --no-folding -d $HOME/.dotfiles -t $HOME yuri
