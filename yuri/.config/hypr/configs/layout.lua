@@ -72,6 +72,7 @@ workspace("brave-origin-nightly", 1)
 workspace("obsidian", 8)
 workspace("vesktop", 9)
 workspace("spotify", 10)
+workspace("com.github.th_ch.youtube_music", 10)
 
 float("footclient", "^ft(.*)$")
 float("xdg-desktop-portal-gtk", "(.*)")
