@@ -25,7 +25,8 @@ function rofi_choose() {
   selected=$(
     find -L "${dir}" "${find_args[@]}" -printf '%P\t%p\n' | sort |
       while IFS=$'\t' read -r rel abs; do
-        safe="${abs//\//_}"; safe="${safe#_}"
+        safe="${abs//\//_}"
+        safe="${safe#_}"
         thumb="${THUMB_DIR}/${safe}.jpg"
         [[ -f "$thumb" ]] && icon="$thumb" || icon="$abs"
         printf '%s\0icon\x1f%s\n' "$rel" "$icon"
@@ -33,14 +34,19 @@ function rofi_choose() {
       rofi -dmenu -p "󰸉 " -show-icons -theme wallpaper
   )
 
-  [[ -z "$selected" ]] && { echo ""; return; }
+  [[ -z "$selected" ]] && {
+    echo ""
+    return
+  }
   echo "${dir}/${selected}"
 }
 
 function resolve_dir() {
   local input="$1"
-  if [[ -d "$input" ]]; then echo "$input"
-  elif [[ -d "${WALLPAPER_PATH}/$input" ]]; then echo "${WALLPAPER_PATH}/$input"
+  if [[ -d "$input" ]]; then
+    echo "$input"
+  elif [[ -d "${WALLPAPER_PATH}/$input" ]]; then
+    echo "${WALLPAPER_PATH}/$input"
   fi
 }
 
@@ -51,25 +57,27 @@ function pick_random() {
 }
 
 case "${1}" in
-  random)
-    SEARCH_PATH="${WALLPAPER_PATH}"
-    if [[ -n $2 ]]; then
-      SEARCH_PATH="$(resolve_dir "$2")"
-      if [[ -z "$SEARCH_PATH" ]]; then
-        echo "Subdirectory not found: $2"; exit 1
-      fi
+random)
+  SEARCH_PATH="${WALLPAPER_PATH}"
+  if [[ -n $2 ]]; then
+    SEARCH_PATH="$(resolve_dir "$2")"
+    if [[ -z "$SEARCH_PATH" ]]; then
+      echo "Subdirectory not found: $2"
+      exit 1
     fi
-    SELECTED="$(pick_random "${SEARCH_PATH}")"
-    echo "Selected random wallpaper: ${SELECTED}"
-    ;;
-  *)
-    dir="$(resolve_dir "$1")"
-    SELECTED="$(rofi_choose "${dir:-$WALLPAPER_PATH}")"
-    if [[ -z "${SELECTED}" || ! -f "${SELECTED}" ]]; then
-      echo "No wallpaper selected or file does not exist."; exit 0
-    fi
-    echo "Selected wallpaper: ${SELECTED}"
-    ;;
+  fi
+  SELECTED="$(pick_random "${SEARCH_PATH}")"
+  echo "Selected random wallpaper: ${SELECTED}"
+  ;;
+*)
+  dir="$(resolve_dir "$1")"
+  SELECTED="$(rofi_choose "${dir:-$WALLPAPER_PATH}")"
+  if [[ -z "${SELECTED}" || ! -f "${SELECTED}" ]]; then
+    echo "No wallpaper selected or file does not exist."
+    exit 0
+  fi
+  echo "Selected wallpaper: ${SELECTED}"
+  ;;
 esac
 
 RESOLVED="$(readlink -f "${SELECTED}")"
