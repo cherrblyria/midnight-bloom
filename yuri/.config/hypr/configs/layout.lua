@@ -68,15 +68,15 @@ local function float(class, title)
   })
 end
 
-workspace("brave-origin-nightly", 1)
-workspace("obsidian", 8)
-workspace("vesktop", 9)
-workspace("spotify", 10)
-workspace("com.github.th_ch.youtube_music", 10)
+workspace("(?i)brave(.*)", 1)
+workspace("(?i)obsidian", 8)
+workspace("(?i)vesktop", 9)
+workspace("(?i)spotify", 10)
+workspace("(?i)(.*)youtube_music$", 10)
 
 float("footclient", "^ft(.*)$")
 float("xdg-desktop-portal-gtk", "(.*)")
-float("brave-origin-nightly", "^_crx_(.*)$")
+float("(?i)brave(.*)", "^_crx_(.*)$")
 
 float("thunar", "File Operation Progress")
 
