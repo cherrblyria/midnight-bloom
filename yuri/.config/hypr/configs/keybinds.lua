@@ -89,6 +89,7 @@ bind("SUPER + I", function()
     "\ninitClass: " .. initClass ..
     "\nisXwayland: " .. tostring(isXwayland) .. "'"
   ))
+  dispatch(cmd("wl-copy '" .. title .. "'"))
   dispatch(cmd("wl-copy '" .. class .. "'"))
 end)
 
