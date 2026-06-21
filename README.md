@@ -38,7 +38,6 @@ cd ~/.dotfiles
 stow --no-folding --adopt yuri
 ```
 
-#### Branches
+Or you can download the source code from [latest release](https://github.com/cherrblyria/midnight-bloom/releases/latest) then extract it and stow the config just like above.
 
-- `main`: The default branch, contains the latest stable version.
-- `lab`: The lab branch, contains experimental features.
+I'll make a new release monthly and when it's stable.
