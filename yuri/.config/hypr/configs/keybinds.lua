@@ -1,16 +1,16 @@
 ---- CONFIG ----
 
 hl.gesture({
-  fingers = 3,
-  direction = "horizontal",
-  action = "workspace",
+	fingers = 3,
+	direction = "horizontal",
+	action = "workspace",
 })
 
 hl.config({
-  binds = {
-    scroll_event_delay = 0,
-    workspace_back_and_forth = true,
-  },
+	binds = {
+		scroll_event_delay = 0,
+		workspace_back_and_forth = true,
+	},
 })
 
 ---- HELPERS ----
@@ -30,23 +30,23 @@ local ZOOM_TOGGLE_FACTOR = 1.5
 ---@param offset number
 ---@return nil
 local function zoom(offset)
-  local current = hl.get_config("cursor.zoom_factor")
-  if offset ~= nil then
-    current = current + offset
-  elseif current ~= MIN_ZOOM then
-    current = MIN_ZOOM
-  else
-    current = ZOOM_TOGGLE_FACTOR
-  end
-  current = math.max(MIN_ZOOM, math.min(MAX_ZOOM, current))
-  hl.config({ cursor = { zoom_factor = current } })
+	local current = hl.get_config("cursor.zoom_factor")
+	if offset ~= nil then
+		current = current + offset
+	elseif current ~= MIN_ZOOM then
+		current = MIN_ZOOM
+	else
+		current = ZOOM_TOGGLE_FACTOR
+	end
+	current = math.max(MIN_ZOOM, math.min(MAX_ZOOM, current))
+	hl.config({ cursor = { zoom_factor = current } })
 end
 
 ---@param s string
 local function esc(s)
-  return s:gsub("'", "'\\''")
-  -- ends the quote, adds literal ', reopens quote
-  -- e.g.  it's  →  it'\''s
+	return s:gsub("'", "'\\''")
+	-- ends the quote, adds literal ', reopens quote
+	-- e.g.  it's  →  it'\''s
 end
 
 ---- LAUNCHERS ----
@@ -56,56 +56,67 @@ bind("SUPER + Return", cmd("footclient"))
 bind("SUPER + SHIFT + Return", cmd("footclient --title quickterminal"))
 bind("SUPER + E", cmd("footclient yazi"))
 bind("SUPER + SHIFT + E", cmd("thunar"))
-bind("SUPER + SHIFT + Z", cmd("footclient -- zellij a"))
 bind("SUPER + SHIFT + C", cmd("hyprpicker -aln"))
 bind("SUPER + SHIFT + A", cmd("footclient --title ft pulsemixer"))
 bind("SUPER + SHIFT + B", cmd("footclient --title ft bluetui"))
 bind("CTRL + SHIFT + Escape", cmd("footclient --title ft btop"))
 
-bind("SUPER + V", cmd("pkill rofi || true && cliphist list | rofi -dmenu -display-columns 2 -p ' ' | cliphist decode | wl-copy"))
+bind(
+	"SUPER + V",
+	cmd("pkill rofi || true && cliphist list | rofi -dmenu -display-columns 2 -p ' ' | cliphist decode | wl-copy")
+)
 bind("SUPER + Period", cmd("pkill rofi || true && rofimoji -a copy --use-icons -r '󰞅 '"))
 bind("SUPER + W", cmd("pkill rofi || true && mb-wallpaper"))
 bind("SUPER + ALT + W", cmd("mb-wallpaper random"))
 bind(
-  "SUPER + SHIFT + W",
-  cmd('wall_path=$(readlink -f "$HOME/.cache/wallpaper") && notify-send -h string:x-canonical-private-synchronous:wallpaper \'Wallpaper\' "$wall_path"')
+	"SUPER + SHIFT + W",
+	cmd(
+		'wall_path=$(readlink -f "$HOME/.cache/wallpaper") && notify-send -h string:x-canonical-private-synchronous:wallpaper \'Wallpaper\' "$wall_path"'
+	)
 )
 
 ---- SYSTEM ----
 
 bind("SUPER + I", function()
-  local title = esc(hl.get_active_window().title)
-  local class = esc(hl.get_active_window().class)
-  local initTitle = esc(hl.get_active_window().initial_title)
-  local initClass = esc(hl.get_active_window().initial_class)
-  local isXwayland = hl.get_active_window().xwayland
+	local title = esc(hl.get_active_window().title)
+	local class = esc(hl.get_active_window().class)
+	local initTitle = esc(hl.get_active_window().initial_title)
+	local initClass = esc(hl.get_active_window().initial_class)
+	local isXwayland = hl.get_active_window().xwayland
 
-  dispatch(
-    cmd(
-      "notify-send 'Window' 'title: "
-        .. title
-        .. "\nclass: "
-        .. class
-        .. "\ninitTitle: "
-        .. initTitle
-        .. "\ninitClass: "
-        .. initClass
-        .. "\nisXwayland: "
-        .. tostring(isXwayland)
-        .. "'"
-    )
-  )
-  dispatch(cmd("wl-copy '" .. title .. "'"))
-  dispatch(cmd("wl-copy '" .. class .. "'"))
+	dispatch(
+		cmd(
+			"notify-send 'Window' 'title: "
+				.. title
+				.. "\nclass: "
+				.. class
+				.. "\ninitTitle: "
+				.. initTitle
+				.. "\ninitClass: "
+				.. initClass
+				.. "\nisXwayland: "
+				.. tostring(isXwayland)
+				.. "'"
+		)
+	)
+	dispatch(cmd("wl-copy '" .. title .. "'"))
+	dispatch(cmd("wl-copy '" .. class .. "'"))
 end)
 
 bind("SUPER + N", cmd("notify-send 'Notification' 'Hello, World!'"))
 bind("SUPER + SHIFT + R", cmd("mb-reload"), { locked = true })
 
 bind("ALT + Space", cmd("mb-kblayout"), { locked = true })
-bind("SUPER + SHIFT + P", cmd("sleep 0.2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'"), { locked = true })
+bind(
+	"SUPER + SHIFT + P",
+	cmd("sleep 0.2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'"),
+	{ locked = true }
+)
 bind("SUPER + ALT + L", cmd("hyprlock"))
-bind("CTRL + ALT + Delete", cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+bind(
+	"CTRL + ALT + Delete",
+	cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+)
 
 ---- WINDOW CONTROL ----
 
@@ -121,8 +132,8 @@ bind("SUPER + SHIFT + F", dsp.window.fullscreen())
 ---- FOCUS MOVEMENT ----
 
 bind("ALT + TAB", function()
-  dispatch(dsp.window.cycle_next())
-  dispatch(dsp.window.alter_zorder({ mode = "top" }))
+	dispatch(dsp.window.cycle_next())
+	dispatch(dsp.window.alter_zorder({ mode = "top" }))
 end, { repeating = true })
 
 bind("SUPER + H", dsp.focus({ direction = "left" }))
@@ -162,9 +173,9 @@ bind("SUPER + CTRL + right", dsp.window.resize({ x = 25, y = 0, relative = true 
 ---- WORKSPACES ----
 
 for i = 1, 10 do
-  local key = i % 10
-  bind("SUPER + " .. key, dsp.focus({ workspace = i }))
-  bind("SUPER + SHIFT + " .. key, dsp.window.move({ workspace = i }))
+	local key = i % 10
+	bind("SUPER + " .. key, dsp.focus({ workspace = i }))
+	bind("SUPER + SHIFT + " .. key, dsp.window.move({ workspace = i }))
 end
 
 bind("SUPER + mouse_down", dsp.focus({ workspace = "e+1" }))
@@ -212,14 +223,14 @@ bind("XF86MonBrightnessDown", cmd("mb-bright lower"), { locked = true, repeating
 
 bind("SUPER + Z", zoom)
 bind("SUPER + equal", function()
-  zoom(0.5)
+	zoom(0.5)
 end, { repeating = true })
 bind("SUPER + minus", function()
-  zoom(-0.5)
+	zoom(-0.5)
 end, { repeating = true })
 bind("SUPER + CTRL + mouse_down", function()
-  zoom(0.5)
+	zoom(0.5)
 end)
 bind("SUPER + CTRL + mouse_up", function()
-  zoom(-0.5)
+	zoom(-0.5)
 end)

@@ -1,6 +1,6 @@
 if status is-login
-  and test (tty) = "/dev/tty1"
-  exec start-hyprland
+    and test (tty) = /dev/tty1
+    exec start-hyprland
 end
 
 set -x fish_greeting
@@ -32,7 +32,7 @@ alias reload 'exec fish'
 alias f fzf
 alias ff fastfetch
 alias oc opencode
-alias zj zellij
+alias t tmux
 alias ze zeditor
 alias zed zeditor
 alias v nvim
@@ -116,5 +116,5 @@ abbr --add fbl 'find . -xtype l'
 
 # Path
 fish_add_path \
-  $HOME/.spicetify\
-  $HOME/.local/bin
+    $HOME/.spicetify \
+    $HOME/.local/bin
