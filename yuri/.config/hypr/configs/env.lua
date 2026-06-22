@@ -1,6 +1,18 @@
 local env = hl.env
 
+env("XDG_CURRENT_DESKTOP", "Hyprland")
+env("XDG_SESSION_DESKTOP", "Hyprland")
+env("XDG_SESSION_TYPE", "wayland")
+
+env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
+env("GDK_BACKEND", "wayland,x11,*")
+env("MOZ_ENABLE_WAYLAND", "1")
+env("DESKTOP_SESSION", "Hyprland")
+
+env("QT_QPA_PLATFORM", "wayland")
 env("QT_QPA_PLATFORMTHEME", "qt6ct")
+env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
+env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 
 env("XCURSOR_SIZE", "24")
 env("XCURSOR_THEME", "Catppuccin Mocha Light")
