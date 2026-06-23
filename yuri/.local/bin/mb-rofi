@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+pkill rofi || true
+
+case "$1" in
+clipboard)
+  cliphist list | rofi -dmenu -no-show-icons -display-columns 2 -p ' ' | cliphist decode | wl-copy
+  ;;
+emoji)
+  rofimoji -a copy --use-icons -r '󰞅 '
+  ;;
+*)
+  rofi -show drun
+  ;;
+esac
