@@ -5,3 +5,4 @@
 local opt = vim.opt
 vim.g.snacks_animate = false
 opt.smoothscroll = false
+opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus" -- Sync with system clipboard
