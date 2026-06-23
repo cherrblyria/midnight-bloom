@@ -53,12 +53,12 @@ button {
 button:focus,
 button:active,
 button:hover {
-  background-color: @text;
-  color: @crust;
+  background-color: @surface2;
   outline-style: none;
 }
 
 #lock {
+  margin: 50px 0px 0px 50px;
   margin: 50px 0px 0px 50px;
 }
 
@@ -84,16 +84,23 @@ button:hover {
 
 #lock:active,
 #lock:hover,
+#lock:focus,
 #logout:active,
 #logout:hover,
+#logout:focus,
 #suspend:active,
 #suspend:hover,
+#suspend:focus,
 #shutdown:active,
 #shutdown:hover,
+#shutdown:focus,
 #reboot:active,
 #reboot:hover,
+#reboot:focus,
 #hibernate:active,
-#hibernate:hover {
+#hibernate:hover,
+#hibernate:focus {
   background-color: @pink;
+  color: @crust;
   margin: 0px;
 }
