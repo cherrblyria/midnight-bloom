@@ -13,80 +13,60 @@
     }
   },
   "display": {
-    "separator": " "
+    "separator": ""
   },
   "modules": [
+    "break",
     {
-      "key": "╭───────────╮",
-      "type": "custom"
-    },
-    {
-      "key": "│ {#31} user    {#keys}│",
+      "key": "{#31} user  {#keys}",
       "type": "title",
       "format": "{user-name}"
     },
     {
-      "key": "│ {#32}󰇅 hname   {#keys}│",
+      "key": "{#32}󰇅 hname {#keys}",
       "type": "title",
       "format": "{host-name}"
     },
     {
-      "key": "│ {#33}󰅐 uptime  {#keys}│",
-      "type": "uptime"
-    },
-    {
-      "key": "│ {#34}{icon} distro  {#keys}│",
+      "key": "{#34}{icon} dist  {#keys}",
       "type": "os"
     },
     {
-      "key": "│ {#35} kernel  {#keys}│",
+      "key": "{#35} ker   {#keys}",
       "type": "kernel"
     },
     {
-      "key": "│ {#36}󰇄 desktop {#keys}│",
-      "type": "de"
+      "key": "{#36}󰇄 wm    {#keys}",
+      "type": "wm",
+      "format": "{1}"
     },
     {
-      "key": "│ {#31} term    {#keys}│",
+      "key": "{#31} term  {#keys}",
       "type": "terminal"
     },
     {
-      "key": "│ {#32} shell   {#keys}│",
+      "key": "{#32} sh    {#keys}",
       "type": "shell"
     },
     {
-      "key": "│ {#33}󰍛 cpu     {#keys}│",
+      "key": "{#33}󰍛 cpu   {#keys}",
       "format": "{}",
       "type": "cpu",
       "showPeCoreCount": true
     },
     {
-      "key": "│ {#34}󰉉 disk    {#keys}│",
+      "key": "{#34}󰉉 disk  {#keys}",
       "format": "{1} / {2} ({3})",
       "type": "disk",
       "folders": "/"
     },
     {
-      "key": "│ {#35} memory  {#keys}│",
+      "key": "{#35} mem   {#keys}",
       "type": "memory"
     },
-    // {
-    //   "key": "│ {#36}󰩟 network {#keys}│",
-    //   "type": "localip",
-    //   "format": "{ipv4} ({ifname})"
-    // },
     {
-      "key": "├───────────┤",
-      "type": "custom"
-    },
-    {
-      "key": "│ {#39} colors  {#keys}│",
-      "type": "colors",
-      "symbol": "circle"
-    },
-    {
-      "key": "╰───────────╯",
-      "type": "custom"
+      "key": "{#33}󰅐 up    {#keys}",
+      "type": "uptime"
     }
   ]
 }
