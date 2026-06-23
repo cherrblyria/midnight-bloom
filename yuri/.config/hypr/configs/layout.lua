@@ -119,11 +119,12 @@ local function lblur(namespace)
     match = { namespace = namespace },
     blur = true,
     blur_popups = true,
-    ignore_alpha = 0.5,
   })
 end
 
 lblur("rofi")
+lblur("wlogout")
+lblur("logout_dialog")
 lblur("waybar")
 lblur("vicinae")
 lblur("notifications")

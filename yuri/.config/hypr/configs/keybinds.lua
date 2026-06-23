@@ -109,11 +109,8 @@ bind(
   cmd("sleep 0.2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'"),
   { locked = true }
 )
-bind("SUPER + ALT + L", cmd("hyprlock"))
-bind(
-  "CTRL + ALT + Delete",
-  cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
-)
+bind("SUPER + ALT + L", cmd("loginctl lock-session"))
+bind("CTRL + ALT + Delete", cmd("wlogout -m 0"))
 
 ---- WINDOW CONTROL ----
 
