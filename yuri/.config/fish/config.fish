@@ -38,6 +38,7 @@ alias zed zeditor
 alias v nvim
 alias vi nvim
 alias vim nvim
+alias pt pastel
 
 alias b 'bat -Pp'
 alias tch touch
