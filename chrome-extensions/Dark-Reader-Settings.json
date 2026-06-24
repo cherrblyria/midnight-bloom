@@ -1,6 +1,6 @@
 {
     "schemeVersion": 2,
-    "enabled": false,
+    "enabled": true,
     "fetchNews": true,
     "theme": {
         "mode": 1,
@@ -165,6 +165,14 @@
         "chromewebstore.google.com",
         "md.archlinux.org",
         "unsplash.com",
+        "stackoverflow.com",
+        "www.pixiv.net",
+        "brave.com",
+        "www.i2symbol.com",
+        "www.simplified.guide",
+        "www.fosslinux.com",
+        "www.ditig.com",
+        "www.flagcolorcodes.com",
         "davatorium.github.io"
     ],
     "disabledFor": [],
@@ -173,7 +181,7 @@
     "syncSitesFixes": false,
     "automation": {
         "behavior": "OnOff",
-        "enabled": true,
+        "enabled": false,
         "mode": "system"
     },
     "time": {
