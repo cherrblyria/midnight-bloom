@@ -1,5 +1,5 @@
 configuration {
-  modes: "drun,run,window,filebrowser";
+  modes: "drun,run";
   font: "CaskaydiaCove Nerd Font 12";
   fixed-num-lines: false;
   show-icons: true;
