@@ -9,6 +9,9 @@ clipboard)
 emoji)
   rofimoji -a copy --use-icons -r '󰞅 '
   ;;
+calc)
+  rofi -show calc -modi calc -no-show-match -no-sort
+  ;;
 *)
   rofi -show drun
   ;;
