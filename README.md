@@ -3,9 +3,10 @@
   
   <h3>“Cozy Catppuccin Mocha Hyprland Setup”</h3>
 
-  <img src="https://www.shieldcn.dev/github/last-commit/cherrblyria/midnight-bloom.svg?variant=secondary&size=sm&theme=gray" alt="Last commit" /> <img src="https://www.shieldcn.dev/github/commits/cherrblyria/midnight-bloom.svg?variant=secondary&size=sm&theme=gray" alt="Commits" /> <img src="https://www.shieldcn.dev/github/stars/cherrblyria/midnight-bloom.svg?variant=ghost&size=sm&theme=gray" alt="Stars" />
+  <img src="https://www.shieldcn.dev/github/last-commit/cherrblyria/midnight-bloom.svg?variant=secondary&size=sm&theme=gray" alt="Last commit" /> <img src="https://www.shieldcn.dev/github/commits/cherrblyria/midnight-bloom.svg?variant=secondary&size=sm&theme=gray" alt="Commits" /> <img src="https://www.shieldcn.dev/github/stars/cherrblyria/midnight-bloom.svg?variant=secondary&size=sm&theme=gray" alt="GitHub Stars" /> <img src="https://www.shieldcn.dev/github/release/cherrblyria/midnight-bloom.svg?size=sm&theme=gray" alt="Release" />
   
-  <img src="https://www.shieldcn.dev/github/branches/cherrblyria/midnight-bloom.svg?variant=ghost&size=sm&theme=gray" alt="Branches" /> <img src="https://www.shieldcn.dev/github/merged-prs/cherrblyria/midnight-bloom.svg?variant=ghost&size=sm&theme=gray" alt="Merged PRs" />
+  <img src="https://www.shieldcn.dev/github/branches/cherrblyria/midnight-bloom.svg?variant=ghost&size=sm&theme=gray" alt="Branches" /> <img src="https://www.shieldcn.dev/github/merged-prs/cherrblyria/midnight-bloom.svg?variant=ghost&size=sm&theme=gray" alt="Merged PRs" /> <img src="https://www.shieldcn.dev/github/license/cherrblyria/midnight-bloom.svg?variant=ghost&size=sm&theme=gray" alt="License" />
+
 </div>
 
 <h3>Notable Things</h3>
