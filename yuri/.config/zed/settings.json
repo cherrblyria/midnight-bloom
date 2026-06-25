@@ -57,7 +57,7 @@
   "agent_servers": {
     "opencode": {
       "default_config_options": {
-        "model": "opencode/big-pickle"
+        "model": "opencode/big-pickle",
       },
       "type": "registry",
     },
@@ -78,5 +78,15 @@
     "mode": "dark",
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Mocha",
+  },
+  "languages": {
+    "Shell Script": {
+      "formatter": {
+        "external": {
+          "command": "shfmt",
+          "arguments": ["--filename", "{buffer_path}", "--indent", "2"],
+        },
+      },
+    },
   },
 }

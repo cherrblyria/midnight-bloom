@@ -19,9 +19,9 @@ local bind = hl.bind
 local dsp = hl.dsp
 local dispatch = hl.dispatch
 local cmd = dsp.exec_cmd
-local rcmd = dsp.exec_raw
+-- local rcmd = dsp.exec_raw
 
-local float = { float = true, size = { "(monitor_w*0.75)", "(monitor_h*0.7)" } }
+-- local float = { float = true, size = { "(monitor_w*0.75)", "(monitor_h*0.7)" } }
 
 local MAX_ZOOM = 9
 local MIN_ZOOM = 1
@@ -55,8 +55,8 @@ bind("SUPER + Space", cmd("mb-rofi"))
 bind("SUPER + Return", cmd("footclient"))
 bind("SUPER + SHIFT + Return", cmd("footclient --title quickterminal"))
 bind("SUPER + E", cmd("footclient yazi"))
+bind("SUPER + CTRL + P", cmd("hyprpicker -aln"))
 bind("SUPER + SHIFT + E", cmd("thunar"))
-bind("SUPER + SHIFT + C", cmd("hyprpicker -aln"))
 bind("SUPER + SHIFT + A", cmd("footclient --title ft pulsemixer"))
 bind("SUPER + SHIFT + B", cmd("footclient --title ft bluetui"))
 bind("CTRL + SHIFT + Escape", cmd("footclient --title ft btop"))
@@ -64,12 +64,12 @@ bind("CTRL + SHIFT + Escape", cmd("footclient --title ft btop"))
 bind("SUPER + V", cmd("mb-rofi clipboard"))
 bind("SUPER + Period", cmd("mb-rofi emoji"))
 bind("SUPER + W", cmd("mb-wallpaper"))
+bind("SUPER + SHIFT + C", cmd("mb-rofi calc"))
 bind("SUPER + ALT + W", cmd("mb-wallpaper random"))
 bind(
   "SUPER + SHIFT + W",
   cmd(
-    'wall_path=$(readlink -f "$HOME/.cache/wallpaper") && notify-send -h string:x-canonical-private-synchronous:wallpaper \'Wallpaper\' "$wall_path"'
-  )
+    'wall_path=$(readlink -f "$HOME/.cache/wallpaper") && notify-send -h string:x-canonical-private-synchronous:wallpaper \'Wallpaper\' "$wall_path"')
 )
 
 ---- SYSTEM ----
@@ -104,11 +104,7 @@ bind("SUPER + N", cmd("notify-send 'Notification' 'Hello, World!'"))
 bind("SUPER + SHIFT + R", cmd("mb-reload"), { locked = true })
 
 bind("ALT + Space", cmd("mb-kblayout"), { locked = true })
-bind(
-  "SUPER + SHIFT + P",
-  cmd("sleep 0.2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'"),
-  { locked = true }
-)
+bind("SUPER + SHIFT + P", cmd("sleep 0.2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'"), { locked = true })
 bind("SUPER + ALT + L", cmd("loginctl lock-session"))
 bind("CTRL + ALT + Delete", cmd("wlogout -m 0"))
 
@@ -200,6 +196,9 @@ bind("XF86AudioNext", cmd("playerctl next"), { locked = true })
 bind("XF86AudioPause", cmd("playerctl play-pause"), { locked = true })
 bind("XF86AudioPlay", cmd("playerctl play-pause"), { locked = true })
 bind("XF86AudioPrev", cmd("playerctl previous"), { locked = true })
+
+bind("ALT + XF86AudioRaiseVolume", cmd("mb-vol music-raise"), { locked = true, repeating = true })
+bind("ALT + XF86AudioLowerVolume", cmd("mb-vol music-lower"), { locked = true, repeating = true })
 
 ---- HARDWARE KEYS ----
 

@@ -17,13 +17,18 @@ configuration {
   display-drun: " ";
   display-combi: "󰕘 ";
   display-filebrowser: " ";
+  display-calc: " ";
   timeout {
-      action: "kb-cancel";
-      delay:  0;
+    action: "kb-cancel";
+    delay:  0;
   }
   filebrowser {
-      directories-first: true;
-      sorting-method:    "name";
+    directories-first: true;
+    sorting-method:    "name";
+  }
+  calc {
+    hint-result: "Result: ";
+    hint-welcome: "";
   }
 }
 
