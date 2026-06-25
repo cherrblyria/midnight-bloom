@@ -68,7 +68,8 @@ bind("SUPER + SHIFT + C", cmd("mb-rofi calc"))
 bind("SUPER + ALT + W", cmd("mb-wallpaper random"))
 bind(
   "SUPER + SHIFT + W",
-  cmd('wall_path=$(readlink -f "$HOME/.cache/wallpaper") && notify-send -h string:x-canonical-private-synchronous:wallpaper \'Wallpaper\' "$wall_path"')
+  cmd(
+  'wall_path=$(readlink -f "$HOME/.cache/wallpaper") && notify-send -h string:x-canonical-private-synchronous:wallpaper \'Wallpaper\' "$wall_path"')
 )
 
 ---- SYSTEM ----
@@ -83,16 +84,16 @@ bind("SUPER + I", function()
   dispatch(
     cmd(
       "notify-send 'Window' 'title: "
-        .. title
-        .. "\nclass: "
-        .. class
-        .. "\ninitTitle: "
-        .. initTitle
-        .. "\ninitClass: "
-        .. initClass
-        .. "\nisXwayland: "
-        .. tostring(isXwayland)
-        .. "'"
+      .. title
+      .. "\nclass: "
+      .. class
+      .. "\ninitTitle: "
+      .. initTitle
+      .. "\ninitClass: "
+      .. initClass
+      .. "\nisXwayland: "
+      .. tostring(isXwayland)
+      .. "'"
     )
   )
   dispatch(cmd("wl-copy '" .. title .. "'"))
@@ -195,6 +196,9 @@ bind("XF86AudioNext", cmd("playerctl next"), { locked = true })
 bind("XF86AudioPause", cmd("playerctl play-pause"), { locked = true })
 bind("XF86AudioPlay", cmd("playerctl play-pause"), { locked = true })
 bind("XF86AudioPrev", cmd("playerctl previous"), { locked = true })
+
+bind("ALT + XF86AudioRaiseVolume", cmd("mb-vol music-raise"), { locked = true, repeating = true })
+bind("ALT + XF86AudioLowerVolume", cmd("mb-vol music-lower"), { locked = true, repeating = true })
 
 ---- HARDWARE KEYS ----
 
