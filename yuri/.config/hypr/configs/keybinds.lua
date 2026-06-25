@@ -69,7 +69,7 @@ bind("SUPER + ALT + W", cmd("mb-wallpaper random"))
 bind(
   "SUPER + SHIFT + W",
   cmd(
-  'wall_path=$(readlink -f "$HOME/.cache/wallpaper") && notify-send -h string:x-canonical-private-synchronous:wallpaper \'Wallpaper\' "$wall_path"')
+    'wall_path=$(readlink -f "$HOME/.cache/wallpaper") && notify-send -h string:x-canonical-private-synchronous:wallpaper \'Wallpaper\' "$wall_path"')
 )
 
 ---- SYSTEM ----
