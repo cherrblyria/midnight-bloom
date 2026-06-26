@@ -6,7 +6,7 @@
 }
 {
   "text" : "󰍃",
-  "action" : "hyprshutdown",
+  "action" : "hyprshutdown -t 'Logging off...'",
   "label" : "logout",
   "keybind" : "e"
 }
