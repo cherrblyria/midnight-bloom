@@ -60,6 +60,7 @@ tooltip label {
 }
 
 #workspaces button {
+  color: @overlay0;
   transition: background-color 0.1s ease-in-out;
   padding: 0 4px;
 }
@@ -69,8 +70,7 @@ tooltip label {
 }
 
 #workspaces button.active {
-  color: @sky;
-  font-weight: bold;
+  color: @mauve;
 }
 
 #workspaces button.urgent {

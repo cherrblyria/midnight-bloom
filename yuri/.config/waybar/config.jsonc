@@ -46,10 +46,7 @@
       "30": "三十",
       "default": ""
     },
-    "active-only": false,
-    "persistent-workspaces": {
-      "*": 10
-    }
+    "active-only": false
   },
   "mpris": {
     "interval": 1,
