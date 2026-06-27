@@ -2,14 +2,15 @@
 
 ## Reload the configuration
 hyprctl reload
+hyprpm reload
 makoctl reload
 pkill -SIGUSR2 waybar
 pkill hypridle || true && hypridle &
 
 ## Sync dotfiles
-stow --adopt --no-folding -d $HOME/.dotfiles -t $HOME yuri
+stow --adopt --no-folding -d "$HOME"/.dotfiles -t "$HOME" yuri
 
 ## Make scripts executable
-chmod +x $HOME/.dotfiles/yuri/.local/bin/*
+chmod +x "$HOME"/.dotfiles/yuri/.local/bin/*
 
 notify-send 'Reload' 'Configuration reloaded'
