@@ -61,7 +61,7 @@ tooltip label {
 
 #workspaces button {
   color: @overlay0;
-  transition: background-color 0.1s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
   padding: 0 4px;
 }
 
@@ -100,7 +100,7 @@ tooltip label {
 }
 
 #tray menu menuitem {
-  transition: background-color 0.1s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
   padding: 3px 10px;
 }
 
@@ -113,7 +113,41 @@ tooltip label {
 }
 
 #pulseaudio {
-  color: @rosewater;
+  color: @mauve;
+}
+
+#bluetooth {
+  color: @sapphire;
+}
+
+#bluetooth.connected {
+  color: @green;
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
+  color: @overlay0;
+}
+
+#network {
+  color: @pink;
+}
+
+#network.disabled,
+#network.disconnected {
+  color: @overlay0;
+}
+
+#power-profiles-daemon.performance {
+  color: @yellow;
+}
+
+#power-profiles-daemon.balanced {
+  color: @blue;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @green;
 }
 
 #battery.charging {
@@ -130,4 +164,13 @@ tooltip label {
 
 #battery.normal:not(.charging) {
   color: @green;
+}
+
+#custom-power {
+  transition: color 0.3s ease-in-out;
+  color: @overlay0;
+}
+
+#custom-power:hover {
+  color: @red;
 }

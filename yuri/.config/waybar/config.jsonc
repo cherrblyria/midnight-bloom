@@ -8,7 +8,15 @@
   // Choose the order of the modules
   "modules-left": ["hyprland/workspaces", "custom/record"],
   "modules-center": ["clock"],
-  "modules-right": ["mpris", "tray", "battery"],
+  "modules-right": [
+    "mpris",
+    "tray",
+    "pulseaudio",
+    "bluetooth",
+    "network",
+    "group/power"
+    // "custom/power"
+  ],
   // Modules configuration
   "hyprland/workspaces": {
     "tooltip": false,
@@ -50,6 +58,17 @@
     "on-scroll-up": "hyprctl dispatch 'hl.workspace({ workspace = \"e+1\" })'",
     "on-scroll-down": "hyprctl dispatch 'hl.workspace({ workspace = \"e-1\" })'"
   },
+  "custom/record": {
+    "tooltip": false,
+    "exec": "mb-record get",
+    "on-click": "mb-record",
+    "restart-interval": 1
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{:%H:%M}",
+    "tooltip-format": "{:%A, %B %d %Y, %R:%S}"
+  },
   "mpris": {
     "interval": 1,
     "max-length": 50,
@@ -62,20 +81,71 @@
     "on-scroll-up": "mb-vol music-up",
     "on-scroll-down": "mb-vol music-down"
   },
-  "clock": {
-    "interval": 1,
-    "format": "{:%H:%M}",
-    "tooltip-format": "{:%A, %B %d %Y, %R:%S}"
-  },
   "tray": {
     "icon-size": 16,
     "spacing": 4
   },
-  "custom/record": {
-    "tooltip": false,
-    "exec": "mb-record get",
-    "on-click": "mb-record",
-    "restart-interval": 1
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-bluetooth": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "headset": "",
+      "phone": "",
+      "phone-muted": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    },
+    "tooltip-format": "{icon} {desc} {volume}%",
+    "scroll-step": 5,
+    "on-click": "footclient --title ft pulsemixer",
+    "on-scroll-up": "mb-vol up",
+    "on-scroll-down": "mb-vol down"
+  },
+  "bluetooth": {
+    "format": "{status}",
+    "format-on": "",
+    "format-off": "",
+    "format-disabled": "",
+    "format-connected": "",
+    "tooltip-format": " {controller_alias}  {controller_address}",
+    "tooltip-format-connected": " {controller_alias}  {controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": " {device_alias}  {device_address}",
+    "tooltip-format-enumerate-connected-battery": " {device_alias}  {device_address}  {device_battery_percentage}%",
+    "on-click": "footclient --title ft bluetui"
+  },
+  "network": {
+    "interface": "wlan0",
+    "format": "{ifname}",
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "󰛳",
+    "tooltip-format": "󰛳 {ifname} via {gwaddr}",
+    "tooltip-format-wifi": " {essid} ({signalStrength}%) {ipaddr}",
+    "tooltip-format-ethernet": " {ifname}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "on-click": "footclient nmtui"
+  },
+  "group/power": {
+    "orientation": "horizontal",
+    "modules": ["battery", "power-profiles-daemon"],
+    "drawer": {
+      "transition-left-to-right": false
+    }
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "󰁹 Power profile: {profile}\n󱠴 Driver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
   },
   "battery": {
     "interval": 1,
@@ -91,5 +161,10 @@
       "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
       "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
     }
+  },
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "wlogout -m 0"
   }
 }
