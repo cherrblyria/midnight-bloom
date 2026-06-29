@@ -18,10 +18,8 @@ hl.config({
 local bind = hl.bind
 local dsp = hl.dsp
 local dispatch = hl.dispatch
+local timer = hl.timer
 local cmd = dsp.exec_cmd
--- local rcmd = dsp.exec_raw
-
--- local float = { float = true, size = { "(monitor_w*0.75)", "(monitor_h*0.7)" } }
 
 local MAX_ZOOM = 9
 local MIN_ZOOM = 1
@@ -105,8 +103,11 @@ bind("SUPER + SHIFT + R", cmd("mb-reload"), { locked = true })
 
 bind("ALT + Space", cmd("mb-kblayout"), { locked = true })
 bind("SUPER + SHIFT + P",
-  cmd(
-    "hyprctl eval 'hl.config({ misc = { key_press_enables_dpms = false } })' && hyprctl eval 'hl.dispatch(hl.dsp.dpms({ action = \"disable\" }))' && sleep 1 && hyprctl eval 'hl.config({ misc = { key_press_enables_dpms = true } })'"),
+  function()
+    timer(function()
+      dispatch(dsp.dpms({ action = "disable" }))
+    end, { timeout = 500, type = "oneshot" })
+  end,
   { locked = true })
 bind("SUPER + ALT + L", cmd("loginctl lock-session"))
 bind("CTRL + ALT + Delete", cmd("wlogout -m 0"))
