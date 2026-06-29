@@ -108,11 +108,7 @@ bind("SUPER + Period", cmd("mb-rofi emoji"))
 bind("SUPER + SHIFT + C", cmd("mb-rofi calc"))
 bind("SUPER + W", cmd("mb-wallpaper"))
 bind("SUPER + ALT + W", cmd("mb-wallpaper random"))
-bind(
-  "SUPER + SHIFT + W",
-  cmd(
-    'wall_path=$(readlink -f "$HOME/.cache/wallpaper") && notify-send -h string:x-canonical-private-synchronous:wallpaper \'Wallpaper\' "$wall_path"')
-)
+bind("SUPER + SHIFT + W", cmd('mb-wallpaper get'))
 
 ---- SYSTEM ----
 
