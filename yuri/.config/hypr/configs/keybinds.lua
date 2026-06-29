@@ -1,10 +1,5 @@
 ---- CONFIG ----
 
-hl.gesture({
-  fingers = 3,
-  direction = "horizontal",
-  action = "workspace",
-})
 
 hl.config({
   binds = {
@@ -18,10 +13,9 @@ hl.config({
 local bind = hl.bind
 local dsp = hl.dsp
 local dispatch = hl.dispatch
+local timer = hl.timer
 local cmd = dsp.exec_cmd
--- local rcmd = dsp.exec_raw
-
--- local float = { float = true, size = { "(monitor_w*0.75)", "(monitor_h*0.7)" } }
+local gesture = hl.gesture
 
 local MAX_ZOOM = 9
 local MIN_ZOOM = 1
@@ -49,6 +43,54 @@ local function esc(s)
   -- e.g.  it's  →  it'\''s
 end
 
+---- GESTURES ----
+
+gesture({
+  fingers = 3,
+  direction = "horizontal",
+  scale = 0.85,
+  action = "workspace",
+})
+gesture({
+  fingers = 4,
+  direction = "swipe",
+  action = "move"
+})
+gesture({
+  fingers = 4,
+  direction = "swipe",
+  mods = "CTRL",
+  action = "resize"
+})
+gesture({
+  fingers = 3,
+  direction = "down",
+  scale = 1.3,
+  action = "float"
+})
+gesture({
+  fingers = 2,
+  direction = "pinch",
+  mods = "SUPER",
+  action = "cursorZoom",
+  zoom_level = 1,
+  mode = "live",
+})
+gesture({
+  fingers = 3,
+  direction = "up",
+  action = function()
+    local w = hl.get_active_window()
+    if w then
+      if not w.floating then
+        dispatch(dsp.window.fullscreen_state({ internal = 2, client = 0, action = "toggle" }))
+      else
+        dispatch(dsp.window.float())
+      end
+    end
+  end
+})
+
 ---- LAUNCHERS ----
 
 bind("SUPER + Space", cmd("mb-rofi"))
@@ -63,14 +105,10 @@ bind("CTRL + SHIFT + Escape", cmd("footclient --title ft btop"))
 
 bind("SUPER + V", cmd("mb-rofi clipboard"))
 bind("SUPER + Period", cmd("mb-rofi emoji"))
-bind("SUPER + W", cmd("mb-wallpaper"))
 bind("SUPER + SHIFT + C", cmd("mb-rofi calc"))
+bind("SUPER + W", cmd("mb-wallpaper"))
 bind("SUPER + ALT + W", cmd("mb-wallpaper random"))
-bind(
-  "SUPER + SHIFT + W",
-  cmd(
-    'wall_path=$(readlink -f "$HOME/.cache/wallpaper") && notify-send -h string:x-canonical-private-synchronous:wallpaper \'Wallpaper\' "$wall_path"')
-)
+bind("SUPER + SHIFT + W", cmd('mb-wallpaper get'))
 
 ---- SYSTEM ----
 
@@ -104,7 +142,13 @@ bind("SUPER + N", cmd("notify-send 'Notification' 'Hello, World!'"))
 bind("SUPER + SHIFT + R", cmd("mb-reload"), { locked = true })
 
 bind("ALT + Space", cmd("mb-kblayout"), { locked = true })
-bind("SUPER + SHIFT + P", cmd("sleep 0.2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'"), { locked = true })
+bind("SUPER + SHIFT + P",
+  function()
+    timer(function()
+      dispatch(dsp.dpms({ action = "disable" }))
+    end, { timeout = 500, type = "oneshot" })
+  end,
+  { locked = true })
 bind("SUPER + ALT + L", cmd("loginctl lock-session"))
 bind("CTRL + ALT + Delete", cmd("wlogout -m 0"))
 
@@ -117,7 +161,8 @@ bind("SUPER + O", dsp.layout("togglesplit"))
 bind("SUPER + C", dsp.window.center())
 bind("SUPER + S", dsp.window.toggle_swallow())
 bind("SUPER + T", dsp.window.pin())
-bind("SUPER + SHIFT + F", dsp.window.fullscreen())
+bind("F11", dsp.window.fullscreen_state({ internal = 2, client = 2, action = "toggle" }))
+bind("SUPER + SHIFT + F", dsp.window.fullscreen_state({ internal = 2, client = 0, action = "toggle" }))
 
 ---- FOCUS MOVEMENT ----
 

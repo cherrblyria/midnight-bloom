@@ -74,6 +74,11 @@ random)
   SELECTED="$(pick_random "${SEARCH_PATH}")"
   echo "Selected random wallpaper: ${SELECTED}"
   ;;
+get)
+  wall_path=$(readlink -f "$HOME/.cache/wallpaper")
+  notify-send -h string:x-canonical-private-synchronous:wallpaper "Wallpaper" "$wall_path"
+  exit 0
+  ;;
 *)
   dir="$(resolve_dir "$1")"
   SELECTED="$(rofi_choose "${dir:-$WALLPAPER_PATH}")"
