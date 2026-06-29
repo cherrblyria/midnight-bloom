@@ -173,7 +173,15 @@
         "www.fosslinux.com",
         "www.ditig.com",
         "www.flagcolorcodes.com",
-        "davatorium.github.io"
+        "davatorium.github.io",
+        "www.debian.org",
+        "fishshell.com",
+        "wallpapers-clan.com",
+        "www.lexisrex.com",
+        "shopee.co.th",
+        "www.timeanddate.com",
+        "member.lazada.co.th",
+        "www.lazada.co.th"
     ],
     "disabledFor": [],
     "changeBrowserTheme": false,
@@ -181,7 +189,7 @@
     "syncSitesFixes": false,
     "automation": {
         "behavior": "OnOff",
-        "enabled": false,
+        "enabled": true,
         "mode": "system"
     },
     "time": {
