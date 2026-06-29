@@ -1,10 +1,5 @@
 ---- CONFIG ----
 
-hl.gesture({
-  fingers = 3,
-  direction = "horizontal",
-  action = "workspace",
-})
 
 hl.config({
   binds = {
@@ -20,6 +15,7 @@ local dsp = hl.dsp
 local dispatch = hl.dispatch
 local timer = hl.timer
 local cmd = dsp.exec_cmd
+local gesture = hl.gesture
 
 local MAX_ZOOM = 9
 local MIN_ZOOM = 1
@@ -46,6 +42,54 @@ local function esc(s)
   -- ends the quote, adds literal ', reopens quote
   -- e.g.  it's  →  it'\''s
 end
+
+---- GESTURES ----
+
+gesture({
+  fingers = 3,
+  direction = "horizontal",
+  scale = 0.85,
+  action = "workspace",
+})
+gesture({
+  fingers = 4,
+  direction = "swipe",
+  action = "move"
+})
+gesture({
+  fingers = 4,
+  direction = "swipe",
+  mods = "CTRL",
+  action = "resize"
+})
+gesture({
+  fingers = 3,
+  direction = "down",
+  scale = 1.3,
+  action = "float"
+})
+gesture({
+  fingers = 2,
+  direction = "pinch",
+  mods = "SUPER",
+  action = "cursorZoom",
+  zoom_level = 1,
+  mode = "live",
+})
+gesture({
+  fingers = 3,
+  direction = "up",
+  action = function()
+    local w = hl.get_active_window()
+    if w then
+      if not w.floating then
+        dispatch(dsp.window.fullscreen_state({ internal = 2, client = 0, action = "toggle" }))
+      else
+        dispatch(dsp.window.float())
+      end
+    end
+  end
+})
 
 ---- LAUNCHERS ----
 
@@ -121,7 +165,8 @@ bind("SUPER + O", dsp.layout("togglesplit"))
 bind("SUPER + C", dsp.window.center())
 bind("SUPER + S", dsp.window.toggle_swallow())
 bind("SUPER + T", dsp.window.pin())
-bind("SUPER + SHIFT + F", dsp.window.fullscreen())
+bind("F11", dsp.window.fullscreen_state({ internal = 2, client = 2, action = "toggle" }))
+bind("SUPER + SHIFT + F", dsp.window.fullscreen_state({ internal = 2, client = 0, action = "toggle" }))
 
 ---- FOCUS MOVEMENT ----
 
