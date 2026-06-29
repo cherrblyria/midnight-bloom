@@ -63,8 +63,8 @@ bind("CTRL + SHIFT + Escape", cmd("footclient --title ft btop"))
 
 bind("SUPER + V", cmd("mb-rofi clipboard"))
 bind("SUPER + Period", cmd("mb-rofi emoji"))
-bind("SUPER + W", cmd("mb-wallpaper"))
 bind("SUPER + SHIFT + C", cmd("mb-rofi calc"))
+bind("SUPER + W", cmd("mb-wallpaper"))
 bind("SUPER + ALT + W", cmd("mb-wallpaper random"))
 bind(
   "SUPER + SHIFT + W",
@@ -104,7 +104,10 @@ bind("SUPER + N", cmd("notify-send 'Notification' 'Hello, World!'"))
 bind("SUPER + SHIFT + R", cmd("mb-reload"), { locked = true })
 
 bind("ALT + Space", cmd("mb-kblayout"), { locked = true })
-bind("SUPER + SHIFT + P", cmd("sleep 0.2 && hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'"), { locked = true })
+bind("SUPER + SHIFT + P",
+  cmd(
+    "hyprctl eval 'hl.config({ misc = { key_press_enables_dpms = false } })' && hyprctl eval 'hl.dispatch(hl.dsp.dpms({ action = \"disable\" }))' && sleep 1 && hyprctl eval 'hl.config({ misc = { key_press_enables_dpms = true } })'"),
+  { locked = true })
 bind("SUPER + ALT + L", cmd("loginctl lock-session"))
 bind("CTRL + ALT + Delete", cmd("wlogout -m 0"))
 
