@@ -81,16 +81,25 @@ tooltip label {
   background-color: @surface2;
 }
 
+#custom-record {
+  color: @red;
+}
+
+#custom-record-elapsed {
+  color: @subtext0;
+}
+
+#clock {
+  color: @overlay0;
+  padding: 0;
+}
+
 #mpris {
   color: @pink;
 }
 
 #mpris.paused {
   color: @overlay0;
-}
-
-#clock {
-  color: @subtext0;
 }
 
 #tray menu {
@@ -106,10 +115,6 @@ tooltip label {
 
 #tray menu menuitem:hover {
   background-color: @surface2;
-}
-
-#custom-record {
-  color: @red;
 }
 
 #pulseaudio {
