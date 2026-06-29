@@ -6,7 +6,7 @@
   "margin": "0",
   "spacing": 0, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": ["hyprland/workspaces", "custom/record"],
+  "modules-left": ["hyprland/workspaces", "group/record"],
   "modules-center": ["group/datetime"],
   "modules-right": ["mpris", "group/tray", "group/battery"],
   // Modules configuration
@@ -50,10 +50,20 @@
     "on-scroll-up": "hyprctl dispatch 'hl.workspace({ workspace = \"e+1\" })'",
     "on-scroll-down": "hyprctl dispatch 'hl.workspace({ workspace = \"e-1\" })'"
   },
+  "group/record": {
+    "orientation": "horizontal",
+    "modules": ["custom/record", "custom/record-elapsed"],
+    "drawer": {}
+  },
   "custom/record": {
     "tooltip": false,
     "exec": "mb-record get",
     "on-click": "mb-record",
+    "restart-interval": 1
+  },
+  "custom/record-elapsed": {
+    "tooltip": false,
+    "exec": "mb-record elapsed",
     "restart-interval": 1
   },
   "group/datetime": {
@@ -66,9 +76,7 @@
   "group/clock": {
     "orientation": "horizontal",
     "modules": ["clock", "clock#3"],
-    "drawer": {
-      "transition-left-to-right": true
-    }
+    "drawer": {}
   },
   "clock#2": {
     "interval": 1,
@@ -172,8 +180,7 @@
     "orientation": "horizontal",
     "modules": ["battery", "custom/power"],
     "drawer": {
-      "click-to-reveal": true,
-      "transition-left-to-right": true
+      "click-to-reveal": true
     }
   },
   "power-profiles-daemon": {
