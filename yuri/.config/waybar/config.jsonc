@@ -10,10 +10,7 @@
   "modules-center": ["clock"],
   "modules-right": [
     "mpris",
-    "tray",
-    "pulseaudio",
-    "bluetooth",
-    "network",
+    "group/tray",
     "group/power"
     // "custom/power"
   ],
@@ -73,13 +70,28 @@
     "interval": 1,
     "max-length": 50,
     "tooltip": false,
-    "format": "{artist} - {title}",
-    "format-paused": "<i>{artist} - {title}</i>",
+    "format": "{player_icon} {artist} - {title}",
+    "format-paused": "{player_icon} <i>{artist} - {title}</i>",
+    "player-icons": {
+      "default": "▶",
+      "spotify": ""
+    },
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl next",
     "on-click-middle": "playerctl previous",
     "on-scroll-up": "mb-vol music-up",
     "on-scroll-down": "mb-vol music-down"
+  },
+  "group/tray": {
+    "orientation": "horizontal",
+    "modules": ["group/status", "tray"],
+    "drawer": {
+      "transition-left-to-right": false
+    }
+  },
+  "group/status": {
+    "orientation": "horizontal",
+    "modules": ["pulseaudio", "bluetooth", "network"]
   },
   "tray": {
     "icon-size": 16,
