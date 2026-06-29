@@ -8,12 +8,7 @@
   // Choose the order of the modules
   "modules-left": ["hyprland/workspaces", "custom/record"],
   "modules-center": ["clock"],
-  "modules-right": [
-    "mpris",
-    "group/tray",
-    "group/power"
-    // "custom/power"
-  ],
+  "modules-right": ["mpris", "group/tray", "group/battery"],
   // Modules configuration
   "hyprland/workspaces": {
     "tooltip": false,
@@ -141,11 +136,18 @@
     "max-length": 50,
     "on-click": "footclient nmtui"
   },
-  "group/power": {
+  "group/battery": {
     "orientation": "horizontal",
-    "modules": ["battery", "power-profiles-daemon"],
+    "modules": ["group/battery2", "power-profiles-daemon"],
     "drawer": {
       "transition-left-to-right": false
+    }
+  },
+  "group/battery2": {
+    "orientation": "horizontal",
+    "modules": ["battery", "custom/power"],
+    "drawer": {
+      "transition-left-to-right": true
     }
   },
   "power-profiles-daemon": {
