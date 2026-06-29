@@ -7,7 +7,7 @@
   "spacing": 0, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": ["hyprland/workspaces", "custom/record"],
-  "modules-center": ["clock"],
+  "modules-center": ["group/datetime"],
   "modules-right": ["mpris", "group/tray", "group/battery"],
   // Modules configuration
   "hyprland/workspaces": {
@@ -56,11 +56,36 @@
     "on-click": "mb-record",
     "restart-interval": 1
   },
+  "group/datetime": {
+    "orientation": "horizontal",
+    "modules": ["group/clock", "clock#2"],
+    "drawer": {
+      "transition-left-to-right": false
+    }
+  },
+  "group/clock": {
+    "orientation": "horizontal",
+    "modules": ["clock", "clock#3"],
+    "drawer": {
+      "transition-left-to-right": true
+    }
+  },
+  "clock#2": {
+    "interval": 1,
+    "format": " {:%A, %B %d %Y}  ",
+    "tooltip": false
+  },
   "clock": {
     "interval": 1,
-    "format": "{:%H:%M}",
-    "tooltip-format": "{:%A, %B %d %Y, %R:%S}"
+    "format": "{:%R}",
+    "tooltip": false
   },
+  "clock#3": {
+    "interval": 1,
+    "format": ":{:%S}",
+    "tooltip": false
+  },
+
   "mpris": {
     "interval": 1,
     "max-length": 50,
@@ -147,6 +172,7 @@
     "orientation": "horizontal",
     "modules": ["battery", "custom/power"],
     "drawer": {
+      "click-to-reveal": true,
       "transition-left-to-right": true
     }
   },

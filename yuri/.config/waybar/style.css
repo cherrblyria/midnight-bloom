@@ -91,6 +91,7 @@ tooltip label {
 
 #clock {
   color: @subtext0;
+  padding: 0;
 }
 
 #tray menu {
