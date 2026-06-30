@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-action="${1}"
 sink="@DEFAULT_SINK@"
 source="@DEFAULT_AUDIO_SOURCE@"
 
@@ -12,7 +11,7 @@ _show_music_osd() {
   mb-osd Music "$pct" int "$int"
 }
 
-case "$action" in
+case "$1" in
 raise | up)
   vol_int=$(wpctl get-volume "$sink" | awk '{printf "%d", $2 * 100}')
   [ "$vol_int" -lt 100 ] && wpctl set-volume "$sink" 5%+
@@ -64,7 +63,7 @@ music-lower-fine | music-down-fine)
   exit 0
   ;;
 *)
-  echo "Usage: ${0##*/} {raise|lower|raise-fine|lower-fine|mute|mic-mute|music-raise|music-lower|music-raise-fine|music-lower-fine}"
+  echo "Usage: ${0##*/} { raise | lower | raise-fine | lower-fine | mute | mic-mute | music-raise | music-lower | music-raise-fine | music-lower-fine }"
   exit 1
   ;;
 esac

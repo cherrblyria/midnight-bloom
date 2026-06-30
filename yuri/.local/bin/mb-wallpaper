@@ -61,8 +61,8 @@ function pick_random() {
   echo "${ALL[RANDOM % ${#ALL[@]}]}"
 }
 
-case "${1}" in
-random)
+case "$1" in
+r | random)
   SEARCH_PATH="${WALLPAPER_PATH}"
   if [[ -n $2 ]]; then
     SEARCH_PATH="$(resolve_dir "$2")"
@@ -74,10 +74,14 @@ random)
   SELECTED="$(pick_random "${SEARCH_PATH}")"
   echo "Selected random wallpaper: ${SELECTED}"
   ;;
-get)
+g | get)
   wall_path=$(readlink -f "$HOME/.cache/wallpaper")
   notify-send -h string:x-canonical-private-synchronous:wallpaper "Wallpaper" "$wall_path"
+  echo "$wall_path"
   exit 0
+  ;;
+-h | --help | h | help)
+  echo "Usage: ${0##*/} [ random | get | help ]"
   ;;
 *)
   dir="$(resolve_dir "$1")"

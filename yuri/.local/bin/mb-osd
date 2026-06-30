@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
 
+case $1 in
+-h | --help | h | help)
+  echo "Usage: ${0##*/} { help | <title> <message> [int] [value] }"
+  exit 0
+  ;;
+esac
+
 case $3 in
-  int)
-    notify-send -a osd -h "int:value:$4" -h "string:x-canonical-private-synchronous:osd" "$1" "$2"
-    ;;
-  *)
-    notify-send -a osd -h "string:x-canonical-private-synchronous:osd" "$1" "$2"
-    ;;
+int)
+  notify-send -a osd -h "int:value:$4" -h "string:x-canonical-private-synchronous:osd" "$1" "$2"
+  ;;
+*)
+  notify-send -a osd -h "string:x-canonical-private-synchronous:osd" "$1" "$2"
+  ;;
 esac
