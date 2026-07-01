@@ -13,7 +13,7 @@ function rofi_choose() {
   mkdir -p "${THUMB_DIR}"
 
   # Generate missing thumbs in background — don't block rofi
-  find -L "${dir}" "${find_args[@]}" -print0 |
+  find -L "${dir}" "${find_args[@]}" -not -name '.*' -not -path '*/.*' -print0 |
     xargs -0 -n1 -P4 bash -c '
       src="$1"
       safe="${src//\//_}"; safe="${safe#_}"
@@ -25,7 +25,7 @@ function rofi_choose() {
   # Open rofi immediately — use thumb if ready, else fall back to original
   local selected
   selected=$(
-    find -L "${dir}" "${find_args[@]}" -printf '%P\t%p\n' |
+    find -L "${dir}" "${find_args[@]}" -not -name '.*' -not -path '*/.*' -printf '%P\t%p\n' |
       awk -F'\t' '{print (index($1,"/")>0) "\t" $0}' |
       sort -t$'\t' -k1,1n -k2,2 |
       cut -f2- |
@@ -57,7 +57,7 @@ function resolve_dir() {
 
 function pick_random() {
   local search_path="${1:-$WALLPAPER_PATH}"
-  mapfile -t ALL < <(find -L "${search_path}" -type f -print0 | xargs -0 readlink -f | sort -u)
+  mapfile -t ALL < <(find -L "${search_path}" -type f -not -name '.*' -not -path '*/.*' -print0 | xargs -0 readlink -f | sort -u)
   echo "${ALL[RANDOM % ${#ALL[@]}]}"
 }
 
