@@ -1,6 +1,10 @@
 if status is-login
-    and test (tty) = /dev/tty1
-    exec start-hyprland
+    switch (tty)
+        case /dev/tty1
+            exec mango
+        case /dev/tty2
+            exec start-hyprland
+    end
 end
 
 set -x fish_greeting
