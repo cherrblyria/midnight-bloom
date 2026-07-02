@@ -6,7 +6,7 @@
   "margin": "0",
   "spacing": 0, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": ["hyprland/workspaces", "group/record"],
+  "modules-left": ["ext/workspaces", "group/record"],
   "modules-center": ["group/datetime"],
   "modules-right": ["mpris", "group/tray", "group/battery"],
   // Modules configuration

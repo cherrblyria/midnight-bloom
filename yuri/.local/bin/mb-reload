@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 ## Reload the configuration
-hyprctl reload
-hyprpm reload
+# hyprctl reload
+# hyprpm reload
 makoctl reload
 pkill -SIGUSR2 waybar
-pkill hypridle || true && hypridle &
+# pkill hypridle || true && hypridle &
 
 ## Sync dotfiles
 stow --adopt --no-folding -d "$HOME"/.dotfiles -t "$HOME" yuri
