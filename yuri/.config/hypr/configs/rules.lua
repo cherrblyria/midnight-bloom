@@ -30,6 +30,14 @@ rule({
   move = { "(monitor_w*0.25)", 0 },
 })
 
+rule({
+  name = "picture in picture",
+  match = { class = "(.*)", title = "(?i)\\bpicture[ _-]?in[ _-]?picture\\b" },
+  float = true,
+  pin = true,
+  size = { "(monitor_w*0.5)", "(monitor_h*0.5)" },
+})
+
 ---@param class string
 ---@param workspace number
 local function workspace(class, workspace)

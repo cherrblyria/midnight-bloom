@@ -3,14 +3,17 @@
 pkill rofi || true
 
 case "$1" in
-clipboard)
+c | clipboard)
   cliphist list | rofi -dmenu -no-show-icons -display-columns 2 -p ' ' | cliphist decode | wl-copy
   ;;
-emoji)
+e | emoji)
   rofimoji -a copy --use-icons -r '󰞅 '
   ;;
-calc)
+calc | calculator)
   rofi -show calc -modi calc -no-show-match -no-sort
+  ;;
+-h | --help | h | help)
+  echo "Usage: ${0##*/} [ clipboard | emoji | calc | help ]"
   ;;
 *)
   rofi -show drun

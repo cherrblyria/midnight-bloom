@@ -4,6 +4,7 @@ if status is-login
 end
 
 set -x fish_greeting
+set -x EDITOR nvim
 
 # Zoxide
 eval "$(zoxide init fish)"
