@@ -1,7 +1,7 @@
 <div align=center>
   <h2>𓄼 ╱ ，× 𝐌𝐢𝐝𝐧𝐢𝐠𝐡𝐭 𝐁𝐥𝐨𝐨𝐦  ˟ ˚☾ ⌁</h2>
   
-  <h3>“Cozy Catppuccin Mocha Hyprland Setup”</h3>
+  <h3>“Cozy Vim-ish MangoWM Setup”</h3>
 
   <img src="https://www.shieldcn.dev/github/last-commit/cherrblyria/midnight-bloom.svg?variant=secondary&size=sm&theme=gray" alt="Last commit" /> <img src="https://www.shieldcn.dev/github/commits/cherrblyria/midnight-bloom.svg?variant=secondary&size=sm&theme=gray" alt="Commits" /> <img src="https://www.shieldcn.dev/github/stars/cherrblyria/midnight-bloom.svg?variant=secondary&size=sm&theme=gray" alt="GitHub Stars" /> <img src="https://www.shieldcn.dev/github/release/cherrblyria/midnight-bloom.svg?size=sm&theme=gray" alt="Release" />
   
@@ -18,8 +18,9 @@ MangoWM migration will be in `mangowm` branch.\
 
 <h3>Notable Things</h3>
 
+- Vim-like binding: I primary use `keymode` (submap) instead of normal keybinds
 - ColorScheme: **Catppuccin Mocha**
-- Compositor: **Hyprland**
+- Compositor: **MangoWM**
 - Bar: **Waybar**
 - Launcher: **Rofi**
 - Terminal: **Foot**
@@ -29,7 +30,7 @@ MangoWM migration will be in `mangowm` branch.\
   - **NeoVim** (lazyvim): TUI
 - Terminal First: **Use TUI programs when possible**
 
-### Screenshots
+### Screenshots (out dated)
 
 | ![](/assets/clean.png) | ![](/assets/monkeytype.png) |
 | --- | --- |
