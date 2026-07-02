@@ -9,6 +9,13 @@
 
 </div>
 
+<h2>PLS READ</h2>
+
+I'm currently working on migrating to [MangoWM](https://mangowm.github.io/).\
+[Hyprland](https://hypr.land/)'s stuff will be unmaintained, and archive in `hyprland` branch.\
+MangoWM migration will be in `mangowm` branch.\
+`main` branch will be the latest stable version.
+
 <h3>Notable Things</h3>
 
 - ColorScheme: **Catppuccin Mocha**
@@ -39,11 +46,9 @@ cd ~/.dotfiles
 stow --no-folding --adopt yuri
 ```
 
-Or you can download the source code from [latest release](https://github.com/cherrblyria/midnight-bloom/releases/latest) then extract it and stow the config just like above.
-
+Or you can download the source code from [latest release](https://github.com/cherrblyria/midnight-bloom/releases/latest) then extract it and stow the config just like above.\
 I'll make a new release monthly and when it's stable.
 
 #### wlogout
 
 for `wlogout` you *must* have to use [my fork](https://github.com/cherrblyria/wlogout) instead of the original one for icon to display correctly
-
