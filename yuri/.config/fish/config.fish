@@ -109,7 +109,7 @@ abbr --add clnlog 'sudo journalctl --vacuum-time=7d'
 abbr --add lpkg 'paru -Q | fzf -e'
 abbr --add lupkg 'paru -Qet | fzf -e'
 abbr --add clnpkg 'paru -Rns (paru -Qtdq)'
-abbr --add rmpkg 'paru -Rns (paru -Qetq | fzf -e)'
+abbr --add rmpkg 'paru -Rns (paru -Qetq | fzf -e -m)'
 
 abbr --add clnt 'gio trash --empty'
 abbr --add def 'find . -type f -empty -delete'

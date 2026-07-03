@@ -1,19 +1,19 @@
 {
   "text" : "󰌾",
-  "action" : "loginctl lock-session",
   "label" : "lock",
+  "action" : "loginctl lock-session",
   "keybind" : "l"
 }
 {
   "text" : "󰍃",
-  "action" : "mmsg dispatch quit",
   "label" : "logout",
+  "action" : "mmsg dispatch quit",
   "keybind" : "e"
 }
 {
   "text" : "󰒲",
-  "action" : "systemctl suspend",
   "label" : "suspend",
+  "action" : "systemctl suspend",
   "keybind" : "u"
 }
 {
@@ -24,13 +24,13 @@
 }
 {
   "text" : "⏻",
-  "action" : "systemctl poweroff",
   "label" : "shutdown",
+  "action" : "systemctl poweroff",
   "keybind" : "s"
 }
 {
   "text" : "",
-  "action" : "reboot",
-  "label" : "systemctl reboot",
+  "label" : "reboot",
+  "action" : "systemctl reboot",
   "keybind" : "r"
 }
