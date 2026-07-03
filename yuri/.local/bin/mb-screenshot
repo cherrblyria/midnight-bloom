@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+mode=$1
+dir=$HOME/Pictures/Screenshots
+mkdir -p "$dir"
+file="$dir/Screenshot_$(date +%Y%m%d_%H%M%S).png"
+
+get_mon_geom() {
+  mon=$(mmsg get focusing-client 2>/dev/null | jq -r '.monitor // empty')
+  [ -z "$mon" ] && mon=$(mmsg get all-monitors | jq -r '.monitors[0].name')
+  mmsg get monitor "$mon" | jq -r '"\(.x),\(.y) \(.width)x\(.height)"'
+}
+
+case "$mode" in
+output)
+  geom=$(get_mon_geom)
+  ;;
+window)
+  client=$(mmsg get focusing-client 2>/dev/null)
+  if echo "$client" | jq -e '.error' >/dev/null 2>&1; then
+    geom=$(get_mon_geom) # fallback: no window focused, shoot whole output instead
+  else
+    geom=$(echo "$client" | jq -r '"\(.x),\(.y) \(.width)x\(.height)"')
+  fi
+  ;;
+region)
+  geom=$(slurp)
+  ;;
+*)
+  echo "Usage: mb-screenshot <output|window|region>"
+  exit 1
+  ;;
+esac
+
+[ -z "$geom" ] && exit 1
+
+grim -g "$geom" - | tee "$file" | wl-copy
+notify-send "Screenshot saved" "$file"

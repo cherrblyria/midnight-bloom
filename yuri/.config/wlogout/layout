@@ -1,19 +1,19 @@
 {
   "text" : "󰌾",
-  "action" : "loginctl lock-session",
   "label" : "lock",
+  "action" : "loginctl lock-session",
   "keybind" : "l"
 }
 {
   "text" : "󰍃",
-  "action" : "hyprshutdown -t 'Logging off...'",
   "label" : "logout",
+  "action" : "mmsg dispatch quit",
   "keybind" : "e"
 }
 {
   "text" : "󰒲",
-  "action" : "systemctl suspend",
   "label" : "suspend",
+  "action" : "systemctl suspend",
   "keybind" : "u"
 }
 {
@@ -24,13 +24,13 @@
 }
 {
   "text" : "⏻",
-  "action" : "hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'",
   "label" : "shutdown",
+  "action" : "systemctl poweroff",
   "keybind" : "s"
 }
 {
   "text" : "",
-  "action" : "hyprshutdown -t 'Restarting...' --post-cmd 'reboot'",
   "label" : "reboot",
+  "action" : "systemctl reboot",
   "keybind" : "r"
 }

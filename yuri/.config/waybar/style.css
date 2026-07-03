@@ -59,6 +59,10 @@ tooltip label {
   padding: 1px 3px;
 }
 
+#window {
+  color: @overlay0;
+}
+
 #workspaces button {
   color: @overlay0;
   transition: background-color 0.3s ease-in-out;
