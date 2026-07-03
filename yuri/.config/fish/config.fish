@@ -2,8 +2,6 @@ if status is-login
     switch (tty)
         case /dev/tty1
             exec mango
-        case /dev/tty2
-            exec start-hyprland
     end
 end
 
