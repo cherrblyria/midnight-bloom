@@ -4,6 +4,7 @@
 makoctl reload
 # pkill -SIGUSR2 waybar
 pkill waybar && waybar &
+pkill swayidle && swayidle &
 mmsg dispatch reload_config
 
 ## Sync dotfiles
