@@ -81,6 +81,11 @@
     "dark": "Catppuccin Mocha",
   },
   "languages": {
+    "QML": {
+      "completions": {
+        "lsp": true,
+      },
+    },
     "Shell Script": {
       "formatter": {
         "external": {
