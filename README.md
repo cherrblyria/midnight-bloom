@@ -30,7 +30,7 @@
 | ![](/assets/clean.png) | ![](/assets/monkeytype.png) |
 | --- | --- |
 | ![](/assets/fetch.png) | ![](/assets/terminals.png) |
-| ![](/assets/lockscreen.png) |  |
+| ![](/assets/wlogout.png) | ![](/assets/lockscreen.png) |
 
 ### How to get this?
 
