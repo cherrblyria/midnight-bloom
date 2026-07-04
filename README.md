@@ -11,8 +11,7 @@
 
 <h2>PLS READ</h2>
 
-[Hyprland](https://hypr.land/)'s stuff is unmaintained as I moved to [MangoWM](https://mangowm.github.io/), and archive in `hyprland` branch.\
-
+[Hyprland](https://hypr.land/)'s stuff is unmaintained as I moved to [MangoWM](https://mangowm.github.io/), and archive in `hyprland` branch.
 
 <h3>Notable Things</h3>
 
