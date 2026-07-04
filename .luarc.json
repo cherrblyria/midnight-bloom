@@ -1,9 +1,4 @@
 {
-  "workspace": {
-    "library": ["/usr/share/hypr/stubs"]
-  },
   "editor.tabSize": 2,
-    "diagnostics.globals": [
-        "vim"
-    ]
+  "diagnostics.globals": ["vim"]
 }
