@@ -1,7 +1,7 @@
 {
   "text" : "󰌾",
   "label" : "lock",
-  "action" : "loginctl lock-session",
+  "action" : "mb-lock",
   "keybind" : "l"
 }
 {

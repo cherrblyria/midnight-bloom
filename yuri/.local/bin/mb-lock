@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+mb-screenshot output -d /tmp -f lock.png -s
+swaylock --image /tmp/lock.png
+rm /tmp/lock.png
