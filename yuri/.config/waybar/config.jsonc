@@ -3,15 +3,14 @@
   "reload_style_on_change": true,
   "height": 30, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
-  "margin": "0",
+  "margin": 0,
   "spacing": 0, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": ["dwl/window", "ext/workspaces", "group/record"],
+  "modules-left": ["ext/workspaces", "dwl/window", "group/record"],
   "modules-center": ["group/datetime"],
   "modules-right": ["mpris", "group/tray", "group/battery"],
   // Modules configuration
   "dwl/window": {
-    "tooltip": false,
     "format": "[{layout}]"
   },
   "ext/workspaces": {

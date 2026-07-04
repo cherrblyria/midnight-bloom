@@ -2,7 +2,8 @@
 mode=$1
 dir=$HOME/Pictures/Screenshots
 mkdir -p "$dir"
-file="$dir/Screenshot_$(date +%Y%m%d_%H%M%S).png"
+filename="Screenshot_$(date +%Y%m%d_%H%M%S).png"
+file="$dir/$filename"
 
 get_mon_geom() {
   mon=$(mmsg get focusing-client 2>/dev/null | jq -r '.monitor // empty')
@@ -34,4 +35,4 @@ esac
 [ -z "$geom" ] && exit 1
 
 grim -g "$geom" - | tee "$file" | wl-copy
-notify-send "Screenshot saved" "$file"
+notify-send "Screenshot saved" "$file" -i "$file"
