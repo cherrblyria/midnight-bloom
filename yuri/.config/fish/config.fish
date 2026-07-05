@@ -48,6 +48,8 @@ alias tch touch
 alias mk touch
 alias mkd mkdir
 
+alias clock "date +%H:%M:%S"
+
 # Dotfiles
 alias dot 'cd $HOME/.dotfiles'
 alias ldot 'cd $HOME/.dotfiles && lazygit && cd -'
