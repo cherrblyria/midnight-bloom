@@ -44,7 +44,7 @@ button {
   text-decoration-color: @text;
   color: @text;
   background-color: @base;
-  border-radius: 0;
+  border-radius: 0px;
   border-color: @surface0;
   border-style: solid;
   border-width: 1px;
@@ -59,11 +59,12 @@ button:hover {
 
 #lock {
   margin: 50px 0px 0px 50px;
-  margin: 50px 0px 0px 50px;
+  border-radius: 12px 0 0 0;
 }
 
 #logout {
   margin: 0px 0px 50px 50px;
+  border-radius: 0 0 0 12px;
 }
 
 #suspend {
@@ -72,14 +73,52 @@ button:hover {
 
 #shutdown {
   margin: 50px 50px 0px 0px;
+  border-radius: 0 12px 0 0;
 }
 
 #reboot {
   margin: 0px 50px 50px 0px;
+  border-radius: 0 0 12px 0;
 }
 
 #hibernate {
   margin: 0px 0px 50px 0px;
+}
+
+#lock:active,
+#lock:hover,
+#lock:focus {
+  border-radius: 50px 50px 0 50px;
+}
+
+#logout:active,
+#logout:hover,
+#logout:focus {
+  border-radius: 50px 0 50px 50px;
+}
+
+#suspend:active,
+#suspend:hover,
+#suspend:focus {
+  border-radius: 50px 50px 0 0;
+}
+
+#shutdown:active,
+#shutdown:hover,
+#shutdown:focus {
+  border-radius: 50px 50px 50px 0;
+}
+
+#reboot:active,
+#reboot:hover,
+#reboot:focus {
+  border-radius: 0 50px 50px 50px;
+}
+
+#hibernate:active,
+#hibernate:hover,
+#hibernate:focus {
+  border-radius: 0 0 50px 50px;
 }
 
 #lock:active,

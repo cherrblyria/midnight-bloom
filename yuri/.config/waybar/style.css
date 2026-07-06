@@ -31,16 +31,15 @@
     Rubik,
     CaskaydiaCove Nerd Font Propo,
     Google Sans,
-    Noto Sans Thai,
     sans-serif;
   font-size: 15px;
-  border-radius: 0em;
 }
 
 window#waybar {
   background-color: alpha(@base, 0.999);
-  border-bottom: 1px solid #232332;
+  /*border-bottom: 1px solid #232332;*/
   color: @text;
+  border-radius: 12px;
 }
 
 window#waybar > box {
@@ -60,6 +59,7 @@ tooltip label {
   padding: 1px 3px;
 }
 
+#layout,
 #window {
   color: @overlay0;
 }
@@ -75,6 +75,7 @@ tooltip label {
 }
 
 #workspaces button.active {
+  font-weight: bold;
   color: @mauve;
 }
 
@@ -118,7 +119,7 @@ tooltip label {
 #tray menu {
   background-color: @base;
   border: 1px solid @surface0;
-  padding: 2px 0;
+  border-radius: 12px;
 }
 
 #tray menu menuitem {
@@ -128,6 +129,16 @@ tooltip label {
 
 #tray menu menuitem:hover {
   background-color: @surface2;
+}
+
+#tray menu menuitem:first-child {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+#tray menu menuitem:last-child {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 #pulseaudio {
