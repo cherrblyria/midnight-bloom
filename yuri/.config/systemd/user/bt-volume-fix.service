@@ -1,9 +1,0 @@
-[Unit]
-Description=Fix bluetooth volume on connect
-
-[Service]
-ExecStart=%h/.local/bin/bt-volume-fix.sh
-Restart=always
-
-[Install]
-WantedBy=default.target

@@ -64,7 +64,7 @@
   },
   "clock#2": {
     "interval": 1,
-    "format": "  {:%A, %B %d %Y}  ",
+    "format": " {:%A, %B %d %Y} ",
     "tooltip": false
   },
   "clock": {

@@ -1,6 +1,6 @@
 configuration {
   modes: "drun,run";
-  font: "CaskaydiaCove Nerd Font 12";
+  font: "Rubik 12";
   fixed-num-lines: false;
   show-icons: true;
   terminal: "footclient";
