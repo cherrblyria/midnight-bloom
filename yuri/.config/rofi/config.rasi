@@ -32,4 +32,4 @@ configuration {
   }
 }
 
-@import "catppuccin/default"
+@theme "midnight-bloom"

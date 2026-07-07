@@ -13,4 +13,4 @@ stow --adopt --no-folding -d "$HOME"/.dotfiles -t "$HOME" yuri
 ## Make scripts executable
 chmod +x "$HOME"/.dotfiles/yuri/.local/bin/*
 
-notify-send 'Reload' 'Configuration reloaded'
+notify-send 'Reloaded configuration'

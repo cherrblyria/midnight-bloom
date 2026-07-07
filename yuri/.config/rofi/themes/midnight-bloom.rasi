@@ -1,4 +1,4 @@
-@import "mocha"
+@import "catppuccin/mocha"
 
 * {
   active-background:            @background;
@@ -21,14 +21,14 @@
   urgent-foreground:            @red;
 
   background-color:             transparent;
-  spacing:                      2;
 }
 
 element {
-  padding: 2px ;
-  cursor:  pointer;
-  spacing: 5px ;
-  border:  0;
+  border-radius: 7px;
+  padding:       2px;
+  cursor:        pointer;
+  spacing:       5px;
+  border:        0;
 }
 
 element alternate.normal,
@@ -79,8 +79,9 @@ element-icon {
 }
 
 window {
-  padding:          5px;
   background-color: @background;
+  border-radius:    12px;
+  padding:          6px;
   border:           1px;
 }
 
@@ -99,20 +100,20 @@ textbox {
 }
 
 listview {
-  padding:      2px 0px 0px ;
+  padding:      2px 0px 0px;
   scrollbar:    true;
   border-color: @separatorcolor;
-  spacing:      2px ;
   fixed-height: 0;
   border:       0;
+  spacing:      0;
 }
 
 scrollbar {
-  width:        4px ;
-  padding:      0;
-  handle-width: 4px ;
-  border:       0;
-  handle-color: @normal-foreground;
+  width:         0;
+  handle-width:  0;
+  padding:       0;
+  border:        0;
+  handle-color:  @normal-foreground;
 }
 
 sidebar {
@@ -147,10 +148,11 @@ textbox-num-sep {
 }
 
 inputbar {
-  padding:    1px ;
-  spacing:    0px ;
-  text-color: @normal-foreground;
-  children:   [ "prompt","entry","num-filtered-rows","textbox-num-sep","num-rows","case-indicator" ];
+  padding:       1px;
+  spacing:       0px;
+  border-radius: 12px;
+  text-color:    @normal-foreground;
+  children:      [ "prompt","entry","num-filtered-rows","textbox-num-sep","num-rows","case-indicator" ];
 }
 
 case-indicator {

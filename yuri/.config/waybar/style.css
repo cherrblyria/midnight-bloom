@@ -33,6 +33,7 @@
     Google Sans,
     sans-serif;
   font-size: 15px;
+  border-radius: 12px;
 }
 
 window#waybar {
@@ -49,6 +50,7 @@ window#waybar > box {
 tooltip {
   background-color: @base;
   border: 1px solid @surface0;
+  border-radius: 12px;
 }
 
 tooltip label {

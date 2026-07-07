@@ -165,18 +165,6 @@ for  = "unix"
 run  = 'shell "$SHELL" --block'
 desc = "Open $SHELL here"
 
-# If you also using Yazi on Windows:
-[[mgr.prepend_keymap]]
-on   = "!"
-for  = "windows"
-run  = 'shell "powershell.exe" --block'
-desc = "Open PowerShell here"
-
-[[mgr.prepend_keymap]]
-on   = "<C-g>"
-run  = 'shell -- pkill rofi || true && rofi -theme preview -show filebrowser -filebrowser-command "ya emit reveal" -filebrowser-directory "$(pwd)"'
-desc = "Grid view"
-
 [tasks]
 
 keymap = [
