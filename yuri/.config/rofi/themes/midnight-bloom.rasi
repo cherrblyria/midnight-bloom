@@ -1,67 +1,117 @@
-@import "catppuccin/mocha"
-
 * {
-  active-background:            @background;
-  active-foreground:            @blue;
-  background:                   @base;
-  border-color:                 @surface1;
-  foreground:                   @text;
-  lightbg:                      @mantle;
-  lightfg:                      @text;
-  normal-background:            @background;
-  normal-foreground:            @foreground;
-  selected-active-background:   @blue;
-  selected-active-foreground:   @background;
-  selected-normal-background:   @lightfg;
-  selected-normal-foreground:   @lightbg;
-  selected-urgent-background:   @red;
-  selected-urgent-foreground:   @background;
-  separatorcolor:               @surface1;
-  urgent-background:            @background;
-  urgent-foreground:            @red;
+  rosewater: #f5e0dc;
+  flamingo: #f2cdcd;
+  pink: #f5c2e7;
+  mauve: #cba6f7;
+  red: #f38ba8;
+  maroon: #eba0ac;
+  peach: #fab387;
+  yellow: #f9e2af;
+  green: #a6e3a1;
+  teal: #94e2d5;
+  sky: #89dceb;
+  sapphire: #74c7ec;
+  blue: #89b4fa;
+  lavender: #b4befe;
+  text: #cdd6f4;
+  subtext1: #bac2de;
+  subtext0: #a6adc8;
+  overlay2: #9399b2;
+  overlay1: #7f849c;
+  overlay0: #6c7086;
+  surface2: #585b70;
+  surface1: #45475a;
+  surface0: #313244;
+  base: #1e1e2e;
+  mantle: #181825;
+  crust: #11111b;
 
-  background-color:             transparent;
+  rosewater-alt: #f5e0dcbb;
+  flamingo-alt: #f2cdcdbb;
+  pink-alt: #f5c2e7bb;
+  mauve-alt: #cba6f7bb;
+  red-alt: #f38ba8bb;
+  maroon-alt: #eba0acbb;
+  peach-alt: #fab387bb;
+  yellow-alt: #f9e2afbb;
+  green-alt: #a6e3a1bb;
+  teal-alt: #94e2d5bb;
+  sky-alt: #89dcebbb;
+  sapphire-alt: #74c7ecbb;
+  blue-alt: #89b4fabb;
+  lavender-alt: #b4befebb;
+  text-alt: #cdd6f4bb;
+  subtext1-alt: #bac2debb;
+  subtext0-alt: #a6adc8bb;
+  overlay2-alt: #9399b2bb;
+  overlay1-alt: #7f849cbb;
+  overlay0-alt: #6c7086bb;
+  surface2-alt: #585b70bb;
+  surface1-alt: #45475abb;
+  surface0-alt: #313244bb;
+  base-alt: #1e1e2ebb;
+  mantle-alt: #181825bb;
+  crust-alt: #11111bbb;
+
+  background-color: transparent;
+}
+
+button {
+  cursor:     pointer;
+  spacing:    0;
+  text-color: @text;
+}
+
+button selected {
+  background-color: @text;
+  text-color:       @mantle;
 }
 
 element {
-  border-radius: 7px;
-  padding:       2px;
+  border-radius: 13px;
   cursor:        pointer;
-  spacing:       5px;
-  border:        0;
-}
-
-element alternate.normal,
-element normal.normal {
-  background-color: @normal-background;
-  text-color:       @normal-foreground;
-}
-
-element alternate.urgent,
-element normal.urgent {
-  background-color: @urgent-background;
-  text-color:       @urgent-foreground;
+  padding:       8px;
+  spacing:       8px;
 }
 
 element alternate.active,
 element normal.active {
-  background-color: @active-background;
-  text-color:       @active-foreground;
+  background-color: @base;
+  text-color:       @blue;
 }
 
-element selected.normal {
-  background-color: @selected-normal-background;
-  text-color:       @selected-normal-foreground;
+element alternate.normal,
+element normal.normal {
+  background-color: @base;
+  text-color:       @text;
 }
 
-element selected.urgent {
-  background-color: @selected-urgent-background;
-  text-color:       @selected-urgent-foreground;
+element alternate.urgent,
+element normal.urgent {
+  background-color: @base;
+  text-color:       @red;
 }
 
 element selected.active {
-  background-color: @selected-active-background;
-  text-color:       @selected-active-foreground;
+  background-color: @blue;
+  text-color:       @base;
+}
+
+element selected.normal {
+  background-color: @text;
+  text-color:       @mantle;
+}
+
+element selected.urgent {
+  background-color: @red;
+  text-color:       @base;
+}
+
+element-icon {
+  background-color: transparent;
+  cursor:           inherit;
+  size:             1.0em;
+  text-color:       inherit;
 }
 
 element-text {
@@ -71,105 +121,104 @@ element-text {
   text-color:       inherit;
 }
 
-element-icon {
-  background-color: transparent;
-  size:             1.0em;
-  cursor:           inherit;
-  text-color:       inherit;
+entry {
+  background-color:  @base-alt;
+  border-radius:     0px 36px 36px 0px;
+  cursor:            text;
+  padding:           10px 10px 10px 0;
+  placeholder:       "Search";
+  placeholder-color: @overlay0;
+  spacing:           0;
+  text-color:        @text;
 }
 
-window {
-  background-color: @background;
-  border-radius:    12px;
-  padding:          6px;
-  border:           1px;
+inputbar {
+  background-color: transparent;
+  background-image: url("~/.cache/rofi-bg/current.jpg", width);
+  background-position: center;
+  border-radius:    13px;
+  children:         [ "warp", "warp-1"];
+  orientation:      horizontal;
+  padding:          100px 60px;
+  spacing:          5px;
+  text-color:       @text;
+}
+
+listview {
+  border-color: @surface1;
+  dynamic:      true;
+  orientation:  vertical;
+  scrollbar:    false;
+  spacing:      5px;
+  lines:        8;
+  columns:      2;
 }
 
 mainbox {
+  padding:      0;
+  spacing:      5px;
   children: [ "inputbar", "message", "listview" ];
 }
 
 message {
-  padding:      1px ;
+  border:       0;
   border-color: @surface1;
-  border:       0;
-}
-
-textbox {
-  text-color: @foreground;
-}
-
-listview {
-  padding:      2px 0px 0px;
-  scrollbar:    true;
-  border-color: @separatorcolor;
-  fixed-height: 0;
-  border:       0;
-  spacing:      0;
-}
-
-scrollbar {
-  width:         0;
-  handle-width:  0;
-  padding:       0;
-  border:        0;
-  handle-color:  @normal-foreground;
-}
-
-sidebar {
-  border:       0px;
-}
-
-button {
-  cursor:     pointer;
-  spacing:    0;
-  text-color: @normal-foreground;
-}
-
-button selected {
-  background-color: @selected-normal-background;
-  text-color:       @selected-normal-foreground;
+  padding:      1px;
 }
 
 num-filtered-rows {
-  expand:     false;
-  text-color: @overlay0;
+  background-color: @base-alt;
+  padding:          10px 5px 10px 10px;
+  text-color:       @overlay0;
 }
 
 num-rows {
-  expand:     false;
-  text-color: @overlay0;
-}
-
-textbox-num-sep {
-  expand:     false;
-  str:        "/";
-  text-color: @overlay0;
-}
-
-inputbar {
-  padding:       1px;
-  spacing:       0px;
-  border-radius: 12px;
-  text-color:    @normal-foreground;
-  children:      [ "prompt","entry","num-filtered-rows","textbox-num-sep","num-rows","case-indicator" ];
-}
-
-case-indicator {
-  spacing:    0;
-  text-color: @normal-foreground;
-}
-
-entry {
-  text-color:        @normal-foreground;
-  cursor:            text;
-  spacing:           0;
-  padding:           0 0.2em;
-  placeholder-color: @overlay0;
-  placeholder:       "Search";
+  background-color: @base-alt;
+  expand:           false;
+  padding:          10px 10px 10px 5px;
+  text-color:       @overlay0;
 }
 
 prompt {
-  spacing:    0;
-  text-color: @normal-foreground;
+  background-color: @base-alt;
+  border-radius:    36px 0px 0px 36px;
+  padding:          10px 0 10px 10px;
+  spacing:          0;
+  text-color:       @text;
+}
+
+textbox {
+  text-color: @text;
+}
+
+textbox-num-sep {
+  background-color: @base-alt;
+  expand:           false;
+  padding:          10px 0;
+  str:              "/";
+  text-color:       @overlay0;
+}
+
+warp {
+  border-radius: 36px;
+  children:      ["prompt","entry"];
+  expand:        true;
+  orientation:   horizontal;
+  spacing:       0;
+}
+
+warp-1 {
+  border-radius: 36px;
+  children:      ["num-filtered-rows","textbox-num-sep","num-rows"];
+  expand:        false;
+  orientation:   horizontal;
+  spacing:       0;
+}
+
+window {
+  background-color: @mantle;
+  border:           1px;
+  border-color:     @surface0;
+  border-radius:    18px;
+  padding:          5px;
 }
