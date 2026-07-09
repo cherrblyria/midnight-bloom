@@ -48,6 +48,8 @@ alias tch touch
 alias mk touch
 alias mkd mkdir
 
+alias clock "date +%H:%M:%S"
+
 # Dotfiles
 alias dot 'cd $HOME/.dotfiles'
 alias ldot 'cd $HOME/.dotfiles && lazygit && cd -'
@@ -63,6 +65,7 @@ alias gp 'git push'
 alias gl 'git pull'
 alias gb 'git branch'
 alias gc 'git checkout'
+alias gcl 'git clone'
 alias gm 'git merge'
 alias gd 'git diff'
 alias gst 'git status'

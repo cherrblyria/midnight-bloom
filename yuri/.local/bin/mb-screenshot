@@ -32,6 +32,8 @@ done
 mkdir -p "$dir"
 file="$dir/$filename"
 
+notify() { $silent || notify-send "Screenshot saved" "$file" -i "$file"; }
+
 get_mon_geom() {
   mon=$(mmsg get focusing-client 2>/dev/null | jq -r '.monitor // empty')
   [ -z "$mon" ] && mon=$(mmsg get all-monitors | jq -r '.monitors[0].name')
@@ -41,25 +43,36 @@ get_mon_geom() {
 case "$mode" in
 output)
   geom=$(get_mon_geom)
+  [ -z "$geom" ] && exit 1
+  grim -g "$geom" - | tee "$file" | wl-copy
+  notify
   ;;
 window)
   client=$(mmsg get focusing-client 2>/dev/null)
   if echo "$client" | jq -e '.error' >/dev/null 2>&1; then
-    geom=$(get_mon_geom) # fallback: no window focused, shoot whole output instead
+    geom=$(get_mon_geom)
   else
     geom=$(echo "$client" | jq -r '"\(.x),\(.y) \(.width)x\(.height)"')
   fi
+  [ -z "$geom" ] && exit 1
+  grim -g "$geom" - | tee "$file" | wl-copy
+  notify
   ;;
 region)
-  geom=$(slurp)
+  pipe=$(mktemp -u).fifo
+  mkfifo "$pipe"
+  wayfreeze --after-freeze-timeout 100 --after-freeze-cmd "echo > $pipe" &
+  wayfreeze_pid=$!
+  read -r <"$pipe"
+  geometry=$(slurp -d)
+  kill "$wayfreeze_pid" 2>/dev/null
+  rm -f "$pipe"
+  [ -z "$geometry" ] && exit 1
+  grim -g "$geometry" - | tee "$file" | wl-copy
+  notify
   ;;
 *)
   echo "Usage: mb-screenshot <output|window|region>"
   exit 1
   ;;
 esac
-
-[ -z "$geom" ] && exit 1
-
-grim -g "$geom" - | tee "$file" | wl-copy
-$silent || notify-send "Screenshot saved" "$file" -i "$file"

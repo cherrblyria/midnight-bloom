@@ -1,9 +1,9 @@
-font=CaskaydiaCove Nerd Font 11
+font=Rubik 11
 background-color=#1e1e2e
 text-color=#cdd6f4
 border-color=#45475a
 progress-color=over #313244
-border-radius=0
+border-radius=12
 border-size=1
 margin=0,0,5,0
 outer-margin=5
@@ -12,6 +12,7 @@ height=500
 width=410
 icons=1
 max-icon-size=128
+anchor=top-right
 
 [urgency=low]
 default-timeout=3000

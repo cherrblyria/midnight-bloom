@@ -2,9 +2,12 @@
 
 WALLPAPER_PATH="$HOME/Pictures/Wallpapers"
 THUMB_DIR="$HOME/.cache/wallpaper-thumbs"
+ROFI_BG_DIR="$HOME/.cache/rofi-bg"
 
-function rofi_choose() {
-  pkill rofi || true
+notify() { notify-send -t 10000 -h string:x-canonical-private-synchronous:wallpaper "$@"; }
+
+rofi_choose() {
+  pkill rofi 2>/dev/null || true
 
   local dir
   dir="$(realpath "$1")"
@@ -12,91 +15,104 @@ function rofi_choose() {
 
   mkdir -p "${THUMB_DIR}"
 
-  # Generate missing thumbs in background — don't block rofi
   find -L "${dir}" "${find_args[@]}" -not -name '.*' -not -path '*/.*' -print0 |
-    xargs -0 -n1 -P4 bash -c '
-      src="$1"
-      safe="${src//\//_}"; safe="${safe#_}"
-      thumb="'"${THUMB_DIR}"'/${safe}.jpg"
-      [[ -f "$thumb" && ! "$src" -nt "$thumb" ]] && exit 0
-      magick "$src"[0] -resize 320x180^ -gravity center -extent 320x180 "$thumb" 2>/dev/null
+    xargs -0 -P4 bash -c '
+      for src; do
+        safe="${src//\//_}"; safe="${safe#_}"
+        thumb="'"${THUMB_DIR}"'/${safe}.jpg"
+        [[ -f "$thumb" && ! "$src" -nt "$thumb" ]] && continue
+        magick "$src"[0] -resize 320x180^ -gravity center -extent 320x180 "$thumb" 2>/dev/null
+      done
     ' _ &
 
-  # Open rofi immediately — use thumb if ready, else fall back to original
   local selected
   selected=$(
     find -L "${dir}" "${find_args[@]}" -not -name '.*' -not -path '*/.*' -printf '%P\t%p\n' |
       awk -F'\t' '{print (index($1,"/")>0) "\t" $0}' |
       sort -t$'\t' -k1,1n -k2,2 |
       cut -f2- |
-      while IFS=$'\t' read -r rel abs; do
-        safe="${abs//\//_}"
-        safe="${safe#_}"
-        thumb="${THUMB_DIR}/${safe}.jpg"
-        [[ -f "$thumb" ]] && icon="$thumb" || icon="$abs"
-        printf '%s\0icon\x1f%s\n' "$rel" "$icon"
-      done |
+      awk -F'\t' -v thumb_dir="${THUMB_DIR}" '
+      {
+        rel = $1; abs = $2;
+        safe = abs;
+        gsub("/", "_", safe);
+        sub("^_", "", safe);
+        thumb = thumb_dir "/" safe ".jpg";
+
+        # Always pointing to the thumb path prevents Rofi from freezing on massive raw images
+        printf "%s\0icon\x1f%s\n", rel, thumb
+      }' |
       rofi -dmenu -p "󰸉 " -show-icons -theme wallpaper
   )
 
-  [[ -z "$selected" ]] && {
-    echo ""
-    return
-  }
+  [[ -z "$selected" ]] && return
   echo "${dir}/${selected}"
 }
 
-function resolve_dir() {
+resolve_dir() {
   local input="$1"
-  if [[ -d "$input" ]]; then
-    echo "$input"
-  elif [[ -d "${WALLPAPER_PATH}/$input" ]]; then
-    echo "${WALLPAPER_PATH}/$input"
-  fi
+  [[ -d "$input" ]] && echo "$input" && return
+  [[ -d "${WALLPAPER_PATH}/$input" ]] && echo "${WALLPAPER_PATH}/$input"
 }
 
-function pick_random() {
+pick_random() {
   local search_path="${1:-$WALLPAPER_PATH}"
-  mapfile -t ALL < <(find -L "${search_path}" -type f -not -name '.*' -not -path '*/.*' -print0 | xargs -0 readlink -f | sort -u)
-  echo "${ALL[RANDOM % ${#ALL[@]}]}"
+  find -L "${search_path}" -type f -not -name '.*' -not -path '*/.*' | shuf -n 1 | xargs readlink -f
 }
 
-case "$1" in
-r | random)
-  SEARCH_PATH="${WALLPAPER_PATH}"
-  if [[ -n $2 ]]; then
-    SEARCH_PATH="$(resolve_dir "$2")"
-    if [[ -z "$SEARCH_PATH" ]]; then
-      echo "Subdirectory not found: $2"
-      exit 1
+set_wallpaper() {
+  local resolved
+  resolved="$(readlink -f "$1")"
+
+  notify "Symlinking wallpaper..." "${resolved}"
+  ln -sf "${resolved}" "$HOME/.cache/wallpaper"
+
+  notify "Setting wallpaper..." "${resolved}"
+  awww img "${resolved}" --transition-type fade --transition-duration 1 --transition-fps 30
+
+  notify "Caching rofi bg..." "${resolved}"
+  mkdir -p "${ROFI_BG_DIR}"
+
+  local safe="${resolved//\//_}"
+  safe="${safe#_}"
+  local cached="${ROFI_BG_DIR}/${safe}.jpg"
+
+  (
+    if [[ ! -f "${cached}" || "${resolved}" -nt "${cached}" ]]; then
+      magick "${resolved}"[0] -resize 700x250^ -gravity center -extent 700x250 -quality 85 "${cached}"
     fi
+    ln -sf "${cached}" "${ROFI_BG_DIR}/current.jpg"
+  ) &
+
+  notify -t 1000 "Done!" "${resolved}"
+}
+
+case "${1:-}" in
+r | random)
+  search_path="${WALLPAPER_PATH}"
+  if [[ -n $2 ]]; then
+    search_path="$(resolve_dir "$2")"
+    [[ -z "$search_path" ]] && echo "Subdirectory not found: $2" && exit 1
   fi
-  SELECTED="$(pick_random "${SEARCH_PATH}")"
-  echo "Selected random wallpaper: ${SELECTED}"
+  selected="$(pick_random "${search_path}")"
+  echo "Selected random wallpaper: ${selected}"
   ;;
 g | get)
-  wall_path=$(readlink -f "$HOME/.cache/wallpaper")
+  wall_path="$(readlink -f "$HOME/.cache/wallpaper")"
   notify-send -h string:x-canonical-private-synchronous:wallpaper "Wallpaper" "$wall_path"
   echo "$wall_path"
   exit 0
   ;;
--h | --help | h | help)
+h | help | -h | --help)
   echo "Usage: ${0##*/} [ random | get | help ]"
+  exit 0
   ;;
 *)
-  dir="$(resolve_dir "$1")"
-  SELECTED="$(rofi_choose "${dir:-$WALLPAPER_PATH}")"
-  if [[ -z "${SELECTED}" || ! -f "${SELECTED}" ]]; then
-    echo "No wallpaper selected or file does not exist."
-    exit 0
-  fi
-  echo "Selected wallpaper: ${SELECTED}"
+  dir="$(resolve_dir "${1:-}")"
+  selected="$(rofi_choose "${dir:-$WALLPAPER_PATH}")"
+  [[ -z "${selected}" ]] && echo "No wallpaper selected." && exit 0
+  echo "Selected wallpaper: ${selected}"
   ;;
 esac
 
-RESOLVED="$(readlink -f "${SELECTED}")"
-
-notify-send -h string:x-canonical-private-synchronous:wallpaper "Setting wallpaper..." "${RESOLVED}"
-ln -sf "${RESOLVED}" "$HOME/.cache/wallpaper"
-awww img "${RESOLVED}" --transition-type center --transition-duration 1 --transition-fps 48 --transition-step 90
-notify-send -t 1000 -h string:x-canonical-private-synchronous:wallpaper "Wallpaper set" "${RESOLVED}"
+set_wallpaper "${selected}"

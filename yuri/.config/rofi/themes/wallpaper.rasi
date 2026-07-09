@@ -1,21 +1,45 @@
-@import "catppuccin/default"
-@import "preview"
+@import "midnight-bloom"
 
 window {
-  children:         [ inputbar, listview ];
+  width:    1280px;
+  children: [ inputbar, listview ];
 }
 
-inputbar {
-  background-color: @surface0;
-  border:           1px;
-  children: [ prompt, entry, "num-filtered-rows", "textbox-num-sep", "num-rows" ];
+mainbox {
+  children: [ inputbar, listview ];
 }
 
 listview {
-  columns: 5;
+  flow:          horizontal;
+  lines:         3;
+  columns:       5;
+  fixed-columns: true;
+}
+
+element {
+  orientation:      vertical;
+  spacing:          0;
+  padding:          0;
+  children:         [ element-icon, element-text ];
+}
+
+element-text {
+  horizontal-align: 0.5;
+  vertical-align:   0.5;
+  padding:          0;
 }
 
 element-icon {
-  size:             200px;
-  padding:          -40px;
+  padding:          -35px;
+  size:             230px;
+}
+
+inputbar {
+  background-image: none;
+  padding:          0px;
+  children:         [ warp, warp-1 ];
+}
+
+entry, textbox-num-sep, num-filtered-rows, num-rows, prompt {
+  background-color: @base;
 }

@@ -3,7 +3,7 @@ show-failed-attempts
 
 show-keyboard-layout
 indicator-caps-lock
-font=CaskaydiaCove Nerd Font
+font=Rubik
 font-size=14
 
 indicator-radius=50

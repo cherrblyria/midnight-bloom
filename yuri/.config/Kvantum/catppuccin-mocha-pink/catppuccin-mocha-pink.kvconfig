@@ -70,8 +70,8 @@ reduce_window_opacity=10
 saturation=1.00
 shadowless_popup=false
 transient_groove=false
-menu_blur_radius=0
-tooltip_blur_radius=0
+menu_blur_radius=12
+tooltip_blur_radius=12
 
 [GeneralColors]
 window.color=#1E1E2E
