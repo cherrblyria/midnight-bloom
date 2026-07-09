@@ -42,6 +42,7 @@ alias v nvim
 alias vi nvim
 alias vim nvim
 alias pt pastel
+alias sl 'sl -e'
 
 alias b 'bat -Pp'
 alias tch touch
