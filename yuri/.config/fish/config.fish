@@ -108,6 +108,7 @@ abbr --add ....... 'z ../../../../../..'
 abbr --add ........ 'z ../../../../../../..'
 
 # Package management
+alias ratemirror 'sudo cachyos-rate-mirrors'
 abbr --add updmirror 'sudo reflector --country Thailand,Singapore --latest 10 --sort rate --save /etc/pacman.d/mirrorlist && paru -Syy'
 abbr --add clnlog 'sudo journalctl --vacuum-time=7d'
 abbr --add lpkg 'paru -Q | fzf -e'
