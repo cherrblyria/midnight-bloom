@@ -19,18 +19,18 @@
 - Bar: **Waybar**
 - Launcher: **Rofi**
 - Terminal: **Foot**
-- File Manager: **Yazi**
-- IDE
-  - **Zed**: GUI
-  - **NeoVim** (lazyvim): TUI
-- Terminal First: **Use TUI programs when possible**
+- File Manager: **Yazi**, Nautilus
+- IDE: **Zed**, NeoVim
 
-### Screenshots (very lazy :3)
+### Screenshots :3
 
-| ![](/assets/clean.png) | ![](/assets/monkeytype.png) |
-| --- | --- |
+| ![](/assets/clean.png) | ![](/assets/rofi.png) |
+| :---: | :---: |
+| Empty | Rofi |
 | ![](/assets/fetch.png) | ![](/assets/terminals.png) |
-| ![](/assets/wlogout.png) | ![](/assets/lockscreen.png) |
+| FastFetch | Nvim, tty-clock, cava, Yazi |
+| ![](/assets/wlogout.png) | ![](/assets/overview.png) |
+| Wlogout | Overview |
 
 ### How to get this?
 
