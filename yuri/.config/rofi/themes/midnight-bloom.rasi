@@ -56,15 +56,108 @@
   background-color: transparent;
 }
 
-button {
-  cursor:     pointer;
-  spacing:    0;
+window {
+  background-color: @mantle;
+  border:           1px;
+  border-color:     @surface0;
+  border-radius:    18px;
+  padding:          5px;
+  spacing:          5px;
+  width:            700px;
+}
+
+mainbox {
+  padding:      0;
+  spacing:      5px;
+  children: [ "inputbar", "message", "listview" ];
+}
+
+inputbar {
+  background-color: transparent;
+  background-image: url("~/.cache/rofi-bg/current.jpg", width);
+  background-position: center;
+  border-radius:    13px;
+  children:         [ "warp", "warp-1"];
+  orientation:      horizontal;
+  padding:          100px 60px;
+  spacing:          5px;
+  text-color:       @text;
+}
+
+warp {
+  border-radius: 36px;
+  children:      ["prompt","entry"];
+  expand:        true;
+  orientation:   horizontal;
+  spacing:       0;
+}
+
+prompt {
+  background-color: @base-alt;
+  border-radius:    36px 0px 0px 36px;
+  padding:          10px 0 10px 10px;
+  spacing:          0;
+  text-color:       @text;
+}
+
+entry {
+  background-color:  @base-alt;
+  border-radius:     0px 36px 36px 0px;
+  cursor:            text;
+  padding:           10px 10px 10px 0;
+  placeholder:       "Search";
+  placeholder-color: @overlay0;
+  spacing:           0;
+  text-color:        @text;
+}
+
+warp-1 {
+  border-radius: 36px;
+  children:      ["num-filtered-rows","textbox-num-sep","num-rows"];
+  expand:        false;
+  orientation:   horizontal;
+  spacing:       0;
+}
+
+num-filtered-rows {
+  background-color: @base-alt;
+  padding:          10px 5px 10px 10px;
+  text-color:       @overlay0;
+}
+
+textbox-num-sep {
+  background-color: @base-alt;
+  expand:           false;
+  padding:          10px 0;
+  str:              "/";
+  text-color:       @overlay0;
+}
+
+num-rows {
+  background-color: @base-alt;
+  expand:           false;
+  padding:          10px 10px 10px 5px;
+  text-color:       @overlay0;
+}
+
+message {
+  border:       0;
+  border-color: @surface1;
+  padding:      1px;
+}
+
+textbox {
   text-color: @text;
 }
 
-button selected {
-  background-color: @text;
-  text-color:       @mantle;
+listview {
+  border-color: @surface1;
+  dynamic:      true;
+  orientation:  vertical;
+  scrollbar:    false;
+  spacing:      5px;
+  lines:        8;
+  columns:      2;
 }
 
 element {
@@ -121,104 +214,13 @@ element-text {
   text-color:       inherit;
 }
 
-entry {
-  background-color:  @base-alt;
-  border-radius:     0px 36px 36px 0px;
-  cursor:            text;
-  padding:           10px 10px 10px 0;
-  placeholder:       "Search";
-  placeholder-color: @overlay0;
-  spacing:           0;
-  text-color:        @text;
-}
-
-inputbar {
-  background-color: transparent;
-  background-image: url("~/.cache/rofi-bg/current.jpg", width);
-  background-position: center;
-  border-radius:    13px;
-  children:         [ "warp", "warp-1"];
-  orientation:      horizontal;
-  padding:          100px 60px;
-  spacing:          5px;
-  text-color:       @text;
-}
-
-listview {
-  border-color: @surface1;
-  dynamic:      true;
-  orientation:  vertical;
-  scrollbar:    false;
-  spacing:      5px;
-  lines:        8;
-  columns:      2;
-}
-
-mainbox {
-  padding:      0;
-  spacing:      5px;
-  children: [ "inputbar", "message", "listview" ];
-}
-
-message {
-  border:       0;
-  border-color: @surface1;
-  padding:      1px;
-}
-
-num-filtered-rows {
-  background-color: @base-alt;
-  padding:          10px 5px 10px 10px;
-  text-color:       @overlay0;
-}
-
-num-rows {
-  background-color: @base-alt;
-  expand:           false;
-  padding:          10px 10px 10px 5px;
-  text-color:       @overlay0;
-}
-
-prompt {
-  background-color: @base-alt;
-  border-radius:    36px 0px 0px 36px;
-  padding:          10px 0 10px 10px;
-  spacing:          0;
-  text-color:       @text;
-}
-
-textbox {
+button {
+  cursor:     pointer;
+  spacing:    0;
   text-color: @text;
 }
 
-textbox-num-sep {
-  background-color: @base-alt;
-  expand:           false;
-  padding:          10px 0;
-  str:              "/";
-  text-color:       @overlay0;
-}
-
-warp {
-  border-radius: 36px;
-  children:      ["prompt","entry"];
-  expand:        true;
-  orientation:   horizontal;
-  spacing:       0;
-}
-
-warp-1 {
-  border-radius: 36px;
-  children:      ["num-filtered-rows","textbox-num-sep","num-rows"];
-  expand:        false;
-  orientation:   horizontal;
-  spacing:       0;
-}
-
-window {
-  background-color: @mantle;
-  border:           1px;
-  border-color:     @surface0;
-  border-radius:    18px;
-  padding:          5px;
+button selected {
+  background-color: @text;
+  text-color:       @mantle;
 }
