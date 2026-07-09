@@ -97,15 +97,15 @@ esac
 RESOLVED="$(readlink -f "${SELECTED}")"
 
 # Create symlink to wallpaper in cache directory
-notify-send -t 1000 -h string:x-canonical-private-synchronous:wallpaper "Symlinking wallpaper..." "${RESOLVED}"
+notify-send -t 10000 -h string:x-canonical-private-synchronous:wallpaper "Symlinking wallpaper..." "${RESOLVED}"
 ln -sf "${RESOLVED}" "$HOME/.cache/wallpaper"
 
 # Set wallpaper using awww
-notify-send -t 1000 -h string:x-canonical-private-synchronous:wallpaper "Setting wallpaper..." "${RESOLVED}"
-awww img "${RESOLVED}" --transition-type center --transition-duration 1 --transition-fps 48 --transition-step 90
+notify-send -t 10000 -h string:x-canonical-private-synchronous:wallpaper "Setting wallpaper..." "${RESOLVED}"
+awww img "${RESOLVED}" --transition-type fade --transition-duration 1 --transition-fps 30
 
 # Generate optimized bg copy for rofi
-notify-send -t 1000 -h string:x-canonical-private-synchronous:wallpaper "Caching rofi bg..." "${RESOLVED}"
+notify-send -t 10000 -h string:x-canonical-private-synchronous:wallpaper "Caching rofi bg..." "${RESOLVED}"
 ROFI_BG_DIR="$HOME/.cache/rofi-bg"
 mkdir -p "${ROFI_BG_DIR}"
 
@@ -116,7 +116,6 @@ CACHED_BG="${ROFI_BG_DIR}/${safe}.jpg"
 if [[ ! -f "${CACHED_BG}" || "${RESOLVED}" -nt "${CACHED_BG}" ]]; then
   magick "${RESOLVED}"[0] -resize 700x250^ -gravity center -extent 700x250 -quality 85 "${CACHED_BG}"
 fi
-
 ln -sf "${CACHED_BG}" "${ROFI_BG_DIR}/current.jpg"
 
 notify-send -t 1000 -h string:x-canonical-private-synchronous:wallpaper "Done!" "${RESOLVED}"
