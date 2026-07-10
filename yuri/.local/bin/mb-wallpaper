@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 WALLPAPER_PATH="$HOME/Pictures/Wallpapers"
-THUMB_DIR="$HOME/.cache/wallpaper-thumbs"
-ROFI_BG_DIR="$HOME/.cache/rofi-bg"
+WALLPAPER_CACHE_DIR="$HOME/.cache/midnight-bloom/wallpaper"
+THUMB_DIR="$HOME/.cache/midnight-bloom/rofi-wallthumbs"
+ROFI_BG_DIR="$HOME/.cache/midnight-bloom/rofi-bg"
 
 notify() { notify-send -t 10000 -h string:x-canonical-private-synchronous:wallpaper "$@"; }
 
@@ -21,7 +22,8 @@ rofi_choose() {
         safe="${src//\//_}"; safe="${safe#_}"
         thumb="'"${THUMB_DIR}"'/${safe}.jpg"
         [[ -f "$thumb" && ! "$src" -nt "$thumb" ]] && continue
-        magick "$src"[0] -resize 320x180^ -gravity center -extent 320x180 "$thumb" 2>/dev/null
+        load_opts=""; [[ "${src,,}" == *.gif ]] && load_opts="[page=0]"
+        vipsthumbnail "${src}${load_opts}" --size=320x180 --crop -o "${thumb}[Q=85]" 2>/dev/null
       done
     ' _ &
 
@@ -65,10 +67,10 @@ set_wallpaper() {
   resolved="$(readlink -f "$1")"
 
   notify "Symlinking wallpaper..." "${resolved}"
-  ln -sf "${resolved}" "$HOME/.cache/wallpaper"
+  ln -sf "${resolved}" "${WALLPAPER_CACHE_DIR}"
 
   notify "Setting wallpaper..." "${resolved}"
-  awww img "${resolved}" --transition-type fade --transition-duration 1 --transition-fps 30
+  awww img "${resolved}" --transition-type simple --transition-fps 60 --transition-step 10
 
   notify "Caching rofi bg..." "${resolved}"
   mkdir -p "${ROFI_BG_DIR}"
@@ -79,7 +81,8 @@ set_wallpaper() {
 
   (
     if [[ ! -f "${cached}" || "${resolved}" -nt "${cached}" ]]; then
-      magick "${resolved}"[0] -resize 700x250^ -gravity center -extent 700x250 -quality 85 "${cached}"
+      load_opts=""; [[ "${resolved,,}" == *.gif ]] && load_opts="[page=0]"
+      vipsthumbnail "${resolved}${load_opts}" --size=700x250 --crop -o "${cached}[Q=85]"
     fi
     ln -sf "${cached}" "${ROFI_BG_DIR}/current.jpg"
   ) &
@@ -98,7 +101,7 @@ r | random)
   echo "Selected random wallpaper: ${selected}"
   ;;
 g | get)
-  wall_path="$(readlink -f "$HOME/.cache/wallpaper")"
+  wall_path="$(readlink -f "${WALLPAPER_CACHE_DIR}")"
   notify-send -h string:x-canonical-private-synchronous:wallpaper "Wallpaper" "$wall_path"
   echo "$wall_path"
   exit 0
