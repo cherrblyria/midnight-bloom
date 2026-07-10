@@ -129,7 +129,7 @@ alias df 'df -h'
 alias du 'du -ch'
 alias free 'free -h'
 
-alias grep 'grep --color auto'
+alias grep 'grep --color=auto'
 alias rg 'rg --color=always'
 
 abbr --add clnt 'gio trash --empty'
