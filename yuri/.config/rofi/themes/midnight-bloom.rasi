@@ -142,7 +142,6 @@ num-rows {
 
 message {
   border:       0;
-  border-color: @surface1;
   padding:      1px;
 }
 
