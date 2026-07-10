@@ -9,9 +9,6 @@
 
 </div>
 
-> [!NOTE]
-> [Hyprland](https://hypr.land/)'s stuff is unmaintained as I moved to [MangoWM](https://mangowm.github.io/), and archive in `hyprland` branch.
-
 <h3>Notable Things</h3>
 
 - ColorScheme: **Catppuccin Mocha**
@@ -22,7 +19,7 @@
 - File Manager: **Yazi**, Nautilus
 - IDE: **Zed**, NeoVim
 
-### Screenshots :3
+<h3>Screenshots :3</h3>
 
 | ![](/assets/clean.png) | ![](/assets/rofi.png) |
 | :---: | :---: |
@@ -32,7 +29,7 @@
 | ![](/assets/wlogout.png) | ![](/assets/overview.png) |
 | Wlogout | Overview |
 
-### How to get this?
+<h3>How to get this?</h3>
 
 Basically just clone the repo, stow configs then pray..
 
@@ -46,6 +43,10 @@ Or you can download the source code from [latest release](https://github.com/che
 I'll make a new release monthly and when it's stable.
 
 > [!NOTE]
-> for `wlogout` you *must* have to use [my fork](https://github.com/cherrblyria/wlogout) instead of the original one for icon to display correctly
-> 
-> for lockscreen you *must* have to use [`swaylock-effects`](https://github.com/mortie/swaylock-effects) to get the dim and pixelate effect
+> You can view the dependencies list [here](https://github.com/cherrblyria/midnight-bloom/blob/main/dependency.txt).
+
+---
+
+<h3>Archived thing</h3>
+
+[Hyprland](https://hypr.land/)'s stuff is unmaintained as I moved to [MangoWM](https://mangowm.github.io/), and archive in `hyprland` branch.

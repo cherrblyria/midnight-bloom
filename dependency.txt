@@ -1,0 +1,43 @@
+# --- Packages Manager ---
+paru
+
+# --- Arch/Cachy repo ---
+awww
+bluetui
+brightnessctl
+btop
+cliphist
+eza
+fastfetch
+fish
+foot
+fzf
+gpu-screen-recorder
+grim
+jq
+kvantum
+libvips
+mako
+playerctl
+polkit-gnome
+pulsemixer
+qt5ct
+qt6ct
+rofi
+rofimoji
+slurp
+starship
+stow
+swayidle
+swaylock-effects
+wl-clipboard
+yazi
+zoxide
+
+# --- AUR ---
+mangowm-git
+waybar-git
+wayfreeze-git
+
+# --- Compile from source ---
+wlogout (MY FORK: https://github.com/cherrblyria/wlogout)

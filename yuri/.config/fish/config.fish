@@ -1,3 +1,4 @@
+# TTY auto login
 if status is-login
     switch (tty)
         case /dev/tty1
@@ -5,6 +6,7 @@ if status is-login
     end
 end
 
+# Environment variables
 set -x fish_greeting
 set -x EDITOR nvim
 
@@ -16,22 +18,29 @@ alias cd z
 source (/usr/sbin/starship init fish --print-full-init | psub)
 
 # Eza
-alias ls 'eza --icons --group-directories-first'
-alias l 'ls -lAh'
-alias ll 'ls -l'
+alias ls 'eza -h  --icons --group-directories-first'
 alias la 'ls -A'
-alias lla 'ls -lA'
+alias l 'ls -lA'
+alias ll 'ls -l'
+alias lls 'ls -lA --total-size'
 alias lt 'ls -T'
+alias lat 'ls -TA'
 
 # Shortcuts
 alias q exit
 alias quit exit
+
 alias c clear
 alias cls 'clear && fastfetch'
-alias dir ls
+
 alias rl 'exec fish'
 alias reload 'exec fish'
 
+alias b 'bat -Pp'
+alias sl 'sl -e'
+alias clock "date +%H:%M:%S"
+
+# Programs
 alias f fzf
 alias ff fastfetch
 alias oc opencode
@@ -43,12 +52,11 @@ alias vi nvim
 alias vim nvim
 alias pt pastel
 
-alias b 'bat -Pp'
-alias tch touch
-alias mk touch
-alias mkd mkdir
-
-alias clock "date +%H:%M:%S"
+# Aliases
+alias pacman 'sudo pacman'
+alias pamac paru
+alias yay paru
+alias dir ls
 
 # Dotfiles
 alias dot 'cd $HOME/.dotfiles'
@@ -71,32 +79,27 @@ alias gd 'git diff'
 alias gst 'git status'
 alias gcm 'git commit -m'
 
-# System
-alias df 'df -h'
-alias du 'du -ch'
-alias grep 'grep --color auto'
-alias mkdir 'mkdir -pv'
-alias free 'free -h'
-
-# Safety
-alias rm 'rm -i'
-alias cp 'cp -i'
-alias mv 'mv -i'
-
-# Aliases
-alias pacman 'sudo pacman'
-alias pamac paru
-alias yay paru
-
+# Sudo
 alias superuserdo sudo
-alias please sudo
+alias bypass sudo
 alias doas sudo
+
+alias look_here_you_little_shsh sudo
+alias pretty_please sudo
+alias just_do_it sudo
+alias i_beg_you sudo
+alias let_me_do sudo
+alias let_me_in sudo
+alias please sudo
 alias pls sudo
 
-alias rg 'rg --color=always'
-alias grep 'grep --color=auto'
+alias damnit="sudo \$history[1]"
+alias fuck="sudo \$history[1]"
 
-# Abbreviations
+alias thankyou sudo
+alias thx sudo
+
+# Directory navigation
 abbr --add ... 'z ../..'
 abbr --add .... 'z ../../..'
 abbr --add ..... 'z ../../../..'
@@ -104,13 +107,30 @@ abbr --add ...... 'z ../../../../..'
 abbr --add ....... 'z ../../../../../..'
 abbr --add ........ 'z ../../../../../../..'
 
-# System maintenance
+# Package management
+alias ratemirror 'sudo cachyos-rate-mirrors'
 abbr --add updmirror 'sudo reflector --country Thailand,Singapore --latest 10 --sort rate --save /etc/pacman.d/mirrorlist && paru -Syy'
 abbr --add clnlog 'sudo journalctl --vacuum-time=7d'
 abbr --add lpkg 'paru -Q | fzf -e'
 abbr --add lupkg 'paru -Qet | fzf -e'
 abbr --add clnpkg 'paru -Rns (paru -Qtdq)'
 abbr --add rmpkg 'paru -Rns (paru -Qetq | fzf -e -m)'
+
+# File management
+alias rm 'rm -i'
+alias cp 'cp -i'
+alias mv 'mv -i'
+alias tch touch
+alias mk touch
+alias mkd mkdir
+alias mkdir 'mkdir -pv'
+
+alias df 'df -h'
+alias du 'du -ch'
+alias free 'free -h'
+
+alias grep 'grep --color=auto'
+alias rg 'rg --color=always'
 
 abbr --add clnt 'gio trash --empty'
 abbr --add def 'find . -type f -empty -delete'
