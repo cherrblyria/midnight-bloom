@@ -21,13 +21,10 @@
 
 <h3>Screenshots :3</h3>
 
-| ![](/assets/clean.png) | ![](/assets/vicinae.png) |
+| <img width="1366" height="768" alt="Empty" src="https://github.com/user-attachments/assets/f05afef9-c2e4-4d9e-84ef-c831dc15c5eb" /> | <img width="1366" height="768" alt="Vicinae" src="https://github.com/user-attachments/assets/1b1aeec5-e6a5-4d62-9e27-0601a096112c" /> |
 | :---: | :---: |
-| Empty | Vicinae |
-| ![](/assets/fetch.png) | ![](/assets/terminals.png) |
-| FastFetch | Nvim, tty-clock, cava, Yazi |
-| ![](/assets/overview.png) | |
-| Overview | |
+| <img width="1366" height="768" alt="FastFetch" src="https://github.com/user-attachments/assets/915f3361-c2c2-41e0-99ef-a14d71878532" /> | <img width="1366" height="768" alt="Nvim, tty-clock, cava, Yazi" src="https://github.com/user-attachments/assets/12c920a4-1843-4243-b294-eb58cd5e89a0" /> |
+| <img width="1366" height="768" alt="Overview" src="https://github.com/user-attachments/assets/813b6f79-08b9-4c30-8efe-a2e19b6cda9b" /> | |
 
 <h3>How to get this?</h3>
 
@@ -55,3 +52,4 @@ I'll make a new release monthly and when it's stable.
 <h3>Archived thing</h3>
 
 [Hyprland](https://hypr.land/)'s stuff is unmaintained as I moved to [MangoWM](https://mangowm.github.io/), and archive in `hyprland` branch.
+
