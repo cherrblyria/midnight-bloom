@@ -45,6 +45,11 @@ I'll make a new release monthly and when it's stable.
 > [!NOTE]
 > You can view the dependencies list [here](https://github.com/cherrblyria/midnight-bloom/blob/main/dependency.txt).
 
+> [!WARNING]
+> Some configs contain hardcoded `/home/cherr/` paths — search for and replace with `/home/yourusername` after stowing, or they won't resolve on your machine.
+>
+> Known files: `yuri/.config/environment.d/session.conf`, `yuri/.config/btop/btop.conf`, `yuri/.config/qt5ct/qt5ct.conf`, `yuri/.config/qt6ct/qt6ct.conf`.
+
 ---
 
 <h3>Archived thing</h3>

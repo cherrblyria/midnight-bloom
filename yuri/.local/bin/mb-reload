@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-## Reload the configuration
 makoctl reload
-# pkill -SIGUSR2 waybar
-pkill waybar || true && waybar &
-pkill swayidle || true && swayidle &
-mmsg dispatch reload_config
+pkill waybar || true && waybar 2>&1 & disown
+pkill swayidle || true && swayidle 2>&1 & disown
 
-## Sync dotfiles
 stow --adopt --no-folding -d "$HOME"/.dotfiles -t "$HOME" yuri
-
-## Make scripts executable
 chmod +x "$HOME"/.dotfiles/yuri/.local/bin/*
 
-notify-send 'Reloaded configuration'
+mmsg dispatch reload_config
+mango_check=$(mango -p 2>&1 | sed 's/\x1b\[[0-9;]*m//g')
+if [[ -n "$mango_check" ]]; then
+    notify-send -h string:x-canonical-private-synchronous:reload -u critical 'MangoWM Config Error' "$mango_check"
+else
+    notify-send -h string:x-canonical-private-synchronous:reload 'Reloaded configuration'
+fi

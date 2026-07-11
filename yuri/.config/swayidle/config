@@ -1,3 +1,3 @@
 timeout 290 'brightnessctl -s set 50%' resume 'brightnessctl -r'
 timeout 300 'mb-lock'
-timeout 330 'mmsg dispatch disable_monitor,eDP-1' resume 'mmsg dispatch enable_monitor,eDP-1'
+timeout 330 'mmsg dispatch sleep_monitor,eDP-1' resume 'mmsg dispatch wakeup_monitor,eDP-1'

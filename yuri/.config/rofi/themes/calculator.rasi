@@ -1,0 +1,14 @@
+@import "mini"
+
+window {
+  width: 500px;
+}
+
+mainbox {
+  children: [ "inputbar", "message" ];
+}
+
+message {
+  padding:      20px;
+  text-align:   center;
+}
