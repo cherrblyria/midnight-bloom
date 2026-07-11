@@ -14,20 +14,20 @@
 - ColorScheme: **Catppuccin Mocha**
 - Compositor: **MangoWM**
 - Bar: **Waybar**
-- Launcher: **Vicinae**
 - Terminal: **Foot**
 - File Manager: **Yazi**, Nautilus
 - IDE: **Zed**, NeoVim
+- Vicinae: **Apps launcher**, **Clipboard manager**, Wallpaper/Emoji picker and more...
 
 <h3>Screenshots :3</h3>
 
-| ![](/assets/clean.png) | ![](/assets/rofi.png) |
+| ![](/assets/clean.png) | ![](/assets/vicinae.png) |
 | :---: | :---: |
-| Empty | Rofi |
+| Empty | Vicinae |
 | ![](/assets/fetch.png) | ![](/assets/terminals.png) |
 | FastFetch | Nvim, tty-clock, cava, Yazi |
-| ![](/assets/wlogout.png) | ![](/assets/overview.png) |
-| Wlogout | Overview |
+| ![](/assets/overview.png) | |
+| Overview | |
 
 <h3>How to get this?</h3>
 
