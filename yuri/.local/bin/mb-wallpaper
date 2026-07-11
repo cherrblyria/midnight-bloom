@@ -66,13 +66,13 @@ set_wallpaper() {
   local resolved
   resolved="$(readlink -f "$1")"
 
-  notify "Symlinking wallpaper..." "${resolved}"
+  notify -i "${resolved}" "Symlinking wallpaper..." "${resolved}"
   ln -sf "${resolved}" "${WALLPAPER_CACHE_DIR}"
 
-  notify "Setting wallpaper..." "${resolved}"
+  notify -i "${resolved}" "Setting wallpaper..." "${resolved}"
   awww img "${resolved}" --transition-type simple --transition-fps 60 --transition-step 10
 
-  notify "Caching rofi bg..." "${resolved}"
+  notify -i "${resolved}" "Caching rofi bg..." "${resolved}"
   mkdir -p "${ROFI_BG_DIR}"
 
   local safe="${resolved//\//_}"
@@ -88,7 +88,7 @@ set_wallpaper() {
     ln -sf "${cached}" "${ROFI_BG_DIR}/current.jpg"
   ) &
 
-  notify -t 1000 "Done!" "${resolved}"
+  notify -t 1000 -i "${resolved}" "Done!" "${resolved}"
 }
 
 case "${1:-}" in
@@ -103,7 +103,7 @@ r | random)
   ;;
 g | get)
   wall_path="$(readlink -f "${WALLPAPER_CACHE_DIR}")"
-  notify-send -h string:x-canonical-private-synchronous:wallpaper "Wallpaper" "$wall_path"
+  notify-send -i "$wall_path" -h string:x-canonical-private-synchronous:wallpaper "Wallpaper" "$wall_path"
   echo "$wall_path"
   exit 0
   ;;
