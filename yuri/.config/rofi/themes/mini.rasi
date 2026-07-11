@@ -1,5 +1,0 @@
-@import "midnight-bloom"
-
-inputbar {
-  padding: 50px 40px;
-}

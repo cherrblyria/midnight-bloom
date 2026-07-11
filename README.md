@@ -14,7 +14,7 @@
 - ColorScheme: **Catppuccin Mocha**
 - Compositor: **MangoWM**
 - Bar: **Waybar**
-- Launcher: **Rofi**
+- Launcher: **Vicinae**
 - Terminal: **Foot**
 - File Manager: **Yazi**, Nautilus
 - IDE: **Zed**, NeoVim

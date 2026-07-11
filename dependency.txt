@@ -24,9 +24,6 @@ power-profiles-daemon
 pulsemixer
 qt5ct
 qt6ct
-rofi
-rofi-calc
-rofimoji
 slurp
 starship
 stow
@@ -38,6 +35,7 @@ zoxide
 
 # --- AUR ---
 mangowm-git
+vicinae-bin
 waybar-git
 wayfreeze-git
 
