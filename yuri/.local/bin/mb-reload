@@ -3,8 +3,8 @@
 ## Reload the configuration
 makoctl reload
 # pkill -SIGUSR2 waybar
-pkill waybar || true && waybar &
-pkill swayidle || true && swayidle &
+pkill waybar || true && waybar 2>&1 & disown
+pkill swayidle || true && swayidle 2>&1 & disown
 mmsg dispatch reload_config
 
 ## Sync dotfiles
