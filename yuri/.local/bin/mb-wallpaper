@@ -17,13 +17,13 @@ rofi_choose() {
   mkdir -p "${THUMB_DIR}"
 
   find -L "${dir}" "${find_args[@]}" -not -name '.*' -not -path '*/.*' -print0 |
-    xargs -0 -P4 bash -c '
+    xargs -0 bash -c '
       for src; do
         safe="${src//\//_}"; safe="${safe#_}"
         thumb="'"${THUMB_DIR}"'/${safe}.jpg"
         [[ -f "$thumb" && ! "$src" -nt "$thumb" ]] && continue
         load_opts=""; [[ "${src,,}" == *.gif ]] && load_opts="[page=0]"
-        vipsthumbnail "${src}${load_opts}" --size=320x180 --crop -o "${thumb}[Q=85]" 2>/dev/null
+        vipsthumbnail "${src}${load_opts}" --vips-concurrency=4 --size=320x180 --crop -o "${thumb}[Q=85]" 2>/dev/null
       done
     ' _ &
 
@@ -81,7 +81,8 @@ set_wallpaper() {
 
   (
     if [[ ! -f "${cached}" || "${resolved}" -nt "${cached}" ]]; then
-      load_opts=""; [[ "${resolved,,}" == *.gif ]] && load_opts="[page=0]"
+      load_opts=""
+      [[ "${resolved,,}" == *.gif ]] && load_opts="[page=0]"
       vipsthumbnail "${resolved}${load_opts}" --size=700x250 --crop -o "${cached}[Q=85]"
     fi
     ln -sf "${cached}" "${ROFI_BG_DIR}/current.jpg"
