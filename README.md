@@ -18,7 +18,6 @@
 - Terminal: **Foot**
 - File Manager: **Yazi**, Nautilus
 - IDE: **Zed**, NeoVim
-- Most **Overkill Wallpaper Picker** ever
 
 <h3>Screenshots :3</h3>
 

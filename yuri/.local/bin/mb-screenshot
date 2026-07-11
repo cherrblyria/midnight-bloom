@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 dir=$HOME/Pictures/Screenshots
 filename="Screenshot_$(date +%Y%m%d_%H%M%S).png"
 mode=""

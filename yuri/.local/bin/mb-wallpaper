@@ -7,7 +7,7 @@ ROFI_BG_DIR="${CACHE_DIR}/rofi-bg"
 
 EXTENSIONS=("-iname" "*.jpg" "-o" "-iname" "*.jpeg" "-o" "-iname" "*.png" "-o" "-iname" "*.gif" "-o" "-iname" "*.webp" "-o" "-iname" "*.bmp")
 
-notify() { notify-send -t 3000 -h string:x-canonical-private-synchronous:wallpaper "$@"; }
+notify() { notify-send -h string:x-canonical-private-synchronous:wallpaper "$@"; }
 
 get_safe_name() {
   local name="${1//\//_}"

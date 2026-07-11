@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# Switch to next layout
 mmsg dispatch switch_keyboard_layout
-
-# Get current layout name
 layout=$(mmsg get keyboardlayout | jq -r '.layout')
-
 mb-osd "Keyboard Layout" "$layout"
