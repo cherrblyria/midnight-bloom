@@ -96,10 +96,50 @@
       "power": {
          "entrypoints": {
             "hibernate": {
-               "enabled": false
+               "enabled": true,
+               "preferences": {
+                  "confirm": true,
+                  "customProgram": "systemctl hibernate"
+               }
+            },
+            "lock": {
+               "preferences": {
+                  "confirm": false,
+                  "customProgram": "sleep 0.2 && mb-lock"
+               }
+            },
+            "logout": {
+               "preferences": {
+                  "confirm": true,
+                  "customProgram": "mmsg dispatch quit"
+               }
+            },
+            "power-off": {
+               "preferences": {
+                  "confirm": true,
+                  "customProgram": "systemctl poweroff"
+               }
+            },
+            "reboot": {
+               "preferences": {
+                  "confirm": true,
+                  "customProgram": "systemctl reboot"
+               }
+            },
+            "sleep": {
+               "preferences": {
+                  "confirm": true,
+                  "customProgram": "systemctl suspend"
+               }
             },
             "soft-reboot": {
                "enabled": false
+            },
+            "suspend": {
+               "preferences": {
+                  "confirm": true,
+                  "customProgram": "systemctl suspend"
+               }
             }
          }
       },
