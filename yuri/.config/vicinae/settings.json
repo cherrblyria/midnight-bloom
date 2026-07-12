@@ -1,0 +1,161 @@
+// This configuration is merged with the default vicinae configuration file, which you can obtain by running the `vicinae config default` command.
+// Every item defined in this file takes precedence over the values defined in the default config or any other imported file.
+//
+// You can make manual edits to this file, however you should keep in mind that this file may be written to by vicinae when a configuration change is made through the GUI.
+// When that happens, any custom comments or formatting will be lost.
+//
+// If you want to maintain a configuration file with your own comments and formatting, you should create a separate file and add it to the 'imports' array.
+//
+// Learn more about configuration at https://docs.vicinae.com/config
+
+{
+   "$schema": "https://vicinae.com/schemas/config.json",
+   "close_on_focus_loss": false,
+   "pop_to_root_on_close": true,
+   "font": {
+      "rendering": "native",
+      "normal": {
+         "family": "Rubik",
+         "size": 10
+      }
+   },
+   "theme": {
+      "dark": {
+         "name": "catppuccin-mocha",
+         "icon_theme": "Papirus-Dark"
+      }
+   },
+   "telemetry": {
+      "system_info": false
+   },
+   "launcher_window": {
+      "rounding": 12,
+      "opacity": 1,
+      "client_side_decorations": {
+         "enabled": true,
+         "border_width": 1,
+         "shadow_size": 12
+      },
+      "compact_mode": {
+         "enabled": true
+      },
+      "layer_shell": {
+         "enabled": true
+      }
+   },
+   "favorites": [],
+   "fallbacks": [
+      "shortcuts:sct-171426bbcc42",
+      "files:search"
+   ],
+   "providers": {
+      "@sovereign/store.vicinae.awww-switcher": {
+         "preferences": {
+            "colorGenTool": "none",
+            "gridRows": "4",
+            "postProduction": "no",
+            "showImageDetails": true,
+            "toggleVicinaeSetting": false,
+            "transitionDuration": "1",
+            "transitionFPS": "60",
+            "transitionStep": "90",
+            "transitionType": "fade",
+            "wallpaperPath": "/home/cherr/Pictures/Wallpapers",
+            "postCommand": "notify-send -h string:x-canonical-private-synchronous:wallpaper -i ${wallpaper} \"Wallpaper Set!\" \"${wallpaper}\""
+         }
+      },
+      "applications": {
+         "preferences": {
+            "defaultAction": "focus",
+            "paths": [
+               "/home/cherr/.local/share/applications",
+               "/home/cherr/.local/share/flatpak/exports/share/applications",
+               "/var/lib/flatpak/exports/share/applications",
+               "/usr/local/share/applications",
+               "/usr/share/applications"
+            ]
+         }
+      },
+      "browser-extension": {
+         "enabled": false
+      },
+      "clipboard": {
+         "preferences": {
+            "eraseOnStartup": false,
+            "ignorePasswords": false,
+            "monitoring": true
+         },
+         "entrypoints": {
+            "history": {
+               "preferences": {
+                  "defaultAction": "copy"
+               }
+            }
+         }
+      },
+      "power": {
+         "entrypoints": {
+            "hibernate": {
+               "enabled": true,
+               "preferences": {
+                  "confirm": true,
+                  "customProgram": "systemctl hibernate"
+               }
+            },
+            "lock": {
+               "preferences": {
+                  "confirm": false,
+                  "customProgram": "sleep 0.2 && mb-lock"
+               }
+            },
+            "logout": {
+               "preferences": {
+                  "confirm": true,
+                  "customProgram": "mmsg dispatch quit"
+               }
+            },
+            "power-off": {
+               "preferences": {
+                  "confirm": true,
+                  "customProgram": "systemctl poweroff"
+               }
+            },
+            "reboot": {
+               "preferences": {
+                  "confirm": true,
+                  "customProgram": "systemctl reboot"
+               }
+            },
+            "sleep": {
+               "preferences": {
+                  "confirm": true,
+                  "customProgram": "systemctl suspend"
+               }
+            },
+            "soft-reboot": {
+               "enabled": false
+            },
+            "suspend": {
+               "preferences": {
+                  "confirm": true,
+                  "customProgram": "systemctl suspend"
+               }
+            }
+         }
+      },
+      "shortcuts": {
+         "entrypoints": {
+            "sct-171426bbcc42": {
+               "alias": "s"
+            }
+         }
+      },
+      "system": {
+         "entrypoints": {
+            "run": {
+               "alias": "term"
+            }
+         }
+      }
+   }
+}

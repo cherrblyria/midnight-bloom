@@ -1,3 +1,7 @@
+# --- Distros ---
+CachyOS (Recommended) but any Arch-based distro should work.
+Other distros may work but are not supported.
+
 # --- Packages Manager ---
 paru
 
@@ -6,7 +10,6 @@ awww
 bluetui
 brightnessctl
 btop
-cliphist
 eza
 fastfetch
 fish
@@ -16,7 +19,6 @@ gpu-screen-recorder
 grim
 jq
 kvantum
-libvips
 mako
 playerctl
 polkit-gnome
@@ -24,9 +26,6 @@ power-profiles-daemon
 pulsemixer
 qt5ct
 qt6ct
-rofi
-rofi-calc
-rofimoji
 slurp
 starship
 stow
@@ -38,8 +37,6 @@ zoxide
 
 # --- AUR ---
 mangowm-git
+vicinae-bin
 waybar-git
 wayfreeze-git
-
-# --- Compile from source ---
-wlogout (MY FORK: https://github.com/cherrblyria/wlogout)
