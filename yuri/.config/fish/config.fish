@@ -93,9 +93,6 @@ alias let_me_in sudo
 alias please sudo
 alias pls sudo
 
-alias damnit="sudo \$history[1]"
-alias fuck="sudo \$history[1]"
-
 alias thankyou sudo
 alias thx sudo
 

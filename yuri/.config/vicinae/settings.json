@@ -13,9 +13,10 @@
    "close_on_focus_loss": false,
    "pop_to_root_on_close": true,
    "font": {
+      "rendering": "native",
       "normal": {
          "family": "Rubik",
-         "size": 10.5
+         "size": 10
       }
    },
    "theme": {
@@ -31,9 +32,14 @@
       "rounding": 12,
       "opacity": 1,
       "client_side_decorations": {
-         "enabled": true
+         "enabled": true,
+         "border_width": 1,
+         "shadow_size": 12
       },
       "compact_mode": {
+         "enabled": true
+      },
+      "layer_shell": {
          "enabled": true
       }
    },
@@ -94,6 +100,13 @@
             },
             "soft-reboot": {
                "enabled": false
+            }
+         }
+      },
+      "shortcuts": {
+         "entrypoints": {
+            "sct-171426bbcc42": {
+               "alias": "s"
             }
          }
       },
