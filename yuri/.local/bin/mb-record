@@ -27,10 +27,10 @@ e | elapsed)
     pkill -SIGINT -x gpu-screen-reco
     while pgrep -x "gpu-screen-reco" >/dev/null; do sleep 0.1; done
 
-    LATEST_FILE=$(find "$SCREENRECORD_DIR" -maxdepth 1 -name '*.mkv' -printf '%T@ %f\n' | sort -rn | head -n 1 | cut -d' ' -f2-)
+    LATEST_FILE=$(find "$SCREENRECORD_DIR" -maxdepth 1 -name '*.mp4' -printf '%T@ %f\n' | sort -rn | head -n 1 | cut -d' ' -f2-)
     notify-send "Recording Stopped" "File saved to: $SCREENRECORD_DIR/$LATEST_FILE"
   else
-    gpu-screen-recorder -w screen -f 60 -a default_output -o "$SCREENRECORD_DIR/Screen Recording $(date +'%Y-%m-%d %H%M%S')".mkv &
+    gpu-screen-recorder -w screen -f 60 -a default_output -o "$SCREENRECORD_DIR/Screen Recording $(date +'%Y-%m-%d %H%M%S')".mp4 &
     notify-send -t 1000 "Recording Started" "Press Ctrl + Print Screen again to stop recording."
   fi
   ;;
