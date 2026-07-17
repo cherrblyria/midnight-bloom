@@ -51,5 +51,5 @@ I'll make a new release monthly and when it's stable.
 
 <h3>Archived thing</h3>
 
-[Hyprland](https://hypr.land/)'s stuff is unmaintained as I moved to [MangoWM](https://mangowm.github.io/), and archive in `hyprland` branch.
+[Hyprland](https://hypr.land/)'s stuff is unmaintained as I moved to [MangoWM](https://mangowm.github.io/), and archive in [`hyprland`](https://github.com/cherrblyria/midnight-bloom/tree/hyprland) branch.
 
