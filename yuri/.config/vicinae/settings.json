@@ -79,6 +79,9 @@
             "nvim": {
                "alias": "nvim"
             },
+            "org.vinegarhq.Sober": {
+               "alias": "roblox"
+            },
             "vesktop": {
                "alias": "discord"
             }
