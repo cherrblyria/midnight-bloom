@@ -37,14 +37,20 @@
 }
 
 window#waybar {
-  background-color: alpha(@base, 0.999);
+  /* background-color: alpha(@base, 0.999); */
+  background: linear-gradient(
+    180deg,
+    alpha(@base, 0),
+    alpha(@base, 0.5) 5px,
+    @base 33px
+  );
   /*border-bottom: 1px solid #232332;*/
   color: @text;
-  border-radius: 12px;
+  border-radius: 0px;
 }
 
 window#waybar > box {
-  padding: 0 6px;
+  padding: 3px 6px 3px 6px;
 }
 
 tooltip {
