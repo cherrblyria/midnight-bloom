@@ -16,7 +16,7 @@
 - Bar: **Waybar**
 - Terminal: **Foot**
 - File Manager: **Yazi**, Nautilus
-- IDE: **Zed**, NeoVim
+- IDE: **VSCode**, NeoVim
 - Vicinae: **Apps launcher**, **Clipboard manager**, Wallpaper/Emoji picker and more...
 
 <h3>Screenshots :3</h3>
