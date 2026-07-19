@@ -1,8 +1,9 @@
 // -*- mode: jsonc -*-
 {
+  "layer": "top",
   "height": 25,
-  "width": 1218,
-  "margin-bottom": 3,
+  // "width": 1218,
+  "margin": "0 5 5 5",
   "spacing": 0,
   "position": "bottom",
   // Choose the order of the modules
