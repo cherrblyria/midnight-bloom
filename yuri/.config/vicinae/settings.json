@@ -78,6 +78,9 @@
          "entrypoints": {
             "nvim": {
                "alias": "nvim"
+            },
+            "vesktop": {
+               "alias": "discord"
             }
          }
       },
@@ -94,6 +97,16 @@
             "history": {
                "preferences": {
                   "defaultAction": "copy"
+               }
+            }
+         }
+      },
+      "core": {
+         "entrypoints": {
+            "search-emojis": {
+               "preferences": {
+                  "defaultAction": "copy",
+                  "skinTone": "default"
                }
             }
          }
