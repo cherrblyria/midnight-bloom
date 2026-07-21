@@ -19,9 +19,6 @@ e | elapsed)
     echo ""
   fi
   ;;
--h | --help | h | help)
-  echo "Usage: ${0##*/} [ get | elapsed | help ]"
-  ;;
 *)
   if pgrep -x "gpu-screen-reco" >/dev/null; then
     pkill -SIGINT -x gpu-screen-reco

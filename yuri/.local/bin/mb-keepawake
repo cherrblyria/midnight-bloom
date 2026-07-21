@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+case $1 in
+get)
+  if pgrep -x "swayidle" >/dev/null; then
+    echo ""
+  else
+    echo "󰒳"
+  fi
+  ;;
+toggle)
+  if pgrep -x "swayidle" >/dev/null; then
+    pkill swayidle
+    mb-osd "Keep Awake" "on"
+  else
+    swayidle 2>&1 & disown
+    mb-osd "Keep Awake" "off"
+  fi
+  ;;
+esac

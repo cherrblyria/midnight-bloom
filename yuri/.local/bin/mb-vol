@@ -62,10 +62,6 @@ music-lower-fine | music-down-fine)
   _show_music_osd
   exit 0
   ;;
-*)
-  echo "Usage: ${0##*/} { raise | lower | raise-fine | lower-fine | mute | mic-mute | music-raise | music-lower | music-raise-fine | music-lower-fine }"
-  exit 1
-  ;;
 esac
 
 vol=$(wpctl get-volume "$sink")

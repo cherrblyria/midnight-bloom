@@ -19,10 +19,6 @@ while [[ $# -gt 0 ]]; do
     silent=true
     shift
     ;;
-  -*)
-    echo "Usage: mb-screenshot [-d dir] [-f filename] [-s] <output|window|region>"
-    exit 1
-    ;;
   *)
     mode="$1"
     shift
@@ -71,9 +67,5 @@ region)
   [ -z "$geometry" ] && exit 1
   grim -g "$geometry" - | tee "$file" | wl-copy
   notify
-  ;;
-*)
-  echo "Usage: mb-screenshot <output|window|region>"
-  exit 1
   ;;
 esac

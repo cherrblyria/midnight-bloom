@@ -7,10 +7,6 @@ u | up)
 d | down)
   brightnessctl -n2 set 5%-
   ;;
-*)
-  echo "Usage: ${0##*/} { up | down }"
-  exit 1
-  ;;
 esac
 
 brightness=$(brightnessctl -m | awk -F, '{printf "%d%%\n", $4}')

@@ -103,6 +103,10 @@ tooltip label {
   color: @subtext0;
 }
 
+#custom-keepawake {
+  color: @yellow;
+}
+
 #datetime {
   padding: 1px 3px;
 }

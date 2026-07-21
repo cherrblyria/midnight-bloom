@@ -7,7 +7,12 @@
   "spacing": 0,
   "position": "bottom",
   // Choose the order of the modules
-  "modules-left": ["mango/layout", "mango/workspaces", "group/record"],
+  "modules-left": [
+    "mango/layout",
+    "mango/workspaces",
+    "group/record",
+    "custom/keepawake"
+  ],
   "modules-center": ["group/datetime"],
   "modules-right": ["mpris", "group/tray", "group/battery"],
   // Modules configuration
@@ -50,6 +55,12 @@
   "custom/record-elapsed": {
     "tooltip": false,
     "exec": "mb-record elapsed",
+    "restart-interval": 1
+  },
+  "custom/keepawake": {
+    "tooltip": false,
+    "exec": "mb-keepawake get",
+    "on-click": "mb-keepawake toggle",
     "restart-interval": 1
   },
   "group/datetime": {
