@@ -3,14 +3,14 @@
 SCREENRECORD_DIR="$HOME/Videos/Screen Recordings"
 
 case $1 in
-g | get)
+g)
   if pgrep -x "gpu-screen-reco" >/dev/null; then
     echo "REC"
   else
     echo ""
   fi
   ;;
-e | elapsed)
+e)
   PID=$(pgrep -x "gpu-screen-reco")
   if [ -n "$PID" ]; then
     elapsed=$(ps -o etime= -p "$PID" | tr -d ' ')

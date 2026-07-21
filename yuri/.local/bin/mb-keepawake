@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 case $1 in
-get)
+g)
   if pgrep -x "swayidle" >/dev/null; then
     echo ""
   else
     echo "󰒳"
   fi
   ;;
-toggle)
+t)
   if pgrep -x "swayidle" >/dev/null; then
     pkill swayidle
     mb-osd "Keep Awake" "on"

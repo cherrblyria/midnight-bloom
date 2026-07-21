@@ -2,34 +2,9 @@
 
 dir=$HOME/Pictures/Screenshots
 filename="Screenshot_$(date +%Y%m%d_%H%M%S).png"
-mode=""
-silent=false
-
-while [[ $# -gt 0 ]]; do
-  case "$1" in
-  -d | --dir)
-    dir="$2"
-    shift 2
-    ;;
-  -f | --filename)
-    filename="$2"
-    shift 2
-    ;;
-  -s | --silent)
-    silent=true
-    shift
-    ;;
-  *)
-    mode="$1"
-    shift
-    ;;
-  esac
-done
 
 mkdir -p "$dir"
 file="$dir/$filename"
-
-notify() { $silent || notify-send "Screenshot saved" "$file" -i "$file"; }
 
 get_mon_geom() {
   mon=$(mmsg get focusing-client 2>/dev/null | jq -r '.monitor // empty')
@@ -37,14 +12,14 @@ get_mon_geom() {
   mmsg get monitor "$mon" | jq -r '"\(.x),\(.y) \(.width)x\(.height)"'
 }
 
-case "$mode" in
-output)
+case "$1" in
+o)
   geom=$(get_mon_geom)
   [ -z "$geom" ] && exit 1
   grim -g "$geom" - | tee "$file" | wl-copy
-  notify
+  notify-send "Screenshot saved" "$file" -i "$file"
   ;;
-window)
+w)
   client=$(mmsg get focusing-client 2>/dev/null)
   if echo "$client" | jq -e '.error' >/dev/null 2>&1; then
     geom=$(get_mon_geom)
@@ -53,9 +28,9 @@ window)
   fi
   [ -z "$geom" ] && exit 1
   grim -g "$geom" - | tee "$file" | wl-copy
-  notify
+  notify-send "Screenshot saved" "$file" -i "$file"
   ;;
-region)
+r)
   pipe=$(mktemp -u).fifo
   mkfifo "$pipe"
   wayfreeze --after-freeze-timeout 100 --after-freeze-cmd "echo > $pipe" &
@@ -66,6 +41,6 @@ region)
   rm -f "$pipe"
   [ -z "$geometry" ] && exit 1
   grim -g "$geometry" - | tee "$file" | wl-copy
-  notify
+  notify-send "Screenshot saved" "$file" -i "$file"
   ;;
 esac
