@@ -3,9 +3,9 @@
   
   <h3>“Cozy MangoWM Setup”</h3>
 
-  <img src="https://www.shieldcn.dev/github/last-commit/cherrblyria/midnight-bloom.svg?variant=secondary&size=sm&theme=gray" alt="Last commit" /> <img src="https://www.shieldcn.dev/github/commits/cherrblyria/midnight-bloom.svg?variant=secondary&size=sm&theme=gray" alt="Commits" /> <img src="https://www.shieldcn.dev/github/stars/cherrblyria/midnight-bloom.svg?variant=secondary&size=sm&theme=gray" alt="GitHub Stars" /> <img src="https://www.shieldcn.dev/github/release/cherrblyria/midnight-bloom.svg?size=sm&theme=gray" alt="Release" />
-  
-  <img src="https://www.shieldcn.dev/github/branches/cherrblyria/midnight-bloom.svg?variant=ghost&size=sm&theme=gray" alt="Branches" /> <img src="https://www.shieldcn.dev/github/merged-prs/cherrblyria/midnight-bloom.svg?variant=ghost&size=sm&theme=gray" alt="Merged PRs" /> <img src="https://www.shieldcn.dev/github/license/cherrblyria/midnight-bloom.svg?variant=ghost&size=sm&theme=gray" alt="License" />
+<img src="https://www.shieldcn.dev/github/last-commit/cherrblyria/midnight-bloom.svg?variant=secondary&size=sm&theme=gray" alt="Last commit" /> <img src="https://www.shieldcn.dev/github/commits/cherrblyria/midnight-bloom.svg?variant=secondary&size=sm&theme=gray" alt="Commits" /> <img src="https://www.shieldcn.dev/github/stars/cherrblyria/midnight-bloom.svg?variant=secondary&size=sm&theme=gray" alt="GitHub Stars" /> <img src="https://www.shieldcn.dev/github/release/cherrblyria/midnight-bloom.svg?size=sm&theme=gray" alt="Release" />
+
+<img src="https://www.shieldcn.dev/github/branches/cherrblyria/midnight-bloom.svg?variant=ghost&size=sm&theme=gray" alt="Branches" /> <img src="https://www.shieldcn.dev/github/merged-prs/cherrblyria/midnight-bloom.svg?variant=ghost&size=sm&theme=gray" alt="Merged PRs" /> <img src="https://www.shieldcn.dev/github/license/cherrblyria/midnight-bloom.svg?variant=ghost&size=sm&theme=gray" alt="License" />
 
 </div>
 
@@ -16,15 +16,15 @@
 - Bar: **Waybar**
 - Terminal: **Foot**
 - File Manager: **Yazi**, Nautilus
-- IDE: **Zed**, NeoVim
+- IDE: **VSCode**, NeoVim
 - Vicinae: **Apps launcher**, **Clipboard manager**, Wallpaper/Emoji picker and more...
 
 <h3>Screenshots :3</h3>
 
-| <img width="1366" height="768" alt="Empty" src="https://github.com/user-attachments/assets/f05afef9-c2e4-4d9e-84ef-c831dc15c5eb" /> | <img width="1366" height="768" alt="Vicinae" src="https://github.com/user-attachments/assets/1b1aeec5-e6a5-4d62-9e27-0601a096112c" /> |
-| :---: | :---: |
-| <img width="1366" height="768" alt="FastFetch" src="https://github.com/user-attachments/assets/915f3361-c2c2-41e0-99ef-a14d71878532" /> | <img width="1366" height="768" alt="Nvim, tty-clock, cava, Yazi" src="https://github.com/user-attachments/assets/12c920a4-1843-4243-b294-eb58cd5e89a0" /> |
-| <img width="1366" height="768" alt="Overview" src="https://github.com/user-attachments/assets/813b6f79-08b9-4c30-8efe-a2e19b6cda9b" /> | |
+| <img alt="Empty" src="https://github.com/user-attachments/assets/f05afef9-c2e4-4d9e-84ef-c831dc15c5eb" />     | <img alt="Vicinae" src="https://github.com/user-attachments/assets/1b1aeec5-e6a5-4d62-9e27-0601a096112c" />                     |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| <img alt="FastFetch" src="https://github.com/user-attachments/assets/915f3361-c2c2-41e0-99ef-a14d71878532" /> | <img alt="Nvim, tty-clock, cava, Yazi" src="https://github.com/user-attachments/assets/12c920a4-1843-4243-b294-eb58cd5e89a0" /> |
+| <img alt="Overview" src="https://github.com/user-attachments/assets/813b6f79-08b9-4c30-8efe-a2e19b6cda9b" />  |                                                                                                                                 |
 
 <h3>How to get this?</h3>
 
@@ -52,4 +52,3 @@ I'll make a new release monthly and when it's stable.
 <h3>Archived thing</h3>
 
 [Hyprland](https://hypr.land/)'s stuff is unmaintained as I moved to [MangoWM](https://mangowm.github.io/), and archive in [`hyprland`](https://github.com/cherrblyria/midnight-bloom/tree/hyprland) branch.
-

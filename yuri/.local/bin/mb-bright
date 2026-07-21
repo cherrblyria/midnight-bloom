@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
 
 case "$1" in
-u | up)
+u)
   brightnessctl -n2 set 5%+
   ;;
-d | down)
+d)
   brightnessctl -n2 set 5%-
-  ;;
-*)
-  echo "Usage: ${0##*/} { up | down }"
-  exit 1
   ;;
 esac
 

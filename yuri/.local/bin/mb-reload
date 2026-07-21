@@ -2,7 +2,6 @@
 
 makoctl reload
 pkill waybar || true && waybar 2>&1 & disown
-pkill swayidle || true && swayidle 2>&1 & disown
 
 stow --adopt --no-folding -d "$HOME"/.dotfiles -t "$HOME" yuri
 chmod +x "$HOME"/.dotfiles/yuri/.local/bin/*

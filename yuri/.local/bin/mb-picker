@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+COLOR=$(grim -g "$(slurp -p)" -t png - | magick - -format '%[hex:p{0,0}]' info:-)
+HEX_COLOR="#${COLOR}"
+echo "${COLOR}" | wl-copy
+notify-send "Color Picked" "Copied <span foreground=\"${HEX_COLOR}\">■ ${HEX_COLOR}</span> to clipboard!"

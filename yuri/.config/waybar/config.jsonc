@@ -1,12 +1,18 @@
 // -*- mode: jsonc -*-
 {
-  "height": 25,
-  "width": 1218,
-  "margin-bottom": 3,
+  "layer": "top",
+  "height": 35,
+  // "width": 1218,
+  "margin": "-5 0 0 0",
   "spacing": 0,
   "position": "bottom",
   // Choose the order of the modules
-  "modules-left": ["mango/layout", "mango/workspaces", "group/record"],
+  "modules-left": [
+    "mango/layout",
+    "mango/workspaces",
+    "group/record",
+    "custom/keepawake"
+  ],
   "modules-center": ["group/datetime"],
   "modules-right": ["mpris", "group/tray", "group/battery"],
   // Modules configuration
@@ -42,13 +48,19 @@
   },
   "custom/record": {
     "tooltip": false,
-    "exec": "mb-record get",
+    "exec": "mb-record g",
     "on-click": "mb-record",
     "restart-interval": 1
   },
   "custom/record-elapsed": {
     "tooltip": false,
-    "exec": "mb-record elapsed",
+    "exec": "mb-record e",
+    "restart-interval": 1
+  },
+  "custom/keepawake": {
+    "tooltip": false,
+    "exec": "mb-keepawake g",
+    "on-click": "mb-keepawake t",
     "restart-interval": 1
   },
   "group/datetime": {
@@ -91,8 +103,8 @@
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl next",
     "on-click-middle": "playerctl previous",
-    "on-scroll-up": "mb-vol music-up",
-    "on-scroll-down": "mb-vol music-down"
+    "on-scroll-up": "mb-vol mu",
+    "on-scroll-down": "mb-vol md"
   },
   "group/tray": {
     "orientation": "horizontal",
@@ -125,8 +137,8 @@
     "tooltip-format": "{icon} {desc} {volume}%",
     "scroll-step": 5,
     "on-click": "footclient --title ft pulsemixer",
-    "on-scroll-up": "mb-vol up",
-    "on-scroll-down": "mb-vol down"
+    "on-scroll-up": "mb-vol u",
+    "on-scroll-down": "mb-vol d"
   },
   "bluetooth": {
     "format": "{status}",

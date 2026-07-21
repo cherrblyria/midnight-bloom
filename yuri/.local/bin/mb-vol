@@ -12,24 +12,24 @@ _show_music_osd() {
 }
 
 case "$1" in
-raise | up)
+u)
   vol_int=$(wpctl get-volume "$sink" | awk '{printf "%d", $2 * 100}')
   [ "$vol_int" -lt 100 ] && wpctl set-volume "$sink" 5%+
   ;;
-lower | down)
+d)
   wpctl set-volume "$sink" 5%-
   ;;
-raise-fine | up-fine)
+uf)
   vol_int=$(wpctl get-volume "$sink" | awk '{printf "%d", $2 * 100}')
   [ "$vol_int" -lt 100 ] && wpctl set-volume "$sink" 1%+
   ;;
-lower-fine | down-fine)
+df)
   wpctl set-volume "$sink" 1%-
   ;;
-mute)
+m)
   wpctl set-mute "$sink" toggle
   ;;
-mic-mute)
+mm)
   wpctl set-mute "$source" toggle
   if wpctl get-volume "$source" | grep -q MUTED; then
     mb-osd Microphone "Muted"
@@ -38,33 +38,17 @@ mic-mute)
   fi
   exit 0
   ;;
-music-raise | music-up)
+mu)
   pvol_int=$(playerctl volume | awk '{printf "%d", $1 * 100}')
   [ "$pvol_int" -lt 100 ] && playerctl volume 0.05+
   _show_music_osd
   exit 0
   ;;
-music-lower | music-down)
+md)
   pvol_int=$(playerctl volume | awk '{printf "%d", $1 * 100}')
   [ "$pvol_int" -gt 0 ] && playerctl volume 0.05-
   _show_music_osd
   exit 0
-  ;;
-music-raise-fine | music-up-fine)
-  pvol_int=$(playerctl volume | awk '{printf "%d", $1 * 100}')
-  [ "$pvol_int" -lt 100 ] && playerctl volume 0.01+
-  _show_music_osd
-  exit 0
-  ;;
-music-lower-fine | music-down-fine)
-  pvol_int=$(playerctl volume | awk '{printf "%d", $1 * 100}')
-  [ "$pvol_int" -gt 0 ] && playerctl volume 0.01-
-  _show_music_osd
-  exit 0
-  ;;
-*)
-  echo "Usage: ${0##*/} { raise | lower | raise-fine | lower-fine | mute | mic-mute | music-raise | music-lower | music-raise-fine | music-lower-fine }"
-  exit 1
   ;;
 esac
 

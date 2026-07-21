@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-mb-screenshot output -d /tmp -f lock.png -s
+mon=$(mmsg get focusing-client 2>/dev/null | jq -r '.monitor // empty')
+[ -z "$mon" ] && mon=$(mmsg get all-monitors | jq -r '.monitors[0].name')
+grim -o "$mon" /tmp/lock.png
 swaylock --image /tmp/lock.png
 rm /tmp/lock.png
